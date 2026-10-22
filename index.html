@@ -1,0 +1,428 @@
+<!DOCTYPE html>
+<html lang="pt-BR" data-look="neon">
+<head>
+<meta charset="utf-8">
+<link rel="manifest" href="manifest.webmanifest">
+<link rel="icon" href="icon-192.png">
+<link rel="apple-touch-icon" href="icon-192.png">
+<meta name="theme-color" content="#07070f">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-title" content="Protocolo">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Meu Protocolo · Dashboard</title>
+<style>
+:root{--bg:#f4f1ec;--card:#fff;--ink:#1d2433;--mut:#6b7385;--line:#e5e1d9;--acc:#0f9d8a;--acc2:#ff7a59;--acc3:#6d5dfc;--ok:#1fa35c;--warn:#e0a100;--bad:#e5484d;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0e1320;--card:#171e30;--ink:#eef1f8;--mut:#8f99b2;--line:#27304a;--acc:#2dd4bf;--acc2:#ff8f70;--acc3:#8b7dff}}
+:root[data-theme="dark"]{--bg:#0e1320;--card:#171e30;--ink:#eef1f8;--mut:#8f99b2;--line:#27304a;--acc:#2dd4bf;--acc2:#ff8f70;--acc3:#8b7dff}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;line-height:1.4}
+.wrap{max-width:980px;margin:0 auto;padding:18px 14px 60px}
+header{display:flex;justify-content:space-between;align-items:center;gap:10px;margin-bottom:16px}
+h1{font-size:1.5rem;margin:0;letter-spacing:-.02em}
+h1 span{background:linear-gradient(90deg,var(--acc),var(--acc3));-webkit-background-clip:text;background-clip:text;color:transparent}
+.sub{color:var(--mut);font-size:.85rem}
+h2{font-size:1rem;margin:0 0 10px;display:flex;align-items:center;gap:8px}
+.grid{display:grid;gap:12px}
+.stats{grid-template-columns:repeat(auto-fit,minmax(150px,1fr))}
+.two{grid-template-columns:repeat(auto-fit,minmax(300px,1fr));margin-top:12px}
+.card{background:var(--card);border:1px solid var(--line);border-radius:18px;padding:16px;box-shadow:0 2px 10px rgba(0,0,0,.04)}
+.stat .l{color:var(--mut);font-size:.75rem;text-transform:uppercase;letter-spacing:.06em}
+.stat .v{font-size:1.8rem;font-weight:800;letter-spacing:-.03em;margin-top:2px}
+.stat .d{font-size:.8rem;color:var(--mut)}
+.s1{border-top:4px solid var(--acc)}.s2{border-top:4px solid var(--acc2)}.s3{border-top:4px solid var(--acc3)}.s4{border-top:4px solid var(--warn)}
+.up{color:var(--bad)}.down{color:var(--ok)}
+.bar{height:8px;background:var(--line);border-radius:9px;overflow:hidden;margin-top:8px}
+.bar i{display:block;height:100%;background:linear-gradient(90deg,var(--acc),var(--acc3));border-radius:9px;transition:width .6s}
+form{display:grid;gap:8px;grid-template-columns:1fr 1fr}
+form .full{grid-column:1/-1}
+label{font-size:.75rem;color:var(--mut);display:block;margin-bottom:2px}
+input,select,textarea{width:100%;padding:9px 10px;border:1px solid var(--line);border-radius:10px;background:var(--bg);color:var(--ink);font:inherit;font-size:.95rem}
+button{cursor:pointer;border:0;border-radius:10px;padding:10px 14px;font:inherit;font-weight:700;background:var(--acc);color:#fff}
+button.ghost{background:transparent;color:var(--mut);border:1px solid var(--line);font-weight:600;padding:6px 10px;font-size:.8rem}
+button.x{background:none;color:var(--mut);padding:2px 8px;font-size:1.1rem}
+.chart{overflow-x:auto}
+svg{width:100%;height:auto;display:block;min-width:420px}
+.sites{display:grid;grid-template-columns:repeat(2,1fr);gap:8px;margin-bottom:12px}
+.site{border:2px solid var(--line);border-radius:12px;padding:8px;text-align:left;background:var(--bg);color:var(--ink);font-weight:600;font-size:.85rem;position:relative}
+.site small{display:block;color:var(--mut);font-weight:500}
+.site.sel{border-color:var(--acc);box-shadow:0 0 0 3px color-mix(in srgb,var(--acc) 25%,transparent)}
+.site .tag{position:absolute;top:6px;right:8px;font-size:.65rem;color:var(--ok)}
+.row{display:flex;justify-content:space-between;align-items:center;gap:10px;padding:9px 0;border-bottom:1px dashed var(--line)}
+.row:last-child{border:0}
+.pill{font-size:.72rem;padding:3px 9px;border-radius:99px;font-weight:700;white-space:nowrap}
+.p-ok{background:color-mix(in srgb,var(--ok) 18%,transparent);color:var(--ok)}
+.p-warn{background:color-mix(in srgb,var(--warn) 22%,transparent);color:var(--warn)}
+.p-bad{background:color-mix(in srgb,var(--bad) 18%,transparent);color:var(--bad)}
+.p-n{background:var(--line);color:var(--mut)}
+.empty{color:var(--mut);font-size:.88rem;padding:8px 0}
+.hist{max-height:340px;overflow-y:auto}
+.foot{display:flex;gap:8px;flex-wrap:wrap;margin-top:16px;justify-content:center}
+.note{font-size:.72rem;color:var(--mut);text-align:center;margin-top:14px}
+header{flex-wrap:wrap}
+header select{width:auto}
+:root[data-look="clinico"]{--bg:#eaf0f7;--card:#fff;--ink:#0b2540;--mut:#587089;--line:#d3dde9;--acc:#1769e0;--acc2:#e5484d;--acc3:#0aa5b8}
+:root[data-look="clinico"] .card{border-radius:6px;box-shadow:none}
+:root[data-look="clinico"] h1 span{background:none;color:var(--acc)}
+:root[data-look="neon"]{--bg:#07070f;--card:#0f1020;--ink:#e8f0ff;--mut:#7f86ad;--line:#23254a;--acc:#00f5d4;--acc2:#ff2e93;--acc3:#9b5cff;--warn:#ffd60a}
+:root[data-look="neon"] .card{border-radius:4px;box-shadow:0 0 18px color-mix(in srgb,var(--acc3) 22%,transparent)}
+:root[data-look="neon"] .stat .v{text-shadow:0 0 12px color-mix(in srgb,var(--acc) 60%,transparent)}
+.card,.site,input,select,textarea,button,.pill,.bar,.bar i{border-radius:0!important}
+.card{box-shadow:none!important;border-width:1px}
+.bar{height:16px;border:1px solid var(--line)}
+.bar i{background:var(--acc)}
+h1 span{background:none;color:var(--acc)}
+.site.sel{box-shadow:none;background:color-mix(in srgb,var(--acc) 14%,var(--bg))}
+.dd{max-height:320px;overflow:auto;border:1px solid var(--line);position:relative}
+.dd table{width:100%;border-collapse:collapse;font-size:.82rem}
+.dd th,.dd td{padding:5px 8px;text-align:left;border-bottom:1px solid var(--line);white-space:nowrap}
+.dd th{position:sticky;top:0;background:var(--card);color:var(--mut);z-index:1}
+.dd tr.hoje td{background:color-mix(in srgb,var(--acc) 14%,var(--card));font-weight:700}
+.dd tr.fut td{color:var(--mut)}
+.dd .mb{display:inline-block;height:8px;background:var(--acc);vertical-align:middle;margin-right:6px}
+.dec{color:var(--acc2)}.inc{color:var(--acc)}
+:root[data-look="neon"] button:not(.ghost):not(.x){background:var(--acc);color:#04120f;box-shadow:0 0 14px color-mix(in srgb,var(--acc) 55%,transparent)}
+:root[data-look="neon"] .bar i{box-shadow:0 0 12px var(--acc)}
+:root[data-look="neon"] .card{border-color:color-mix(in srgb,var(--acc3) 55%,var(--line))}
+:root[data-look="neon"] h1 span{text-shadow:0 0 14px var(--acc)}
+:root[data-look="neon"] .dd .mb{box-shadow:0 0 8px var(--acc)}
+.lw{display:flex;flex-wrap:wrap;gap:6px 18px;align-items:baseline;border:1px solid var(--line);border-left:5px solid var(--acc);padding:8px 12px;margin-top:10px}
+.lw b{font-size:1.5rem}.lw span{color:var(--mut);font-size:.85rem}
+:root[data-tone="lima"]{--bg:#060a05;--card:#0d150b;--ink:#eaffd9;--mut:#86a074;--line:#223a1c;--acc:#b6ff00;--acc2:#ff3df2;--acc3:#00e5ff;--warn:#ffe600}
+:root[data-tone="sunset"]{--bg:#0f0617;--card:#1a0b26;--ink:#ffeefc;--mut:#b08bb8;--line:#3a1b52;--acc:#ff5ea8;--acc2:#ffb347;--acc3:#8e6bff;--warn:#ffd166}
+:root[data-tone="gelo"]{--bg:#050b16;--card:#0b1626;--ink:#e6f4ff;--mut:#7f9bb8;--line:#1b3550;--acc:#3d8bff;--acc2:#00f0ff;--acc3:#a86bff;--warn:#ffe14d}
+.cy{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:8px;margin-top:8px}
+.cy>div{border:1px solid var(--line);border-top:4px solid var(--acc3);padding:8px 10px}
+.cy small{display:block;color:var(--mut);font-size:.72rem;text-transform:uppercase;letter-spacing:.05em}
+.cy b{font-size:1.45rem}.cy span{display:block;color:var(--mut);font-size:.78rem}
+#abslink{display:none}
+.zb{display:flex;gap:6px;margin-bottom:6px}
+body{padding-bottom:calc(78px + env(safe-area-inset-bottom,0px))}
+.tab{display:none}.tab.on{display:block}.tab>.card,.tab>.foot{margin-top:12px}
+nav.tabbar{position:fixed;left:0;right:0;bottom:0;display:flex;background:var(--card);border-top:2px solid var(--acc);padding-bottom:env(safe-area-inset-bottom,0px);z-index:50}
+nav.tabbar button.ghost{flex:1;border:0;background:none;color:var(--mut);padding:8px 2px;font-size:.68rem;font-weight:700;display:flex;flex-direction:column;align-items:center;gap:2px}
+nav.tabbar button.ghost span{font-size:1.25rem}
+nav.tabbar button.ghost.on{color:var(--acc);background:color-mix(in srgb,var(--acc) 14%,transparent)}
+</style>
+</head>
+<body>
+<div class="wrap">
+<header>
+  <div><h1>💉 Meu <span>Protocolo</span></h1><div class="sub" id="today"></div><div class="sub" id="syn"></div></div>
+  <select id="look" onchange="setLook(this.value)" title="Visual"><option value="aurora">🌈 Aurora</option><option value="clinico">🏥 Clínico</option><option value="neon">🌃 Neon</option><option value="neon-lima">🟢 Neon Lima</option><option value="neon-sunset">🌅 Neon Sunset</option><option value="neon-gelo">🧊 Neon Gelo</option></select> <button class="ghost" onclick="openCfg()">⚙️ Meta & altura</button>
+</header>
+
+<div class="grid stats" id="stats"></div>
+
+<div class="card" style="margin-top:12px">
+  <h2>📈 Evolução do peso</h2>
+  <div class="zb"><button class="ghost" onclick="zoomC('w',1)">🔍+</button><button class="ghost" onclick="zoomC('w',-1)">🔍−</button><button class="ghost" onclick="zoomC('w',0)">↺ tudo</button></div>
+  <div class="chart" id="chart"></div>
+  <div id="lastw"></div><div id="cyc"></div>
+</div>
+<div class="card" style="margin-top:12px">
+  <h2>🧪 Decaimento no organismo (meia-vida)</h2>
+  <div class="sub" style="margin-bottom:8px">Conta padrão: a quantidade cai pela metade a cada meia-vida. As doses se acumulam. ● = aplicação (o número já inclui a dose); ▲ = dose injetada, em mg. <a href="#" onclick="togAbs();return false" style="color:var(--acc)" id="abslink"></a> É uma estimativa educativa, não um exame.</div>
+  <div class="zb"><button class="ghost" onclick="zoomC('d',1)">🔍+</button><button class="ghost" onclick="zoomC('d',-1)">🔍−</button><button class="ghost" onclick="zoomC('d',0)">↺ tudo</button></div>
+  <div class="chart" id="decay"></div>
+  <div id="dlegend" style="margin-top:8px"></div>
+  <h2 style="margin-top:14px">📅 Dia a dia: nível estimado no organismo</h2>
+  <div class="sub" style="margin-bottom:6px">Maior nível de cada dia (logo após a dose) e a variação em relação ao dia anterior (Δ). Negativo = o que decaiu; positivo = dia de aplicação. Dias com ·proj. são projeção sem novas doses.</div>
+  <div id="ddaily"></div>
+</div>
+
+<div class="grid two">
+  <div class="card">
+    <h2>⚖️ Registrar peso</h2>
+    <form onsubmit="addW(event)">
+      <div><label>Peso (kg)</label><input id="wkg" type="number" step="0.1" min="20" max="400" required></div>
+      <div><label>Data</label><input id="wdt" type="date" required></div>
+      <button class="full">Salvar peso</button>
+    </form>
+  </div>
+  <div class="card">
+    <h2>💊 Minhas medicações</h2>
+    <div id="meds"></div>
+    <form onsubmit="addM(event)" style="margin-top:10px">
+      <div class="full"><label>Nome (ex.: o que você usa)</label><input id="mn" required maxlength="40"></div>
+      <div><label>Unidade</label><select id="mu"><option>mg</option><option>mcg</option><option>UI</option><option>mL</option><option>unid.</option></select></div>
+      <div><label>A cada quantos dias?</label><input id="me" type="number" min="0" max="90" value="7"></div>
+      <div class="full"><label>Meia-vida (dias) — opcional, ex.: 5</label><input id="mh" type="number" step="0.1" min="0.1"></div>
+      <button class="full">+ Adicionar medicação</button>
+    </form>
+  </div>
+</div>
+
+<div class="grid two">
+  <div class="card">
+    <h2>🎯 Registrar aplicação</h2>
+    <div class="sub" style="margin-bottom:8px">Escolha o local — o rodízio sugere o menos usado recentemente.</div>
+    <div class="sites" id="sites"></div>
+    <form onsubmit="addS(event)">
+      <div class="full"><label>Medicação</label><select id="sm" required></select></div>
+      <div><label>Dose</label><input id="sd" type="number" step="any" min="0" required></div>
+      <div><label>Hora</label><input id="sh" type="time" required></div><div class="full"><label>Data</label><input id="st" type="date" required></div>
+      <div class="full"><label>Observações (opcional)</label><input id="sn" maxlength="120" placeholder="ex.: leve vermelhidão, jejum…"></div>
+      <button class="full">Registrar aplicação</button>
+    </form>
+  </div>
+  <div class="card">
+    <h2>🗓️ Próximas aplicações</h2>
+    <div id="due"></div>
+    <h2 style="margin-top:16px">🕘 Histórico</h2>
+    <div class="hist" id="hist"></div>
+  </div>
+</div>
+
+<div class="foot">
+  <button class="ghost" onclick="exp()">⬇️ Exportar backup</button>
+  <button class="ghost" onclick="document.getElementById('imp').click()">⬆️ Importar backup</button>
+  <button class="ghost" onclick="demo()">✨ Dados de exemplo</button>
+  <button class="ghost" onclick="clr()">🗑️ Limpar tudo</button>
+  <input type="file" id="imp" accept=".json" hidden onchange="imp(event)">
+</div>
+<div class="note">Seus dados ficam só neste aparelho: faça backup de vez em quando (Exportar). Este painel é um diário — não substitui orientação médica.</div>
+</div>
+
+<script>
+const SITES=["Abdômen cima esq.","Abdômen cima dir.","Abdômen baixo esq.","Abdômen baixo dir.","Glúteo esq.","Glúteo dir.","Coxa esq.","Coxa dir."];const SITES_OLD=["Abdômen E","Abdômen D","Coxa E","Coxa D","Glúteo E","Glúteo D","Braço E","Braço D"];
+let S={meds:[],shots:[],weights:[],goal:null,height:null},sel=null;
+const K="protocolo-v1",$=id=>document.getElementById(id);
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;","'":"&#39;"}[c]));
+const uid=()=>Math.random().toString(36).slice(2,9);
+function seed(){S.meds=[];S.shots=[];S.weights=[];S.seedV=9}
+function myHist(){if(S.shots.length&&!confirm("Substituir as aplicações atuais pelo seu histórico?"))return;seed();save()}
+function load(){let r=null;try{r=localStorage.getItem(K);if(r)S=Object.assign(S,JSON.parse(r))}catch(e){}
+  if(!r){try{localStorage.setItem(K,JSON.stringify(S))}catch(e){}}
+  S.meds.forEach(m=>{if(!m.hl)m.hl=/tirzep/i.test(m.name)?5:/retatrut/i.test(m.name)?6:null});
+  if(false){addSL();addWT();try{localStorage.setItem(K,JSON.stringify(S))}catch(e){}}}
+function lsSave(){try{localStorage.setItem(K,JSON.stringify(S))}catch(e){}}
+function save(){lsSave();render();if(ref){clearTimeout(tmr);tmr=setTimeout(push,800);setSt('☁️ salvando…')}}
+const fmtD=t=>new Date(t).toLocaleDateString("pt-BR",{day:"2-digit",month:"short"});
+const fmtDT=t=>new Date(t).toLocaleString("pt-BR",{day:"2-digit",month:"short",hour:"2-digit",minute:"2-digit"});
+const dAgo=t=>Math.floor((Date.now()-t)/864e5);
+const nowLocal=()=>{const d=new Date();d.setMinutes(d.getMinutes()-d.getTimezoneOffset());return d.toISOString().slice(0,16)};
+const sortW=()=>[...S.weights].sort((a,b)=>a.t-b.t);
+
+function fixNames(){const o='Retatrutida Synedica',n='Retatrutida (Synedica)';S.meds.forEach(m=>{if(m.name===o)m.name=n});S.shots.forEach(s=>{if(s.med===o)s.med=n;if(s.med==='Tirzepatida')s.med='Tirzepatida (Tirzec)'});S.meds.forEach(m=>{if(m.name==='Tirzepatida')m.name='Tirzepatida (Tirzec)'})}
+function render(){fixNames();if(addClo()|addAna()|setHLs()|cloSplit()|autoSL()){lsSave();if(ref){clearTimeout(tmr);tmr=setTimeout(push,800)}}
+  $("today").textContent=new Date().toLocaleDateString("pt-BR",{weekday:"long",day:"numeric",month:"long"});
+  stats();chart();lastW();cycles();decay();sites();meds();due();hist();
+}
+function stats(){
+  const w=sortW(),n=w.length,cur=n?w[n-1].kg:null,first=n?w[0].kg:null;
+  const diff=n>1?cur-first:null;
+  const bmi=cur&&S.height?(cur/Math.pow(S.height/100,2)):null;
+  let goalHtml='<div class="d">Defina sua meta em ⚙️</div>';
+  if(S.goal&&cur&&first){
+    const tot=first-S.goal,done=first-cur,p=tot===0?100:Math.max(0,Math.min(100,done/tot*100));
+    goalHtml=`<div class="bar"><i style="width:${p}%"></i></div><div class="d">${p.toFixed(0)}% · faltam ${Math.abs(cur-S.goal).toFixed(1)} kg</div>`;
+  }
+  const dues=dueList(),nx=dues[0];
+  $("stats").innerHTML=`
+  <div class="card stat s1"><div class="l">Peso atual</div><div class="v">${cur?cur.toFixed(1)+" kg":"—"}</div><div class="d">${bmi?"IMC "+bmi.toFixed(1):"registre seu peso"}</div></div>
+  <div class="card stat s2"><div class="l">Variação total</div><div class="v ${diff>0?"up":"down"}">${diff===null?"—":(diff>0?"+":"")+diff.toFixed(1)+" kg"}</div><div class="d">${n?`desde ${fmtD(w[0].t)}`:""}</div></div>
+  <div class="card stat s3"><div class="l">Meta ${S.goal?S.goal+" kg":""}</div><div class="v" style="font-size:1.1rem;margin-top:8px">${S.goal?"Progresso":"—"}</div>${goalHtml}</div>
+  <div class="card stat s4"><div class="l">Próxima aplicação</div><div class="v" style="font-size:1.2rem;margin-top:6px">${nx?esc(nx.m.name):"—"}</div><div class="d">${nx?nx.label:"sem agenda"}</div></div>${comp()}`;
+}
+function chart(){
+  const w=sortW();
+  if(w.length<2){$("chart").innerHTML='<div class="empty">Registre pelo menos 2 pesos para ver o gráfico.</div>';return}
+  const W=Math.max(640,w.length*34),H=240,P={l:42,r:14,t:16,b:28};
+  const vals=w.map(x=>x.kg).concat(S.goal?[S.goal]:[]);
+  let mn=Math.min(...vals)-1,mx=Math.max(...vals)+1;
+  const t0=w[0].t,t1=w[w.length-1].t||1,sx=t=>P.l+(t1===t0?0:(t-t0)/(t1-t0))*(W-P.l-P.r),sy=v=>P.t+(mx-v)/(mx-mn)*(H-P.t-P.b);
+  let g="";
+  for(let i=0;i<=4;i++){const v=mn+(mx-mn)*i/4,y=sy(v);g+=`<line x1="${P.l}" x2="${W-P.r}" y1="${y}" y2="${y}" stroke="var(--line)"/><text x="${P.l-6}" y="${y+4}" font-size="11" text-anchor="end" fill="var(--mut)">${v.toFixed(1)}</text>`}
+  const pts=w.map(x=>[sx(x.t),sy(x.kg)]);
+  const line=pts.map((p,i)=>(i?"L":"M")+p[0].toFixed(1)+" "+p[1].toFixed(1)).join(" ");
+  const area=line+` L${pts[pts.length-1][0]} ${H-P.b} L${pts[0][0]} ${H-P.b} Z`;
+  let gl=S.goal?`<line x1="${P.l}" x2="${W-P.r}" y1="${sy(S.goal)}" y2="${sy(S.goal)}" stroke="var(--acc2)" stroke-dasharray="6 5" stroke-width="2"/><text x="${W-P.r}" y="${sy(S.goal)-5}" font-size="11" text-anchor="end" fill="var(--acc2)">meta ${S.goal}</text>`:"";
+  const shots=S.shots.filter(s=>s.t>=t0&&s.t<=t1).map(s=>`<line x1="${sx(s.t)}" x2="${sx(s.t)}" y1="${H-P.b-8}" y2="${H-P.b}" stroke="var(--acc3)" stroke-width="2" opacity=".7"><title>${esc(s.med)} · ${fmtDT(s.t)}</title></line>`).join("");
+  const dots=pts.map((p,i)=>`<circle cx="${p[0]}" cy="${p[1]}" r="4.5" fill="var(--card)" stroke="var(--acc)" stroke-width="2.5"><title>${w[i].kg} kg · ${fmtD(w[i].t)}</title></circle>`).join("");
+  $("chart").innerHTML=`<svg viewBox="0 0 ${W} ${H}" style="min-width:${Math.round(W*Z.w)}px"><defs><linearGradient id="ag" x1="0" y1="0" x2="0" y2="1"><stop offset="0" stop-color="var(--acc)" stop-opacity=".35"/><stop offset="1" stop-color="var(--acc)" stop-opacity="0"/></linearGradient></defs>${g}${gl}<path d="${area}" fill="url(#ag)"/><path d="${line}" fill="none" stroke="var(--acc)" stroke-width="3" stroke-linejoin="round"/>${shots}${dots}${labels(pts.map((p,i)=>({x:p[0],y:p[1],t:w[i].kg.toFixed(1).replace('.',',')})),30,H-P.b-2)}<text x="${P.l}" y="${H-8}" font-size="11" fill="var(--mut)">${fmtD(t0)}</text><text x="${W-P.r}" y="${H-8}" font-size="11" text-anchor="end" fill="var(--mut)">${fmtD(t1)} · <tspan fill="var(--acc3)">| aplicações</tspan></text></svg>`;
+}
+function lastBySite(){const m={};S.shots.forEach(s=>{if(!m[s.site]||s.t>m[s.site])m[s.site]=s.t});return m}
+function sites(){
+  const l=lastBySite();
+  const sug=[...SITES].sort((a,b)=>(l[a]||0)-(l[b]||0))[0];
+  if(!sel)sel=sug;
+  $("sites").innerHTML=SITES.map(s=>`<button type="button" class="site ${s===sel?"sel":""}" onclick="sel='${s}';sites()">${s}<small>${l[s]?"há "+dAgo(l[s])+" d":"nunca usado"}</small>${s===sug?'<span class="tag">★ sugerido</span>':""}</button>`).join("");
+}
+function meds(){
+  $("meds").innerHTML=S.meds.length?S.meds.map(m=>`<div class="row"><div><b>${esc(m.name)}</b><div class="sub">${m.active===false?"encerrada":m.every?"a cada "+m.every+" d":"sob demanda"} · ${m.unit} · t½ ${m.hl?m.hl+" d":m.parts?"2 componentes":"?"}</div></div><span>${m.id==='sl'?`<button class="x" onclick="setAuto()" title="Registro automático diário">🔁</button>`:''}<button class="x" onclick="setHL('${m.id}')" title="Meia-vida">⏱</button><button class="x" onclick="delM('${m.id}')" title="Remover">×</button></span></div>`).join(""):'<div class="empty">Cadastre sua primeira medicação abaixo.</div>';
+  const cur=$("sm").value;
+  $("sm").innerHTML=S.meds.filter(m=>!m.der).map(m=>`<option value="${m.id}">${esc(m.name)} (${m.unit})</option>`).join("")||'<option value="">Cadastre uma medicação</option>';
+  if(cur)$("sm").value=cur;
+}
+function dueList(){
+  return S.meds.filter(m=>m.every>0&&m.active!==false).map(m=>{
+    const ls=S.shots.filter(s=>s.mid===m.id).sort((a,b)=>b.t-a.t)[0];
+    if(!ls)return{m,at:0,label:"nenhuma aplicação ainda",cls:"p-n"};
+    const at=ls.t+m.every*864e5,d=Math.ceil((at-Date.now())/864e5);
+    return{m,at,label:d<0?`atrasada ${-d} d`:d===0?"hoje":`em ${d} d`,cls:d<0?"p-bad":d===0?"p-warn":"p-ok"};
+  }).sort((a,b)=>(b.m.id===lastMedId())-(a.m.id===lastMedId())||a.at-b.at);
+}
+function due(){
+  const d=dueList();
+  $("due").innerHTML=d.length?d.map(x=>`<div class="row"><b>${esc(x.m.name)}</b><span class="pill ${x.cls}">${x.label}</span></div>`).join(""):'<div class="empty">Medicações com intervalo definido aparecem aqui.</div>';
+}
+function hist(){
+  const s=S.shots.filter(x=>!x.der).sort((a,b)=>b.t-a.t).slice(0,60);
+  $("hist").innerHTML=s.length?s.map(x=>`<div class="row"><div><b>${esc(x.med)}</b> · ${x.dose} ${esc(x.unit)}<div class="sub">${fmtDT(x.t)} · ${esc(x.site)}${x.note?" · "+esc(x.note):""}</div></div><button class="x" onclick="editT('${x.id}')" title="Editar data/hora">⏰</button><button class="x" onclick="delS('${x.id}')">×</button></div>`).join(""):'<div class="empty">Nenhuma aplicação registrada.</div>';
+}
+function addW(e){e.preventDefault();const kg=parseFloat($("wkg").value);const t=new Date($("wdt").value+"T12:00").getTime();S.weights.push({id:uid(),t,kg});$("wkg").value="";save()}
+function addM(e){e.preventDefault();S.meds.push({id:uid(),name:$("mn").value.trim(),unit:$("mu").value,every:parseInt($("me").value)||0,hl:parseFloat($("mh").value)||null});$("mn").value="";$("mh").value="";save()}
+function delM(id){if(confirm("Remover esta medicação? O histórico é mantido.")){S.meds=S.meds.filter(m=>m.id!==id);save()}}
+function addS(e){e.preventDefault();const m=S.meds.find(x=>x.id===$("sm").value);if(!m){alert("Cadastre uma medicação primeiro.");return}
+  S.shots.push({id:uid(),t:new Date($("st").value+'T'+($("sh").value||'12:00')).getTime(),mid:m.id,med:m.name,unit:m.unit,dose:parseFloat($("sd").value),site:sel,note:$("sn").value.trim()});
+  $("sn").value="";$("st").value=nowLocal().slice(0,10);$("sh").value=nowLocal().slice(11);sel=null;save()}
+function delS(id){const x=S.shots.find(s=>s.id===id);if(x&&x.auto&&S.slAuto){(S.slAuto.skip=S.slAuto.skip||[]).push(dk(new Date(x.t)))}S.shots=S.shots.filter(s=>s.id!==id);save()}
+function openCfg(){
+  const g=prompt("Meta de peso (kg):",S.goal||"");if(g===null)return;
+  const h=prompt("Altura (cm) para calcular IMC:",S.height||"");if(h===null)return;
+  S.goal=parseFloat(String(g).replace(",","."))||null;S.height=parseFloat(String(h).replace(",","."))||null;save();
+}
+function exp(){const a=document.createElement("a");a.href="data:application/json;charset=utf-8,"+encodeURIComponent(JSON.stringify(S));a.download="protocolo-backup.json";a.click()}
+function imp(e){const f=e.target.files[0];if(!f)return;const r=new FileReader();r.onload=()=>{try{S=Object.assign({meds:[],shots:[],weights:[],goal:null,height:null},JSON.parse(r.result));save()}catch(x){alert("Arquivo inválido")}};r.readAsText(f)}
+function clr(){if(confirm("Apagar TODOS os dados?")){S={meds:[],shots:[],weights:[],goal:null,height:null};sel=null;save()}}
+function demo(){
+  if(S.weights.length&&!confirm("Isso adiciona dados de exemplo aos seus. Continuar?"))return;
+  const id=uid();S.meds.push({id,name:"Exemplo (semanal)",unit:"mg",every:7});S.goal=S.goal||78;S.height=S.height||175;
+  for(let i=0;i<8;i++){const t=Date.now()-(56-i*7)*864e5;S.weights.push({id:uid(),t,kg:+(88-i*1.1+Math.random()*.4).toFixed(1)});
+    S.shots.push({id:uid(),t,mid:id,med:"Exemplo (semanal)",unit:"mg",dose:0.5,site:SITES[i%8],note:""})}
+  save();
+}
+const COL=['var(--acc)','var(--acc2)','var(--acc3)','var(--warn)'];
+function level(m,t){let ke=Math.LN2/m.hl,ka=Math.LN2/0.5;if(Math.abs(ka-ke)<1e-6)ka*=1.01;let a=0;for(const s of S.shots){if(s.mid!==m.id||s.t>t)continue;const x=(t-s.t)/864e5;a+=s.dose*Math.pow(0.5,x/m.hl)}return a}
+function setHL(id){const m=S.meds.find(x=>x.id===id);const v=prompt('Meia-vida de '+m.name+' (em dias):',m.hl||'');if(v===null)return;m.hl=parseFloat(String(v).replace(',','.'))||null;save()}
+function addWT(){}
+function comp(){const w=sortW().filter(x=>x.fk&&x.lbm);if(w.length<2)return '';const a=w[0],b=w[w.length-1],f=b.fk-a.fk,l=b.lbm-a.lbm,M=S.bfErr||4,me=M/100*b.kg,md=M/200*(a.kg+b.kg)/2,sg=v=>(v>0?'+':'')+v.toFixed(1).replace('.',','),sm="style='color:var(--mut);font-size:.6em'";
+ return `<div class='card stat s1'><div class='l'>Perdido · composição (balança)</div><div class='v' style='font-size:1.2rem;margin-top:8px'>Gordura ${sg(f)} kg <small ${sm}>±${md.toFixed(1)}</small><br>Massa magra ${sg(l)} kg <small ${sm}>±${md.toFixed(1)}</small></div><div class='d'>agora: gordura ${b.fk.toFixed(1)} kg (±${me.toFixed(1)}) · magra ${b.lbm.toFixed(1)} kg (±${me.toFixed(1)})<br>gordura ${b.bf.toFixed(1)}% (±${M} p.p.) <a href='#' onclick='setErr();return false' style='color:var(--acc)'>ajustar</a> · bioimpedância simples: use a tendência</div></div>`}
+function compOld(){const w=sortW().filter(x=>x.fk&&x.lbm);if(w.length<2)return '';const a=w[0],b=w[w.length-1],f=b.fk-a.fk,l=b.lbm-a.lbm,M=S.bfErr||4,me=M/100*b.kg,md=M/200*(a.kg+b.kg)/2;return `<div class='card stat s1'><div class='l'>Composição (balança)</div><div class='v' style='font-size:1.05rem;margin-top:8px'>Gordura ${b.fk.toFixed(1)} kg <small style='color:var(--mut)'>±${me.toFixed(1)}</small><br>Massa magra ${b.lbm.toFixed(1)} kg <small style='color:var(--mut)'>±${me.toFixed(1)}</small></div><div class='d'>variação (±${md.toFixed(1)} kg): gordura ${f>0?'+':''}${f.toFixed(1)} · magra ${l>0?'+':''}${l.toFixed(1)}<br>gordura ${b.bf.toFixed(1)}% (±${M} p.p.) <a href='#' onclick='setErr();return false' style='color:var(--acc)'>ajustar</a> · estimativa por bioimpedância</div></div>`}
+function addSL(){}
+function daily(ms){
+ const el=$('ddaily');if(!ms.length){el.innerHTML='';return}
+ const day=864e5,sd=t=>{const d=new Date(t);d.setHours(0,0,0,0);return d.getTime()};
+ const first=sd(Math.min(...S.shots.filter(s=>ms.some(m=>m.id===s.mid)).map(s=>s.t))),today=sd(Date.now()),last=Math.max(today+14*day,sd(Math.max(...ms.map(m=>Math.max(0,...S.shots.filter(s=>s.mid===m.id).map(s=>s.t))+5*m.hl*day))));
+ const lvE=(m,d)=>Math.max(level(m,d),...S.shots.filter(s=>s.mid===m.id&&s.t>=d&&s.t<d+day).map(s=>level(m,s.t)));const rt=ms.filter(m=>/retatrut/i.test(m.name)),lvT=d=>rt.reduce((a,m)=>a+lvE(m,d),0);
+ const mxs=ms.map(m=>{let x=0;for(let d=first;d<=last;d+=day)x=Math.max(x,lvE(m,d));return x||1});
+ let rows='';
+ for(let d=first;d<=last;d+=day){
+  const dose=S.shots.filter(s=>sd(s.t)===d&&ms.some(m=>m.id===s.mid)).map(s=>s.med+' '+s.dose+s.unit).join(', ');
+  const cls=d===today?'hoje':d>today?'fut':'';
+  rows+=`<tr class='${cls}'${d===today?' id=hoje-row':''}><td>${new Date(d).toLocaleDateString('pt-BR',{day:'2-digit',month:'2-digit',weekday:'short'})}${d>today?' ·proj.':''}</td><td>${esc(dose)||'—'}</td>`+ms.map((m,i)=>{const v=lvE(m,d),p=d>first?lvE(m,d-day):0,df=v-p,pc=p>0.0001?df/p*100:null;return `<td><span class='mb' style='width:${Math.round(v/mxs[i]*60)}px'></span>${v.toFixed(2)} <span class='${df<0?'dec':'inc'}'>${df>0?'+':''}${df.toFixed(2)}${pc!==null?' ('+(df>0?'+':'')+pc.toFixed(0)+'%)':''}</span></td>`}).join('')+(rt.length>1?(()=>{const v=lvT(d),p=d>first?lvT(d-day):0,df=v-p;return `<td><b>${v.toFixed(2)}</b> <span class='${df<0?'dec':'inc'}'>${df>0?'+':''}${df.toFixed(2)}</span></td>`})():'')+'</tr>';
+ }
+ el.innerHTML=`<div class='dd'><table><thead><tr><th>Dia</th><th>Aplicação</th>${ms.map(m=>`<th>${esc(m.name)} (${esc(m.unit)}) · Δ dia</th>`).join('')}${rt.length>1?'<th>Retatrutida (soma)</th>':''}</tr></thead><tbody>${rows}</tbody></table></div>`;
+ const hr=$('hoje-row');if(hr){const box=el.firstChild;box.scrollTop=hr.offsetTop-box.clientHeight/2}
+}
+let ref=null,tmr=null,lastV=0;
+function setSt(t){const e=document.getElementById('syn');if(e)e.textContent=t}
+function mergeS(a,b){const o=Object.assign({},b,a);o.goal=a.goal||b.goal;o.height=a.height||b.height;const un=(x,y,k)=>{const m=new Map();[...(y||[]),...(x||[])].forEach(i=>m.set(k(i),i));return [...m.values()]};o.meds=un(a.meds,b.meds,m=>m.id);o.shots=un(a.shots,b.shots,s=>s.mid+'|'+s.t);o.weights=un(a.weights,b.weights,w=>w.t);o.seedV=Math.max(a.seedV||0,b.seedV||0);return o}
+function push(){if(!ref)return Promise.resolve();const v=Date.now();lastV=v;return ref.set({json:JSON.stringify(S),v}).then(()=>setSt('☁️ sincronizado')).catch(()=>setSt('⚠️ falha ao sincronizar'))}
+async function initSync(){
+ try{
+  const cl=window.claude;if(!cl||!cl.use){setSt('⚠️ só neste aparelho');return}
+  const [db,user]=await Promise.all([cl.use('db'),cl.use('user')]);
+  if(!db||!user){setSt('⚠️ entre no Claude para sincronizar');return}
+  const id=await user.id();if(!id){setSt('⚠️ entre no Claude para sincronizar');return}
+  const r=db.collection('data/users/'+id).doc('state');
+  const snap=await r.get();
+  if(snap.exists){const d=snap.data();S=Object.assign({meds:[],shots:[],weights:[],goal:null,height:null},mergeS(S,JSON.parse(d.json)))}
+  ref=r;lsSave();render();await push();
+  r.onSnapshot(sn=>{if(!sn.exists||sn.metadata.hasPendingWrites)return;const d=sn.data();if(!d||!(d.v>lastV))return;lastV=d.v;try{S=Object.assign({meds:[],shots:[],weights:[],goal:null,height:null},JSON.parse(d.json));lsSave();render();setSt('☁️ sincronizado')}catch(e){}});
+ }catch(e){setSt('⚠️ só neste aparelho')}
+}
+function lastW(){const w=sortW(),el=$('lastw');if(!w.length){el.innerHTML='';return}
+ const b=w[w.length-1],p=w[w.length-2],a=w[0],dt=new Date(b.t),f=v=>(v>0?'+':'')+v.toFixed(1).replace('.',',')+' kg',hm=dt.getHours()!==12||dt.getMinutes()!==0;
+ el.innerHTML=`<div class='lw'><span>Último peso</span><b>${b.kg.toFixed(1).replace('.',',')} kg</b><span>${dt.toLocaleDateString('pt-BR',{day:'2-digit',month:'2-digit'})}${hm?' às '+dt.toLocaleTimeString('pt-BR',{hour:'2-digit',minute:'2-digit'}):''}</span>${p?`<span>${f(b.kg-p.kg)} vs. anterior</span>`:''}${w.length>1?`<span>${f(b.kg-a.kg)} desde o início</span>`:''}</div>`}
+function cycles(){
+ const el=$('cyc'),w=sortW();if(w.length<2){el.innerHTML='';return}
+ const fs=re=>{const ids=S.meds.filter(m=>re.test(m.name)).map(m=>m.id),a=S.shots.filter(s=>ids.includes(s.mid)).map(s=>s.t);return a.length?Math.min(...a):null};
+ const T0=fs(/tirzep/i),R0=fs(/retatrut/i),S0=fs(/slu/i);
+ const at=t=>{const p=w.filter(x=>x.t<=t);return p.length?p[p.length-1]:null},fd=t=>new Date(t).toLocaleDateString('pt-BR',{day:'2-digit',month:'2-digit'});
+ const cyc=(lbl,st,en)=>{if(!st)return '';const late=!at(st),b=at(st)||w[0],e=at(en===null?Infinity:en);if(!e||e.t<=b.t)return '';const d=e.kg-b.kg,dias=Math.round((e.t-b.t)/864e5);
+  return `<div><small>${lbl}</small><b>${(d>0?'+':'')+d.toFixed(1).replace('.',',')} kg</b><span>${b.kg.toFixed(1)} → ${e.kg.toFixed(1)} kg · ${fd(b.t)}–${fd(e.t)} (${dias} d)</span>${late?`<span>1ª pesagem só em ${fd(b.t)}, após o início</span>`:''}</div>`};
+ const h=cyc('Tirzepatida',T0,R0)+cyc('Retatrutida · ciclo atual',R0,null)+(S0?cyc('Retatrutida sozinha',R0,S0)+cyc('Retatrutida + SLU-PP-332',S0,null):'');
+ el.innerHTML=h?`<div class='sub' style='margin-top:12px'>⚖️ Peso por ciclo</div><div class='cy'>${h}</div>`:'';
+}
+function labels(items,gap,maxY){let last=-1e9,k=0,s='';items.forEach(it=>{k=it.x-last<gap?k+1:0;last=it.x;const y=Math.max(12,Math.min(maxY,it.y+[-8,14,-21][k%3]));s+=`<text x='${it.x.toFixed(1)}' y='${y.toFixed(1)}' font-size='${it.f||10}' font-weight='${it.w||700}' opacity='${it.o||1}' text-anchor='middle' fill='${it.c||'var(--ink)'}' stroke='var(--card)' stroke-width='3' paint-order='stroke'>${it.t}</text>`});return s}
+function setErr(){const v=prompt('Margem de erro da gordura da balança, em pontos percentuais (balança simples: 3 a 5):',S.bfErr||4);if(v===null)return;const n=parseFloat(String(v).replace(',','.'));if(n>=0&&n<=15){S.bfErr=n;save()}}
+function dk(d){return d.getFullYear()+'-'+String(d.getMonth()+1).padStart(2,'0')+'-'+String(d.getDate()).padStart(2,'0')}
+function autoSL(){
+ const m=S.meds.find(x=>x.id==='sl');if(!m)return false;
+ if(!S.slAuto){const l=S.shots.filter(s=>s.mid==='sl').sort((x,y)=>y.t-x.t)[0];if(!l)return false;S.slAuto={from:dk(new Date(l.t+864e5)),dose:l.dose,skip:[]}}
+ const a=S.slAuto;if(a.off||!a.dose)return false;
+ let add=false;const td=dk(new Date());
+ for(let d=new Date(a.from+'T12:00');dk(d)<=td;d.setDate(d.getDate()+1)){const k=dk(d);
+  if((a.skip||[]).includes(k)||S.shots.some(s=>s.mid==='sl'&&dk(new Date(s.t))===k))continue;
+  S.shots.push({id:uid(),t:new Date(k+'T'+(a.time||'12:00')).getTime(),mid:'sl',med:m.name,unit:m.unit,dose:a.dose,site:'Oral',note:'automático',auto:true});add=true}
+ return add}
+function setAuto(){const a=S.slAuto||(S.slAuto={skip:[]});const v=prompt('Dose diária automática de SLU-PP-332 (mg). Digite 0 para desligar:',a.off?0:(a.dose||1));if(v===null)return;const n=parseFloat(String(v).replace(',','.'));if(!(n>=0))return;if(n===0){a.off=true}else{if(a.off||!a.from)a.from=dk(new Date());a.off=false;a.dose=n;const tv=prompt('Horário diário (hh:mm):',a.time||'12:00');if(tv&&tv.includes(':'))a.time=tv.trim().split(':').map(x=>x.padStart(2,'0')).join(':')}save()}
+function addClo(){return false;if(S.cloAdded)return false;if(!S.meds.some(m=>m.id==='cl'))S.meds.push({id:'cl',name:'Clomifeno (Indux)',unit:'mg',every:0,active:true,hl:null,dd:25});S.cloAdded=1;return true}
+function editT(id){const s=S.shots.find(x=>x.id===id);if(!s)return;const d=new Date(s.t),p=n=>String(n).padStart(2,'0');
+ const v=prompt('Data e hora da aplicação (dd/mm/aaaa hh:mm) ou só a hora (hh:mm):',p(d.getDate())+'/'+p(d.getMonth()+1)+'/'+d.getFullYear()+' '+p(d.getHours())+':'+p(d.getMinutes()));if(v===null)return;
+ const w=v.trim().split(' ').filter(Boolean),tm=(w.pop()||'').split(':');let Y=d.getFullYear(),M=d.getMonth(),D=d.getDate();
+ if(w.length){const q=w[0].split('/');D=+q[0];M=+q[1]-1;Y=+q[2]}
+ const t=new Date(Y,M,D,+tm[0],+tm[1]);if(tm.length!==2||isNaN(t.getTime())){alert('Formato inválido');return}
+ s.t=t.getTime();s.auto=false;save()}
+function addAna(){return false;if(S.anaAdded)return false;if(!S.meds.some(m=>m.id==='an'))S.meds.push({id:'an',name:'Anastrozol',unit:'mg',every:0,active:true,hl:null});S.anaAdded=1;return true}
+function setHLs(){return false;if(S.hlSet)return false;S.meds.forEach(m=>{if(!m.hl){if(/anastr/i.test(m.name))m.hl=2;else if(/clomif/i.test(m.name))m.hl=5}});S.hlSet=1;return true}
+const PAL=['var(--acc)','var(--acc2)','var(--acc3)','var(--warn)','#84cc16','#3d8bff','#f472b6','#fb923c','#94a3b8','#22d3ee'];
+function colOf(m){const i=S.meds.findIndex(x=>x.id===m.id);return PAL[(i<0?0:i)%PAL.length]}
+function togAbs(){S.abs=S.abs==='grad'?'inst':'grad';save()}
+const Z={w:1,d:1};
+function zoomC(k,dir){const c=$(k==='w'?'chart':'decay'),r=c.scrollWidth?c.scrollLeft/c.scrollWidth:0;Z[k]=dir===0?1:Math.max(1,Math.min(6,Z[k]*(dir>0?1.5:1/1.5)));render();c.scrollLeft=r*c.scrollWidth}
+function lastMedId(){const ok=new Set(S.meds.filter(m=>m.every>1&&m.active!==false).map(m=>m.id));const l=S.shots.filter(s=>ok.has(s.mid)&&!s.auto).sort((a,b)=>b.t-a.t)[0];return l?l.mid:null}
+function cloSplit(){let ch=false;const p=S.meds.find(m=>m.id==='cl');if(!p)return false;
+ if(!S.cloV2){p.hl=null;p.parts=1;[['clE','Enclomifeno (Clomifeno Indux)',0.42],['clZ','Zuclomifeno (Clomifeno Indux)',30]].forEach(a=>{if(!S.meds.some(m=>m.id===a[0]))S.meds.push({id:a[0],name:a[1],unit:'mg',every:0,active:true,hl:a[2],der:true})});S.cloV2=1;ch=true}
+ const P=[['clE',0.62,'Enclomifeno (Clomifeno Indux)'],['clZ',0.38,'Zuclomifeno (Clomifeno Indux)']],par=S.shots.filter(s=>s.mid==='cl');
+ const keep=S.shots.filter(s=>!(s.der&&(s.mid==='clE'||s.mid==='clZ'))||par.some(q=>q.id===s.par));if(keep.length!==S.shots.length){S.shots=keep;ch=true}
+ P.forEach(([id,f,nm])=>par.forEach(q=>{const d=+(q.dose*f).toFixed(3),x=S.shots.find(s=>s.der&&s.mid===id&&s.par===q.id);
+  if(!x){S.shots.push({id:uid(),t:q.t,mid:id,med:nm,unit:q.unit,dose:d,site:q.site,note:'derivado do clomifeno',der:true,par:q.id});ch=true}
+  else if(x.t!==q.t||x.dose!==d){x.t=q.t;x.dose=d;ch=true}}));
+ return ch}
+function dayStart(t){const d=new Date(t);d.setHours(0,0,0,0);return d.getTime()}
+function dayLv(m,d){return Math.max(level(m,d),...S.shots.filter(s=>s.mid===m.id&&s.t>=d&&s.t<d+864e5).map(s=>level(m,s.t)))}
+function setLook(v){const p=v.split('-');document.documentElement.dataset.look=p[0];document.documentElement.dataset.tone=p[1]||'';try{localStorage.setItem('look',v)}catch(e){}}
+function decay(){const al=$('abslink');if(al)al.textContent=S.abs==='grad'?'[Absorção gradual · trocar para instantânea]':'[Absorção instantânea · trocar para gradual]';
+ const ms=S.meds.filter(m=>m.hl&&S.shots.some(s=>s.mid===m.id)),nm=S.meds.filter(m=>!m.hl&&!m.parts&&S.shots.some(s=>s.mid===m.id));
+ if(!ms.length&&!nm.length){$('decay').innerHTML='<div class="empty">Registre aplicações e informe a meia-vida (⏱) da medicação para ver a curva.</div>';$('dlegend').innerHTML='';$('ddaily').innerHTML='';return}
+ const ss=S.shots.filter(s=>ms.concat(nm).some(m=>m.id===s.mid)),t0=Math.min(...ss.map(s=>s.t))-864e5,now=Date.now(),t1=Math.max(now+7*864e5,Math.max(...ss.map(s=>s.t))+3*864e5,...ms.map(m=>Math.max(0,...S.shots.filter(s=>s.mid===m.id).map(s=>s.t))+5*m.hl*864e5));
+ const N=180,W=Math.max(640,Math.round((t1-t0)/864e5*13)),H=250,P={l:42,r:14,t:16,b:28};
+ const DD=864e5,d0=dayStart(t0),nd=Math.ceil((t1-d0)/DD),cv=ms.map(m=>{const p=[];for(let k=0;k<=nd;k++){const d=d0+k*DD;p.push([d+DD/2,dayLv(m,d)])}return{m,p}});
+ const rts=ms.filter(m=>/retatrut/i.test(m.name)),tot=rts.length>1?(()=>{const a=[];for(let k=0;k<=nd;k++){const d=d0+k*DD;a.push([d+DD/2,rts.reduce((s,m)=>s+dayLv(m,d),0)])}return a})():null;
+ const mx=Math.max(0.1,...cv.flatMap(c=>c.p.map(q=>q[1])),...(tot?tot.map(q=>q[1]):[]))*1.1;
+ const sx=t=>P.l+(t-t0)/(t1-t0)*(W-P.l-P.r),sy=v=>P.t+(1-v/mx)*(H-P.t-P.b);
+ let g='';for(let i=0;i<=4;i++){const v=mx*i/4,y=sy(v);g+=`<line x1='${P.l}' x2='${W-P.r}' y1='${y}' y2='${y}' stroke='var(--line)'/><text x='${P.l-6}' y='${y+4}' font-size='11' text-anchor='end' fill='var(--mut)'>${v.toFixed(1)}</text>`}
+ let body='',leg='';
+ cv.forEach((c,i)=>{const col=colOf(c.m),d=c.p.map((q,j)=>(j?'L':'M')+sx(q[0]).toFixed(1)+' '+sy(q[1]).toFixed(1)).join(' ');
+  body+=`<path d='${d} L${sx(t1)} ${sy(0)} L${sx(t0)} ${sy(0)} Z' fill='${col}' opacity='.12'/><path d='${d}' fill='none' stroke='${col}' stroke-width='2.5'/>`;
+  S.shots.filter(s=>s.mid===c.m.id).forEach(s=>{body+=`<circle cx='${sx(dayStart(s.t)+DD/2)}' cy='${sy(dayLv(c.m,dayStart(s.t)))}' r='3.5' fill='${col}'><title>${esc(s.med)} ${s.dose} ${esc(s.unit)} · ${fmtDT(s.t)}</title></circle>`});
+  const ke=Math.LN2/c.m.hl,ka0=Math.LN2/.5,kaa=Math.abs(ka0-ke)<1e-6?ka0*1.01:ka0,tm=0,sh=S.shots.filter(s=>s.mid===c.m.id);
+  sh.forEach(s=>{const tp=s.t+tm;if(0)body+=`<rect x='${sx(tp)-3}' y='${sy(level(c.m,tp))-3}' width='6' height='6' fill='var(--card)' stroke='${col}' stroke-width='1.5' opacity='.8'><title>Pico da dose de ${s.dose} ${esc(s.unit)} (${fmtDT(s.t)}): ${level(c.m,tp).toFixed(2)} ${esc(s.unit)} no organismo</title></rect>`});
+  body+=labels(sh.flatMap(s=>{const dd=dayStart(s.t),v=dayLv(c.m,dd),a={x:sx(dd+DD/2),y:sy(v),t:v.toFixed(2).replace('.',','),c:col};return [a,{x:a.x,y:a.y,t:'▲'+String(s.dose).replace('.',','),c:col,f:9,w:500,o:.8}]}).sort((a,b)=>a.x-b.x),30,H-P.b-2);
+  const cur=dayLv(c.m,dayStart(now)),pk=Math.max(...c.p.map(q=>q[1]));
+  leg+=`<div class='row'><div><b style='color:${col}'>●</b> <b>${esc(c.m.name)}</b><div class='sub'>t½ ${c.m.hl} d · vida toda no organismo ≈ ${(c.m.hl*5).toFixed(0)} d, até ~${new Date(Math.max(0,...sh.map(s=>s.t))+5*c.m.hl*864e5).toLocaleDateString('pt-BR',{day:'2-digit',month:'2-digit'})} (~97% eliminado, após a última dose)</div></div><span class='pill p-n'>hoje ≈ ${cur.toFixed(2)} ${esc(c.m.unit)}${pk?' ('+(cur/pk*100).toFixed(0)+'% do pico)':''}</span></div>`});
+ nm.forEach((m,i)=>{const col=colOf(m);body+=labels(S.shots.filter(s=>s.mid===m.id).map(s=>({x:sx(s.t),y:sy(0)-14,t:String(s.dose).replace('.',','),c:col,f:9,w:500,o:.8})),30,H-P.b-2);S.shots.filter(s=>s.mid===m.id).forEach(s=>{body+=`<path d='M${sx(s.t)} ${sy(0)-2} l5 -9 h-10 z' fill='${col}'><title>${esc(s.med)} ${s.dose} ${esc(s.unit)} · ${fmtDT(s.t)}</title></path>`});leg+=`<div class='row'><div><b style='color:${col}'>▼</b> <b>${esc(m.name)}</b><div class='sub'>sem meia-vida informada: aparecem só as marcas das doses (use ⏱ para criar a curva)</div></div><span class='pill p-n'>${S.shots.filter(s=>s.mid===m.id).length} doses</span></div>`});
+ if(tot){const tp=tot.map(q=>sx(q[0]).toFixed(1)+','+sy(q[1]).toFixed(1)).join(' '),cn=rts.reduce((s,m)=>s+dayLv(m,dayStart(now)),0),pkT=Math.max(...tot.map(q=>q[1]));
+  body+=`<polygon points='${sx(t0)},${sy(0)} ${tp} ${sx(t1)},${sy(0)}' fill='var(--ink)' opacity='.08'/><polyline fill='none' stroke='var(--ink)' stroke-width='3.5' stroke-linejoin='round' points='${tp}'/>`+labels([...new Set(rts.flatMap(m=>S.shots.filter(s=>s.mid===m.id).map(s=>dayStart(s.t))).concat([dayStart(now)]))].sort((a,b)=>a-b).map(d=>{const v=rts.reduce((s,m)=>s+dayLv(m,d),0);return{x:sx(d+DD/2),y:sy(v),t:v.toFixed(2).replace('.',','),c:'var(--ink)',f:11}}),30,H-P.b-2);
+  leg+=`<div class='row'><div><b>━━</b> <b>Retatrutida · soma das marcas</b><div class='sub'>${rts.map(m=>esc(m.name.replace('Retatrutida ',''))).join(' + ')}</div></div><span class='pill p-n'>hoje ≈ ${cn.toFixed(2)} mg · pico ≈ ${pkT.toFixed(2)} mg</span></div>`}
+ const xn=sx(now);
+ $('decay').innerHTML=`<svg viewBox='0 0 ${W} ${H}' style='min-width:${Math.round(W*Z.d)}px'>${g}${body}<line x1='${xn}' x2='${xn}' y1='${P.t}' y2='${H-P.b}' stroke='var(--ink)' stroke-dasharray='4 4' opacity='.6'/><text x='${xn+4}' y='${P.t+10}' font-size='11' fill='var(--ink)'>hoje</text><text x='${P.l}' y='${H-8}' font-size='11' fill='var(--mut)'>${fmtD(t0)}</text><text x='${W-P.r}' y='${H-8}' font-size='11' text-anchor='end' fill='var(--mut)'>${fmtD(t1)} (projeção)</text></svg>`;
+ $('dlegend').innerHTML=leg;daily(ms);
+}
+(function(){const w=document.querySelector('.wrap'),mk=id=>{const d=document.createElement('div');d.className='tab';d.id='tab-'+id;return d},T={r:mk('r'),p:mk('p'),a:mk('a'),d:mk('d'),m:mk('m')},card=id=>$(id).closest('.card');
+const dE=$('due'),dH=dE.previousElementSibling,dc=document.createElement('div');dc.className='card';dc.append(dH,dE);
+T.r.append($('stats'),dc);T.p.append(card('chart'),card('wkg'));T.a.append(card('sites'),card('hist'),card('meds'));T.d.append(card('decay'));T.m.append(document.querySelector('.foot'),document.querySelector('.note'));
+document.querySelectorAll('.grid.two').forEach(g=>g.remove());w.append(T.r,T.p,T.a,T.d,T.m);
+const bar=document.createElement('nav');bar.className='tabbar';
+[['r','🏠','Resumo'],['p','⚖️','Peso'],['a','💉','Aplicações'],['d','🧪','Decaimento'],['m','⚙️','Mais']].forEach(x=>{const b=document.createElement('button');b.className='ghost';b.dataset.k=x[0];b.innerHTML='<span>'+x[1]+'</span>'+x[2];b.onclick=()=>showTab(x[0]);bar.append(b)});
+document.body.append(bar);
+window.showTab=function(k){if(!T[k])k='r';for(const x in T)T[x].classList.toggle('on',x===k);bar.querySelectorAll('button').forEach(b=>b.classList.toggle('on',b.dataset.k===k));try{localStorage.setItem('tab',k)}catch(e){}window.scrollTo(0,0);if(k==='d'||k==='p')render()}})();
+$('look').value='neon';try{const l=localStorage.getItem('look')||'neon';$('look').value=l;setLook(l)}catch(e){}
+load();$("wdt").value=new Date().toISOString().slice(0,10);$("st").value=nowLocal().slice(0,10);$("sh").value=nowLocal().slice(11);$('sm').onchange=()=>{const m=S.meds.find(x=>x.id===$('sm').value);if(m&&m.dd)$('sd').value=m.dd};render();setSt("💾 dados só neste aparelho");showTab((()=>{try{return localStorage.getItem("tab")}catch(e){return null}})()||"r");if("serviceWorker" in navigator)window.addEventListener("load",()=>navigator.serviceWorker.register("sw.js").catch(()=>{}));
+</script>
+</body>
+</html>
