@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-BR" data-look="pulse">
+<html lang="pt-BR" data-look="clean">
 <head>
 <meta charset="utf-8">
 <link rel="manifest" href="manifest.webmanifest">
@@ -124,13 +124,100 @@ h2::before{content:"";width:9px;height:9px;background:var(--acc);display:inline-
 .gtw table{font-size:.76rem}.gtw th,.gtw td{padding:6px 4px}.gtw td:nth-child(2){white-space:normal;min-width:80px}
 nav.tabbar button.ghost{font-size:.62rem}
 nav.tabbar button.ghost.on{box-shadow:inset 0 3px 0 var(--acc)}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin:6px 0 10px}.chips input{width:84px}
+button.ghost.chip.on{background:var(--acc);color:#04120f;border-color:var(--acc)}
+.cl{font-size:.7rem;text-transform:uppercase;letter-spacing:.07em;color:var(--mut);margin-top:6px}
+.sy{height:18px;border:1px solid var(--line);background:var(--bg);margin:6px 0}.sy i{display:block;height:100%;background:var(--acc)}
+.big2{font-size:1.5rem;font-weight:800;font-variant-numeric:tabular-nums}.warn{color:var(--bad);font-size:.85rem;margin:4px 0}
+.hf{display:grid;grid-template-columns:1fr 1fr;gap:6px;margin-bottom:8px}
+#hist{max-height:none;overflow:visible}
+tr.sel td{background:color-mix(in srgb,var(--acc) 18%,transparent)!important;font-weight:700}
+:root[data-look="clean"]{--bg:#f6f8f9;--card:#fff;--ink:#17212b;--mut:#6b7a89;--line:#e3e8ec;--acc:#0e9f84;--acc2:#e0457b;--acc3:#6d5dfc;--warn:#d98a00;--ok:#16a34a;--bad:#dc2626}
+:root[data-look="clean"] body{background:var(--bg);background-image:none;font-family:Inter,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+:root[data-look="clean"] body[data-tab="e"],:root[data-look="clean"] body[data-tab="t"]{--acc:#0e9f84}
+:root[data-look="clean"] .card{border-radius:12px!important;border:1px solid var(--line)!important;box-shadow:0 1px 2px rgba(16,24,40,.05)!important;background:var(--card)}
+:root[data-look="clean"] input,:root[data-look="clean"] select,:root[data-look="clean"] textarea{border-radius:8px!important;background:#fff;border:1px solid #d9e0e5;color:var(--ink)}
+:root[data-look="clean"] button{border-radius:8px!important;box-shadow:none}
+:root[data-look="clean"] button:not(.ghost):not(.x){background:var(--acc);color:#fff;font-weight:700}
+:root[data-look="clean"] button.ghost{background:#fff;color:var(--ink);border:1px solid var(--line);font-weight:600}
+:root[data-look="clean"] .chip{background:#f1f4f5;border-color:#f1f4f5;color:var(--ink);border-radius:999px!important}
+:root[data-look="clean"] button.ghost.chip.on{background:var(--acc);color:#fff;border-color:var(--acc)}
+:root[data-look="clean"] .chips input{border-style:dashed;border-radius:999px!important;text-align:center}
+:root[data-look="clean"] .pill{border-radius:999px!important}
+:root[data-look="clean"] header{background:#fff;border-bottom:1px solid var(--line);padding:12px 16px;margin:-18px -14px 16px}
+:root[data-look="clean"] h1{font-size:1.05rem}
+:root[data-look="clean"] h1 span{color:var(--acc);background:none;text-shadow:none}
+:root[data-look="clean"] h2{text-transform:none;font-size:1rem;letter-spacing:0;font-weight:700}
+:root[data-look="clean"] h2::before{display:none}
+:root[data-look="clean"] .th{border-bottom:0;padding:0;margin:6px 0 14px;display:block}
+:root[data-look="clean"] .th b{display:block;font-size:1.55rem;text-transform:none;letter-spacing:-.01em}
+:root[data-look="clean"] .th span{display:block;margin-top:2px}
+:root[data-look="clean"] .stat .v{text-shadow:none}
+:root[data-look="clean"] .stat{border-top-width:1px}
+:root[data-look="clean"] #syn{display:inline-block;border:1px solid var(--line);border-radius:999px;padding:2px 10px;font-size:.72rem;color:var(--ok);background:#fff}
+:root[data-look="clean"] .empty{border:1.5px dashed var(--line);border-radius:12px;padding:26px 14px;text-align:center}
+:root[data-look="clean"] .big2{background:var(--acc);color:#fff;border-radius:10px;padding:12px;text-align:center}
+:root[data-look="clean"] .big2 span{color:#fff!important;opacity:.7}
+:root[data-look="clean"] .sy{border-radius:6px;overflow:hidden}
+:root[data-look="clean"] #hist>.chips{display:inline-flex;background:#eef2f3;padding:4px;border-radius:10px;gap:2px}
+:root[data-look="clean"] #hist>.chips .chip{background:transparent;border-color:transparent;border-radius:8px!important}
+:root[data-look="clean"] #hist>.chips .chip.on{background:#fff;color:var(--acc);box-shadow:0 1px 2px rgba(0,0,0,.1);border-color:transparent}
+:root[data-look="clean"] .gtw,:root[data-look="clean"] .dd{border-radius:10px}
+:root[data-look="clean"] .gtw th,:root[data-look="clean"] .dd th{background:#f6f8f9}
+:root[data-look="clean"] .site{border-radius:10px!important}
+:root[data-look="clean"] nav.tabbar{background:#fff;border-top:1px solid var(--line)}
+:root[data-look="clean"] nav.tabbar button.ghost{border:0;background:none;color:var(--mut);border-radius:0!important}
+:root[data-look="clean"] nav.tabbar button.ghost.on{color:var(--acc);background:#e6f6f2;box-shadow:inset 0 3px 0 var(--acc)}
+nav.tabbar .brand,nav.tabbar .sec,nav.tabbar i.l{display:none}
+nav.tabbar i{font-style:normal}
+@media(min-width:900px){
+ body{padding-left:248px;padding-bottom:20px}
+ nav.tabbar{top:0;bottom:auto;right:auto;width:248px;height:100vh;flex-direction:column;align-items:stretch;padding:16px 12px;border-top:0;border-right:1px solid var(--line);overflow-y:auto}
+ :root[data-look="clean"] nav.tabbar{border-top:0;border-right:1px solid var(--line)}
+ nav.tabbar .brand{display:flex;align-items:center;gap:10px;font-weight:800;font-size:1.05rem;padding:4px 8px 16px}
+ nav.tabbar .brand b{display:grid;place-items:center;width:32px;height:32px;background:var(--acc);color:#fff;border-radius:8px}
+ nav.tabbar .sec{display:block;font-size:.66rem;letter-spacing:.1em;color:var(--mut);margin:14px 10px 4px;font-weight:700}
+ nav.tabbar button.ghost{flex:none;flex-direction:row;justify-content:flex-start;gap:10px;font-size:.92rem;padding:10px 12px;margin:1px 0;text-align:left}
+ :root[data-look="clean"] nav.tabbar button.ghost{border-radius:8px!important}
+ nav.tabbar button.ghost i.s{display:none}nav.tabbar button.ghost i.l{display:inline}
+ nav.tabbar button.ghost.on{box-shadow:inset 3px 0 0 var(--acc)}
+ .wrap{max-width:1040px}
+ :root[data-look="clean"] header h1{display:none}
+ :root[data-look="clean"] #today{font-weight:700;color:var(--ink);font-size:1.02rem}
+ :root[data-look="clean"] #today::first-letter{text-transform:uppercase}
+ :root[data-look="clean"] nav.tabbar button.ghost.on{box-shadow:inset 3px 0 0 var(--acc)}
+}
+:root[data-look="clean"] .cy>div{border-top:1px solid var(--line);border-radius:10px;background:#fff}
+nav.tabbar svg.ic{width:22px;height:22px;min-width:0;display:block;flex:none}
+nav.tabbar button.ghost.col{display:none}
+@media(min-width:900px){
+ nav.tabbar svg.ic{width:19px;height:19px;min-width:0}
+ :root[data-look="clean"] nav.tabbar{padding:18px 12px 12px}
+ :root[data-look="clean"] nav.tabbar .sec{color:#8a98a4;font-weight:600;letter-spacing:.08em;margin:18px 12px 6px}
+ :root[data-look="clean"] nav.tabbar button.ghost{font-weight:500;color:#3d4d59;gap:12px;padding:9px 12px;font-size:.9rem;position:relative}
+ :root[data-look="clean"] nav.tabbar button.ghost svg.ic{color:#7b8a96}
+ :root[data-look="clean"] nav.tabbar button.ghost:hover{background:#f3f6f7}
+ :root[data-look="clean"] nav.tabbar button.ghost.on{background:#d9f4ec;color:#0a7a65;font-weight:600;box-shadow:none}
+ :root[data-look="clean"] nav.tabbar button.ghost.on svg.ic{color:var(--acc)}
+ :root[data-look="clean"] nav.tabbar button.ghost.on::before{content:"";position:absolute;left:-12px;top:3px;bottom:3px;width:3px;background:var(--acc);border-radius:0 3px 3px 0}
+ :root[data-look="clean"] nav.tabbar button.ghost[data-k="m"]{background:#e3f6f0;color:#0a7a65;font-weight:600}
+ :root[data-look="clean"] nav.tabbar button.ghost[data-k="m"] svg.ic{background:var(--acc);color:#fff;border-radius:6px;padding:4px;width:26px;height:26px;min-width:0;margin:-3px 0 -3px -4px;stroke-width:2}
+ nav.tabbar button.ghost.col{display:flex;margin-top:auto;justify-content:center;color:var(--mut)}
+ :root[data-look="clean"] nav.tabbar button.ghost.col{border-top:1px solid var(--line);border-radius:0!important;background:none}
+ :root[data-look="clean"] nav.tabbar button.ghost.col::before{display:none}
+ body.mini{padding-left:76px}
+ body.mini nav.tabbar{width:76px;padding:18px 8px 12px}
+ body.mini nav.tabbar .brand span,body.mini nav.tabbar .sec,body.mini nav.tabbar button.ghost i.l{display:none}
+ body.mini nav.tabbar button.ghost{justify-content:center;padding:10px}
+ body.mini nav.tabbar .brand{justify-content:center;padding:4px 0 16px}
+}
 </style>
 </head>
 <body>
 <div class="wrap">
 <header>
   <div><h1>💉 Meu <span>Protocolo</span></h1><div class="sub" id="today"></div><div class="sub" id="syn"></div></div>
-  <select id="look" onchange="setLook(this.value)" title="Visual"><option value="pulse">✨ Pulse (novo)</option><option value="aurora">🌈 Aurora</option><option value="clinico">🏥 Clínico</option><option value="neon">🌃 Neon</option><option value="neon-lima">🟢 Neon Lima</option><option value="neon-sunset">🌅 Neon Sunset</option><option value="neon-gelo">🧊 Neon Gelo</option></select> <button class="ghost" onclick="openCfg()">⚙️ Meta & altura</button>
+  <select id="look" onchange="setLook(this.value)" title="Visual"><option value="clean">🩺 Clean (novo)</option><option value="pulse">✨ Pulse (novo)</option><option value="aurora">🌈 Aurora</option><option value="clinico">🏥 Clínico</option><option value="neon">🌃 Neon</option><option value="neon-lima">🟢 Neon Lima</option><option value="neon-sunset">🌅 Neon Sunset</option><option value="neon-gelo">🧊 Neon Gelo</option></select> <button class="ghost" onclick="openCfg()">⚙️ Meta & altura</button>
 </header>
 
 <div class="grid stats" id="stats"></div>
@@ -304,17 +391,26 @@ function openCfg(){
   const h=prompt("Altura (cm) para calcular IMC:",S.height||"");if(h===null)return;
   S.goal=parseFloat(String(g).replace(",","."))||null;S.height=parseFloat(String(h).replace(",","."))||null;save();
 }
-function exp(){const a=document.createElement("a");a.href="data:application/json;charset=utf-8,"+encodeURIComponent(JSON.stringify(S));a.download="protocolo-backup.json";a.click()}
-function imp(e){const f=e.target.files[0];if(!f)return;const r=new FileReader();r.onload=()=>{try{S=Object.assign({meds:[],shots:[],weights:[],goal:null,height:null},JSON.parse(r.result));save()}catch(x){alert("Arquivo inválido")}};r.readAsText(f)}
+function exp(){S.lastBackup=Date.now();lsSave();const b=new Blob([JSON.stringify(S)],{type:'application/json'}),u=URL.createObjectURL(b),a=document.createElement('a');a.href=u;a.download='protocolo-backup.json';document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(u),3000);backupInfo()}
+function imp(e){const f=e.target.files[0];if(!f)return;const r=new FileReader();r.onload=()=>{try{const D=JSON.parse(r.result);if(!D||!Array.isArray(D.shots)||!Array.isArray(D.weights))throw 0;
+ if(!confirm('Prévia do backup:\n• '+D.shots.filter(s=>!s.der).length+' aplicações\n• '+D.weights.length+' pesagens\n• '+(D.notes||[]).length+' observações\n• '+(D.meds||[]).filter(m=>!m.der).length+' medicações\n\nIsso SUBSTITUI os dados atuais ('+S.shots.filter(s=>!s.der).length+' aplicações, '+S.weights.length+' pesagens). Continuar?')){e.target.value='';return}
+ S=Object.assign({meds:[],shots:[],weights:[],goal:null,height:null},D);save()}catch(x){alert('Arquivo inválido')}e.target.value=''};r.readAsText(f)}
 function clr(){if(confirm("Apagar TODOS os dados?")){S={meds:[],shots:[],weights:[],goal:null,height:null};sel=null;save()}}
-function demo(){
-  if(S.weights.length&&!confirm("Isso adiciona dados de exemplo aos seus. Continuar?"))return;
-  const id=uid();S.meds.push({id,name:"Exemplo (semanal)",unit:"mg",every:7});S.goal=S.goal||78;S.height=S.height||175;
-  for(let i=0;i<8;i++){const t=Date.now()-(56-i*7)*864e5;S.weights.push({id:uid(),t,kg:+(88-i*1.1+Math.random()*.4).toFixed(1)});
-    S.shots.push({id:uid(),t,mid:id,med:"Exemplo (semanal)",unit:"mg",dose:0.5,site:SITES[i%8],note:""})}
-  save();
-}
-const COL=['var(--acc)','var(--acc2)','var(--acc3)','var(--warn)'];
+function demo(auto){
+ if(!auto&&(S.shots.length||S.weights.length)&&!confirm('Isso SUBSTITUI os dados atuais por dados de EXEMPLO (fictícios). Faça um backup antes. Continuar?'))return;
+ let sd=7;const R=()=>(sd=(sd*16807)%2147483647)/2147483647,td=new Date();td.setHours(0,0,0,0);
+ const at=(d,h,m)=>{const x=new Date(td);x.setDate(x.getDate()-d);x.setHours(h,m||0,0,0);return x.getTime()},shots=[];let si=0;
+ const sh=(t,mid,med,dose,site,note)=>{const o={id:uid(),t,mid,med,unit:'mg',dose,site,note:note||''};shots.push(o);return o};
+ const meds=[{id:'tz',name:'Tirzepatida (Exemplo)',unit:'mg',every:7,active:false,hl:5},{id:'rt',name:'Retatrutida (Exemplo)',unit:'mg',every:7,active:true,hl:6},{id:'sl',name:'SLU-PP-332 (Exemplo)',unit:'mg',every:1,active:true,hl:null},{id:'cl',name:'Clomifeno (Exemplo)',unit:'mg',every:0,active:true,hl:null,dd:25,parts:1},{id:'an',name:'Anastrozol (Exemplo)',unit:'mg',every:0,active:true,hl:2},{id:'clE',name:'Enclomifeno (Clomifeno Exemplo)',unit:'mg',every:0,active:true,hl:0.42,der:true},{id:'clZ',name:'Zuclomifeno (Clomifeno Exemplo)',unit:'mg',every:0,active:true,hl:30,der:true}];
+ [56,49,42,35].forEach(d=>sh(at(d,9,Math.floor(R()*40)),'tz','Tirzepatida (Exemplo)',2.5,SITES[si++%8]));
+ [[28,2],[21,2],[14,4],[7,4],[0,4]].forEach(x=>sh(at(x[0],9,Math.floor(R()*40)),'rt','Retatrutida (Exemplo)',x[1],SITES[si++%8]));
+ for(let d=30;d>=0;d-=3){const c=sh(at(d,8,30),'cl','Clomifeno (Exemplo)',25,'Oral');[['clE',.62,'Enclomifeno (Clomifeno Exemplo)'],['clZ',.38,'Zuclomifeno (Clomifeno Exemplo)']].forEach(y=>{const o=sh(c.t,y[0],y[2],+(25*y[1]).toFixed(3),'Oral','derivado do clomifeno');o.der=true;o.par=c.id})}
+ [30,27,23,20,16,13,9,6,2].forEach(d=>sh(at(d,8,35),'an','Anastrozol (Exemplo)',0.25,'Oral'));
+ for(let d=14;d>=4;d--)sh(at(d,12,0),'sl','SLU-PP-332 (Exemplo)',1,'Oral');
+ const weights=[];for(let d=54;d>=0;d-=2){const p=(54-d)/54,kg=+(96-8.4*p+(R()-.5)).toFixed(1),bf=+(31-3.2*p+(R()-.5)*.8).toFixed(1),fk=+(kg*bf/100).toFixed(1);weights.push({id:uid(),t:at(d,6+Math.floor(R()*4),Math.floor(R()*59)),kg,bf,fk,lbm:+(kg-fk).toFixed(1)})}
+ const notes=[],nt=(d,h,kind,cat,sc,mid,text)=>notes.push({id:uid(),t:at(d,h,10),kind,cat,sc,mid,text});
+ nt(52,20,'checkin','Apetite',3,null,'apetite normal, sem mudanças');nt(48,19,'efeito','Náusea',2,'tz','leve, 2h depois da dose');nt(41,21,'checkin','Energia',4,null,'boa disposição');nt(33,18,'efeito','Local da aplicação',1,'tz','pequena vermelhidão');nt(27,10,'checkin','Apetite',1,'rt','bem reduzido no 2º dia');nt(21,22,'efeito','Náusea',3,'rt','passou com refeição leve');nt(15,8,'checkin','Sono',2,null,'dormi mal');nt(10,9,'efeito','Tontura/pressão',2,'rt','ao levantar rápido');nt(6,20,'checkin','Humor',4,null,'estável');nt(2,21,'obs','Outro',0,null,'anotação livre de teste');
+ S={meds,shots,weights,notes,goal:82,height:178,seedV:9,cloAdded:1,anaAdded:1,hlSet:1,cloV2:1};sel=null;save()}
 function level(m,t){let ke=Math.LN2/m.hl,ka=Math.LN2/0.5;if(Math.abs(ka-ke)<1e-6)ka*=1.01;let a=0;for(const s of S.shots){if(s.mid!==m.id||s.t>t)continue;const x=(t-s.t)/864e5;a+=s.dose*Math.pow(0.5,x/m.hl)}return a}
 function setHL(id){const m=S.meds.find(x=>x.id===id);const v=prompt('Meia-vida de '+m.name+' (em dias):',m.hl||'');if(v===null)return;m.hl=parseFloat(String(v).replace(',','.'))||null;save()}
 function addWT(){}
@@ -392,7 +488,8 @@ function setHLs(){return false;if(S.hlSet)return false;S.meds.forEach(m=>{if(!m.
 const PAL=['var(--acc)','var(--acc2)','var(--acc3)','var(--warn)','#84cc16','#3d8bff','#f472b6','#fb923c','#94a3b8','#22d3ee'];
 const GP={emag:['#3df5c8','#ff5c8a','#8b7dff','#ffc53d','#5ab0ff','#a3e635'],testo:['#ffb020','#5ab0ff','#a3e635','#ff5c8a','#8b7dff','#3df5c8']};
 function grpOf(m){return m.grp||(/clomif|anastroz|testost|tamox|hcg|enclom|zuclom/i.test(m.name)?'testo':'emag')}
-function colOf(m){const g=grpOf(m),L=S.meds.filter(x=>grpOf(x)===g),i=L.findIndex(x=>x.id===m.id);return GP[g][(i<0?0:i)%GP[g].length]}
+const GL={emag:['#0e9f84','#e0457b','#6d5dfc','#d98a00','#2b7fd4','#6aa312'],testo:['#d97706','#2b7fd4','#6aa312','#e0457b','#6d5dfc','#0e9f84']};
+function colOf(m){const g=grpOf(m),L=S.meds.filter(x=>grpOf(x)===g),i=L.findIndex(x=>x.id===m.id),Q=document.documentElement.dataset.look==='clean'?GL:GP;return Q[g][(i<0?0:i)%Q[g].length]}
 function grpTable(g,sfx){const el=$('gt'+sfx);if(!el)return;const ids=new Set(S.meds.filter(m=>grpOf(m)===g).map(m=>m.id));
  const L=S.shots.filter(s=>ids.has(s.mid)&&!s.der).sort((a,b)=>b.t-a.t).slice(0,80);
  el.innerHTML=L.length?`<div class='gtw'><table><thead><tr><th>Data / hora</th><th>Medicação</th><th>Dose</th><th></th></tr></thead><tbody>${L.map(s=>{const d=new Date(s.t);return `<tr><td>${d.toLocaleDateString('pt-BR',{day:'2-digit',month:'2-digit'})}<br><small style="color:var(--mut)">${d.toLocaleTimeString('pt-BR',{hour:'2-digit',minute:'2-digit'})}</small></td><td>${esc(s.med)}<br><small style="color:var(--mut)">${esc(s.site||'')}${s.auto?' · auto':''}</small></td><td><b>${String(s.dose).replace('.',',')}</b> ${esc(s.unit)}</td><td><button class='x' onclick="editT('${s.id}')">⏰</button><button class='x' onclick="delS('${s.id}')">×</button></td></tr>`}).join('')}</tbody></table></div>`:'<div class="empty">Nenhuma aplicação neste grupo ainda.</div>'}
@@ -410,7 +507,7 @@ function cloSplit(){let ch=false;const p=S.meds.find(m=>m.id==='cl');if(!p)retur
  return ch}
 function dayStart(t){const d=new Date(t);d.setHours(0,0,0,0);return d.getTime()}
 function dayLv(m,d){return Math.max(level(m,d),...S.shots.filter(s=>s.mid===m.id&&s.t>=d&&s.t<d+864e5).map(s=>level(m,s.t)))}
-function setLook(v){const p=v.split('-');document.documentElement.dataset.look=p[0];document.documentElement.dataset.tone=p[1]||'';try{localStorage.setItem('look2',v)}catch(e){}}
+function setLook(v){const p=v.split('-');document.documentElement.dataset.look=p[0];document.documentElement.dataset.tone=p[1]||'';try{localStorage.setItem('look3',v)}catch(e){}if(window.__rd)render()}
 function decay(grp,sfx){
  const ms=S.meds.filter(m=>grpOf(m)===grp&&m.hl&&S.shots.some(s=>s.mid===m.id)),nm=S.meds.filter(m=>grpOf(m)===grp&&!m.hl&&!m.parts&&S.shots.some(s=>s.mid===m.id));
  if(!ms.length&&!nm.length){$('decay'+sfx).innerHTML='<div class="empty">Registre aplicações e informe a meia-vida (⏱) da medicação para ver a curva.</div>';$('dlegend'+sfx).innerHTML='';$('ddaily'+sfx).innerHTML='';return}
@@ -438,6 +535,52 @@ function decay(grp,sfx){
  $('decay'+sfx).innerHTML=`<svg viewBox='0 0 ${W} ${H}' style='min-width:${Math.round(W*Z[sfx])}px'>${g}${body}<line x1='${xn}' x2='${xn}' y1='${P.t}' y2='${H-P.b}' stroke='var(--ink)' stroke-dasharray='4 4' opacity='.6'/><text x='${xn+4}' y='${P.t+10}' font-size='11' fill='var(--ink)'>hoje</text><text x='${P.l}' y='${H-8}' font-size='11' fill='var(--mut)'>${fmtD(t0)}</text><text x='${W-P.r}' y='${H-8}' font-size='11' text-anchor='end' fill='var(--mut)'>${fmtD(t1)} (projeção)</text></svg>`;
  $('dlegend'+sfx).innerHTML=leg;daily(ms,sfx);
 }
+const XC={v:10,d:2,u:100,cap:1,dose:1},XCH={v:[5,10,15,20,30,60],d:[0.5,1,1.5,2,2.5,3],cap:[0.3,0.5,1],dose:[0.25,0.5,1,1.5,2,2.5,3,4,5,7.5,10,12.5,15,20,25,30]},XH={tab:'a',q:'',m:'',f:'',t:''};
+const fnum=n=>(+n.toFixed(3)).toString().replace('.',',');
+function xChips(k,arr,fmt){return arr.map(x=>`<button type="button" class="ghost chip ${XC[k]===x?'on':''}" onclick="XC.${k}=${x};xCalc()">${fmt(x)}</button>`).join('')}
+function xSet(k,v){const n=parseFloat(String(v).replace(',','.'));if(n>0){XC[k]=n;xCalc()}}
+function xCalc(){const el=$('xcalc');if(!el)return;const c=XC.v/XC.d,vol=XC.dose/c,un=vol*XC.u,cap=XC.cap*XC.u,fit=un<=cap+1e-9,n=Math.floor(XC.v/XC.dose+1e-9),oth=(k)=>XCH[k].includes(XC[k])?'':XC[k];
+ const rows=XCH.dose.filter(x=>x<=XC.v).map(x=>{const v=x/c;return `<tr class="${x===XC.dose?'sel':''}"><td>${fnum(x)} mg</td><td>${fnum(v)} mL</td><td>${fnum(v*XC.u)}</td></tr>`}).join('');
+ el.innerHTML=`<div class="cl">1 · Conteúdo do frasco (mg)</div><div class="chips">${xChips('v',XCH.v,x=>x+' mg')}<input type="number" step="any" min="0" placeholder="outro" value="${oth('v')}" onchange="xSet('v',this.value)"></div>
+<div class="cl">2 · Volume de diluente (mL)</div><div class="chips">${xChips('d',XCH.d,x=>fnum(x)+' mL')}<input type="number" step="any" min="0" placeholder="outro" value="${oth('d')}" onchange="xSet('d',this.value)"></div>
+<div class="cl">3 · Seringa de insulina</div><div class="chips"><button type="button" class="ghost chip ${XC.u===100?'on':''}" onclick="XC.u=100;xCalc()">U-100</button><button type="button" class="ghost chip ${XC.u===40?'on':''}" onclick="XC.u=40;xCalc()">U-40</button>${xChips('cap',XCH.cap,x=>fnum(x)+' mL ('+fnum(x*XC.u)+' un.)')}</div>
+<div class="cl">4 · Dose desejada (mg)</div><div class="chips">${xChips('dose',XCH.dose,x=>fnum(x)+' mg')}<input type="number" step="any" min="0" placeholder="outra" value="${oth('dose')}" onchange="xSet('dose',this.value)"></div>
+<div class="cl">Resultado</div><div class="sy"><i style="width:${Math.min(100,un/cap*100)}%"></i></div>
+<div class="big2">${fnum(vol)} mL <span style="color:var(--mut)">|</span> ${fnum(un)} unidades</div>
+${fit?'':`<div class="warn">⚠ Passa da capacidade da seringa (${fnum(XC.cap)} mL). Use uma seringa maior ou divida em duas aplicações.</div>`}
+<div class="sub" style="margin:6px 0">Concentração: <b>${fnum(c)} mg/mL</b> · Doses no frasco: <b>${n}</b> de ${fnum(XC.dose)} mg</div>
+<div class="gtw" style="max-height:200px"><table><thead><tr><th>Dose</th><th>Volume</th><th>Unidades</th></tr></thead><tbody>${rows}</tbody></table></div>
+<div class="chips" style="margin-top:8px"><button type="button" class="ghost chip" onclick="xCopy()">📋 Copiar</button><button type="button" class="ghost chip" onclick="Object.assign(XC,{v:10,d:2,u:100,cap:1,dose:1});xCalc()">↺ Resetar</button></div>`}
+function xCopy(){const c=XC.v/XC.d,vol=XC.dose/c,t=`Frasco ${fnum(XC.v)} mg + ${fnum(XC.d)} mL → ${fnum(c)} mg/mL\nDose ${fnum(XC.dose)} mg = ${fnum(vol)} mL = ${fnum(vol*XC.u)} unidades (U-${XC.u})`;try{navigator.clipboard.writeText(t).then(()=>alert('Copiado!'),()=>prompt('Copie:',t))}catch(e){prompt('Copie:',t)}}
+function xNoteMeds(){const s=$('nm');if(!s)return;const c=s.value;s.innerHTML='<option value="">—</option>'+S.meds.filter(m=>!m.der).map(m=>`<option value="${m.id}">${esc(m.name)}</option>`).join('');s.value=c}
+function xAddNote(e){e.preventDefault();S.notes=(S.notes||[]).concat([{id:uid(),t:Date.now(),kind:$('nk').value,cat:$('nc').value,sc:+$('ni').value,mid:$('nm').value||null,text:$('nt').value.trim()}]);$('nt').value='';save()}
+function delN(id){S.notes=(S.notes||[]).filter(n=>n.id!==id);save()}
+function delW(id){S.weights=S.weights.filter(w=>w.id!==id);save()}
+function backupInfo(){const e=$('bkinfo');if(!e)return;const t=S.lastBackup;e.textContent=t?'Último backup: '+fmtDT(t)+(Date.now()-t>7*864e5?' ⚠ faz mais de 7 dias':''):'Nenhum backup exportado ainda ⚠'}
+function xCsv(k){const q=v=>'"'+String(v==null?'':v).replace(/"/g,'""')+'"',p=n=>String(n).padStart(2,'0'),d=t=>{const x=new Date(t);return [p(x.getDate())+'/'+p(x.getMonth()+1)+'/'+x.getFullYear(),p(x.getHours())+':'+p(x.getMinutes())]},nm=id=>(S.meds.find(m=>m.id===id)||{}).name||'',c=v=>String(v).replace('.',',');let H,R;
+ if(k==='a'){H=['data','hora','medicacao','dose','unidade','local','observacao'];R=S.shots.filter(s=>!s.der).sort((a,b)=>a.t-b.t).map(s=>[...d(s.t),s.med,c(s.dose),s.unit,s.site||'',s.note||''])}
+ else if(k==='p'){H=['data','hora','peso_kg','gordura_pct','gordura_kg','massa_magra_kg'];R=S.weights.slice().sort((a,b)=>a.t-b.t).map(w=>[...d(w.t),c(w.kg),w.bf==null?'':c(w.bf),w.fk==null?'':c(w.fk),w.lbm==null?'':c(w.lbm)])}
+ else if(k==='o'){H=['data','hora','tipo','categoria','intensidade','medicacao','texto'];R=(S.notes||[]).slice().sort((a,b)=>a.t-b.t).map(n=>[...d(n.t),n.kind,n.cat,n.sc,nm(n.mid),n.text||''])}
+ else{H=['nome','unidade','intervalo_dias','meia_vida_dias','grupo'];R=S.meds.filter(m=>!m.der).map(m=>[m.name,m.unit,m.every||0,m.hl==null?'':c(m.hl),grpOf(m)])}
+ const txt=[H,...R].map(r=>r.map(q).join(';')).join('\r\n'),b=new Blob(['\ufeff'+txt],{type:'text/csv;charset=utf-8'}),u=URL.createObjectURL(b),a=document.createElement('a');a.href=u;a.download='protocolo-'+({a:'aplicacoes',p:'pesagens',o:'observacoes',m:'medicacoes'})[k]+'.csv';document.body.append(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(u),3000)}
+function hist(){const el=$('hist');if(!el)return;
+ if(!$('hbody'))el.innerHTML=`<div class="chips">${[['a','Aplicações'],['p','Pesagens'],['o','Observações']].map(x=>`<button type="button" class="ghost chip" data-ht="${x[0]}" onclick="XH.tab='${x[0]}';hist()">${x[1]}</button>`).join('')}</div><div class="hf"><input id="hq" placeholder="Buscar…" oninput="XH.q=this.value;xHB()"><select id="hm" onchange="XH.m=this.value;xHB()"></select><input id="hf" type="date" onchange="XH.f=this.value;xHB()"><input id="ht" type="date" onchange="XH.t=this.value;xHB()"></div><div id="hbody"></div>`;
+ const s=$('hm'),cur=XH.m;s.innerHTML='<option value="">Todas as medicações</option>'+S.meds.filter(m=>!m.der).map(m=>`<option value="${m.id}">${esc(m.name)}</option>`).join('');s.value=cur;
+ el.querySelectorAll('[data-ht]').forEach(b=>b.classList.toggle('on',b.dataset.ht===XH.tab));xNoteMeds();backupInfo();xHB()}
+function xHB(){const el=$('hbody');if(!el)return;const f=XH.f?new Date(XH.f+'T00:00').getTime():0,t=XH.t?new Date(XH.t+'T23:59:59').getTime():Infinity,q=XH.q.trim().toLowerCase(),nm=id=>(S.meds.find(m=>m.id===id)||{}).name||'',
+ dt=x=>{const d=new Date(x);return d.toLocaleDateString('pt-BR',{day:'2-digit',month:'2-digit'})+'<br><small style="color:var(--mut)">'+d.toLocaleTimeString('pt-BR',{hour:'2-digit',minute:'2-digit'})+'</small>'};let L,head,row;
+ if(XH.tab==='a'){L=S.shots.filter(s=>!s.der&&s.t>=f&&s.t<=t&&(!XH.m||s.mid===XH.m)&&(!q||(s.med+' '+(s.note||'')+' '+(s.site||'')).toLowerCase().includes(q)));head='<th>Data / hora</th><th>Medicação</th><th>Dose</th><th></th>';
+  row=s=>`<td>${dt(s.t)}</td><td>${esc(s.med)}<br><small style="color:var(--mut)">${esc(s.site||'')}${s.auto?' · auto':''}${s.note&&!s.auto?' · '+esc(s.note):''}</small></td><td><b>${String(s.dose).replace('.',',')}</b> ${esc(s.unit)}</td><td><button class="x" onclick="editT('${s.id}')">⏰</button><button class="x" onclick="delS('${s.id}')">×</button></td>`}
+ else if(XH.tab==='p'){L=S.weights.filter(w=>w.t>=f&&w.t<=t&&(!q||String(w.kg).includes(q.replace(',','.'))));head='<th>Data / hora</th><th>Peso</th><th>Gordura</th><th></th>';
+  row=w=>`<td>${dt(w.t)}</td><td><b>${w.kg.toFixed(1).replace('.',',')}</b> kg</td><td>${w.bf?w.bf.toFixed(1).replace('.',',')+'%':''}</td><td><button class="x" onclick="delW('${w.id}')">×</button></td>`}
+ else{L=(S.notes||[]).filter(n=>n.t>=f&&n.t<=t&&(!XH.m||n.mid===XH.m)&&(!q||((n.text||'')+' '+n.cat+' '+n.kind).toLowerCase().includes(q)));head='<th>Data / hora</th><th>Observação</th><th>Int.</th><th></th>';
+  row=n=>`<td>${dt(n.t)}</td><td><b>${esc(n.cat)}</b> <small style="color:var(--mut)">${esc(({checkin:'check-in',efeito:'efeito',obs:'obs'})[n.kind]||'')}${n.mid?' · '+esc(nm(n.mid)):''}</small><br>${esc(n.text||'')}</td><td>${n.sc}</td><td><button class="x" onclick="delN('${n.id}')">×</button></td>`}
+ L.sort((a,b)=>b.t-a.t);el.innerHTML=`<div class="sub" style="margin-bottom:6px">${L.length} registro(s)</div>`+(L.length?`<div class="gtw"><table><thead><tr>${head}</tr></thead><tbody>${L.slice(0,200).map(x=>'<tr>'+row(x)+'</tr>').join('')}</tbody></table></div>`:'<div class="empty">Nada encontrado com esses filtros.</div>')}
+function IC(k){const P={r:'<rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/>',p:'<path d="M3 3v18h18"/><path d="M7 15l4-5 3 3 5-7"/>',e:'<g transform="rotate(-45 12 12)"><rect x="2.5" y="8" width="19" height="8" rx="4"/><path d="M12 8v8"/></g>',t:'<path d="M9 3h6M10 3v6L4.5 19a1.5 1.5 0 0 0 1.3 2.2h12.4a1.5 1.5 0 0 0 1.3-2.2L14 9V3"/><path d="M7.5 14h9"/>',a:'<rect x="3" y="3" width="18" height="18" rx="3"/><path d="M12 8v8M8 12h8"/>',m:'<path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>',c:'<path d="M11 17l-5-5 5-5M18 17l-5-5 5-5"/>'};return '<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">'+P[k]+'</svg>'}
+function initExtras(T){const mk=(id,html)=>{const d=document.createElement('div');d.className='card';d.id=id;d.innerHTML=html;return d};
+ T.m.prepend(mk('xcalcCard','<h2>🧪 Calculadora de reconstituição</h2><div class="sub" style="margin-bottom:8px">Converte a dose em mg para volume (mL) e unidades da seringa de insulina. É só aritmética: confira sempre o rótulo e o volume real do frasco.</div><div id="xcalc"></div>'),mk('xbk','<h2>💾 Dados e backup</h2><div class="sub" id="bkinfo" style="margin-bottom:8px"></div><div class="chips"><button type="button" class="ghost chip" onclick="exp()">⬇ JSON completo</button><button type="button" class="ghost chip" onclick="xCsv(\'a\')">CSV Aplicações</button><button type="button" class="ghost chip" onclick="xCsv(\'p\')">CSV Pesagens</button><button type="button" class="ghost chip" onclick="xCsv(\'o\')">CSV Observações</button><button type="button" class="ghost chip" onclick="xCsv(\'m\')">CSV Medicações</button></div><div class="sub">Ao importar um backup (botão abaixo), o app mostra uma prévia antes de substituir os dados.</div>'));
+ T.a.children[0].after(mk('xnotesCard','<h2>📝 Observações e check-in</h2><form id="xnf" onsubmit="xAddNote(event)"><div><label>Tipo</label><select id="nk"><option value="checkin">Check-in do dia</option><option value="efeito">Efeito colateral</option><option value="obs">Observação livre</option></select></div><div><label>Categoria</label><select id="nc">'+['Náusea','Apetite','Energia','Sono','Humor','Tontura/pressão','Libido','Local da aplicação','Outro'].map(x=>'<option>'+x+'</option>').join('')+'</select></div><div><label>Intensidade (0–5)</label><select id="ni">'+[0,1,2,3,4,5].map(x=>'<option>'+x+'</option>').join('')+'</select></div><div><label>Medicação (opcional)</label><select id="nm"></select></div><div class="full"><label>Texto</label><input id="nt" maxlength="200" placeholder="como você está, reação, anotação…"></div><button class="full">Salvar observação</button></form>'));
+ xCalc()}
 (function(){const w=document.querySelector('.wrap'),mk=id=>{const d=document.createElement('div');d.className='tab';d.id='tab-'+id;return d},T={r:mk('r'),p:mk('p'),e:mk('e'),t:mk('t'),a:mk('a'),m:mk('m')},card=id=>$(id).closest('.card');
 const cyc=$('cyc'),dE=$('due'),dH=dE.previousElementSibling,dc=document.createElement('div');dc.className='card';dc.append(dH,dE);
 const dec=card('decay'),html=dec.outerHTML;dec.remove();
@@ -449,12 +592,17 @@ T.e.append(th('Emagrecedores','tirzepatida, retatrutida e afins'),cyc,mkDec('E',
 T.t.append(th('Protocolo de testosterona','clomifeno, anastrozol e afins'),mkDec('T','\u{1F4C9} N\u00edveis e decaimento'),gt('T','\u{1F4CB} Aplica\u00e7\u00f5es'));
 T.a.append(card('sites'),card('hist'),card('meds'));T.m.append(document.querySelector('.foot'),document.querySelector('.note'));
 document.querySelectorAll('.grid.two').forEach(g=>g.remove());w.append(T.r,T.p,T.e,T.t,T.a,T.m);
+initExtras(T);
+T.r.prepend(th('Dashboard','acompanhamento do seu protocolo e do peso'));T.p.prepend(th('Peso e composição','pesagens, balança e peso por ciclo'));T.a.prepend(th('Registrar','aplicações, observações e histórico'));T.m.prepend(th('Ferramentas','calculadora, backup e configurações'));
+const hb=document.createElement('button');hb.id='newrec';hb.textContent='+ Novo registro';hb.onclick=()=>showTab('a');document.querySelector('header').append(hb);
 const bar=document.createElement('nav');bar.className='tabbar';
-[['r','\u{1F3E0}','Resumo'],['p','\u2696\ufe0f','Peso'],['e','\u{1F48A}','Emagrec.'],['t','\u{1F9EC}','Testo'],['a','\u2795','Registrar'],['m','\u2699\ufe0f','Mais']].forEach(x=>{const b=document.createElement('button');b.className='ghost';b.dataset.k=x[0];b.innerHTML='<span>'+x[1]+'</span>'+x[2];b.onclick=()=>showTab(x[0]);bar.append(b)});
+const br=document.createElement('div');br.className='brand';br.innerHTML='<b>P</b><span>Meu Protocolo</span>';bar.append(br);
+[['r','\u{1F3E0}','Resumo','Dashboard','ACOMPANHAR'],['p','\u2696\ufe0f','Peso','Peso e composi\u00e7\u00e3o'],['e','\u{1F48A}','Emagrec.','Emagrecedores'],['t','\u{1F9EC}','Testo','Testosterona'],['a','\u2795','Registrar','Registrar','REGISTRAR'],['m','\u2699\ufe0f','Mais','Ferramentas','FERRAMENTAS']].forEach(x=>{if(x[4]){const l=document.createElement('div');l.className='sec';l.textContent=x[4];bar.append(l)}const b=document.createElement('button');b.className='ghost';b.dataset.k=x[0];b.innerHTML=IC(x[0])+'<i class="s">'+x[2]+'</i><i class="l">'+x[3]+'</i>';b.onclick=()=>showTab(x[0]);bar.append(b)});
+const cb=document.createElement('button');cb.className='ghost col';cb.innerHTML=IC('c')+'<i class="l">Recolher</i>';cb.onclick=()=>{document.body.classList.toggle('mini');try{localStorage.setItem('mini',document.body.classList.contains('mini')?'1':'')}catch(e){}};bar.append(cb);try{if(localStorage.getItem('mini'))document.body.classList.add('mini')}catch(e){}
 document.body.append(bar);
 window.showTab=function(k){if(!T[k])k='r';document.body.dataset.tab=k;for(const x in T)T[x].classList.toggle('on',x===k);bar.querySelectorAll('button').forEach(b=>b.classList.toggle('on',b.dataset.k===k));try{localStorage.setItem('tab',k)}catch(e){}window.scrollTo(0,0);if('pet'.includes(k))render()}})();
-$('look').value='pulse';try{const l=localStorage.getItem('look2')||'pulse';$('look').value=l;setLook(l)}catch(e){}
-load();$("wdt").value=new Date().toISOString().slice(0,10);$("st").value=nowLocal().slice(0,10);$("sh").value=nowLocal().slice(11);$('sm').onchange=()=>{const m=S.meds.find(x=>x.id===$('sm').value);if(m&&m.dd)$('sd').value=m.dd};render();setSt("💾 dados só neste aparelho");showTab((()=>{try{return localStorage.getItem("tab")}catch(e){return null}})()||"r");if("serviceWorker" in navigator)window.addEventListener("load",()=>navigator.serviceWorker.register("sw.js").catch(()=>{}));
+$('look').value='clean';try{const l=localStorage.getItem('look3')||'clean';$('look').value=l;setLook(l)}catch(e){}
+load();$("wdt").value=new Date().toISOString().slice(0,10);$("st").value=nowLocal().slice(0,10);$("sh").value=nowLocal().slice(11);$('sm').onchange=()=>{const m=S.meds.find(x=>x.id===$('sm').value);if(m&&m.dd)$('sd').value=m.dd};render();window.__rd=1;setSt("💾 dados só neste aparelho");showTab((()=>{try{return localStorage.getItem("tab")}catch(e){return null}})()||"r");if("serviceWorker" in navigator)window.addEventListener("load",()=>navigator.serviceWorker.register("sw.js").catch(()=>{}));
 </script>
 </body>
 </html>
