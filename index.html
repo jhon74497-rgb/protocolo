@@ -170,7 +170,7 @@ tr.sel td{background:color-mix(in srgb,var(--acc) 18%,transparent)!important;fon
 :root[data-look="clean"] nav.tabbar button.ghost.on{color:var(--acc);background:#e6f6f2;box-shadow:inset 0 3px 0 var(--acc)}
 nav.tabbar .brand,nav.tabbar .sec,nav.tabbar i.l{display:none}
 nav.tabbar i{font-style:normal}
-@media(min-width:900px){
+@media all{
  body{padding-left:248px;padding-bottom:20px}
  nav.tabbar{top:0;bottom:auto;right:auto;width:248px;height:100vh;flex-direction:column;align-items:stretch;padding:16px 12px;border-top:0;border-right:1px solid var(--line);overflow-y:auto}
  :root[data-look="clean"] nav.tabbar{border-top:0;border-right:1px solid var(--line)}
@@ -190,7 +190,7 @@ nav.tabbar i{font-style:normal}
 :root[data-look="clean"] .cy>div{border-top:1px solid var(--line);border-radius:10px;background:#fff}
 nav.tabbar svg.ic{width:22px;height:22px;min-width:0;display:block;flex:none}
 nav.tabbar button.ghost.col{display:none}
-@media(min-width:900px){
+@media all{
  nav.tabbar svg.ic{width:19px;height:19px;min-width:0}
  :root[data-look="clean"] nav.tabbar{padding:18px 12px 12px}
  :root[data-look="clean"] nav.tabbar .sec{color:#8a98a4;font-weight:600;letter-spacing:.08em;margin:18px 12px 6px}
@@ -200,8 +200,8 @@ nav.tabbar button.ghost.col{display:none}
  :root[data-look="clean"] nav.tabbar button.ghost.on{background:#d9f4ec;color:#0a7a65;font-weight:600;box-shadow:none}
  :root[data-look="clean"] nav.tabbar button.ghost.on svg.ic{color:var(--acc)}
  :root[data-look="clean"] nav.tabbar button.ghost.on::before{content:"";position:absolute;left:-12px;top:3px;bottom:3px;width:3px;background:var(--acc);border-radius:0 3px 3px 0}
- :root[data-look="clean"] nav.tabbar button.ghost[data-k="m"]{background:#e3f6f0;color:#0a7a65;font-weight:600}
- :root[data-look="clean"] nav.tabbar button.ghost[data-k="m"] svg.ic{background:var(--acc);color:#fff;border-radius:6px;padding:4px;width:26px;height:26px;min-width:0;margin:-3px 0 -3px -4px;stroke-width:2}
+ :root[data-look="clean"] nav.tabbar button.ghost[data-k="x"]{background:#e3f6f0;color:#0a7a65;font-weight:600}
+ :root[data-look="clean"] nav.tabbar button.ghost[data-k="x"] svg.ic{background:var(--acc);color:#fff;border-radius:6px;padding:4px;width:26px;height:26px;min-width:0;margin:-3px 0 -3px -4px;stroke-width:2}
  nav.tabbar button.ghost.col{display:flex;margin-top:auto;justify-content:center;color:var(--mut)}
  :root[data-look="clean"] nav.tabbar button.ghost.col{border-top:1px solid var(--line);border-radius:0!important;background:none}
  :root[data-look="clean"] nav.tabbar button.ghost.col::before{display:none}
@@ -227,6 +227,50 @@ nav.tabbar button.ghost.col{display:none}
 .dot{display:inline-block;width:9px;height:9px;margin-right:6px;border-radius:50%}
 .lg2{display:flex;flex-wrap:wrap;gap:6px 14px;margin-top:8px;font-size:.78rem}.lgi i{display:inline-block;width:10px;height:10px;margin-right:5px;border-radius:50%}
 @media(max-width:600px){.cal .d{min-height:52px;padding:2px}.cal .evs{flex-direction:row;flex-wrap:wrap;gap:3px}.cal .ev{font-size:0;padding:0;width:8px;height:8px;border:0;border-radius:50%;background:var(--c)}.cal .ev.p{background:none;border:1.5px solid var(--c)}}
+.rc{display:grid;grid-template-columns:minmax(0,1fr) 340px;gap:16px;align-items:start}
+@media(max-width:899px){.rc{grid-template-columns:1fr}}
+.rcs{margin-bottom:14px;padding:16px 18px}
+.rch{display:flex;gap:12px;align-items:center;margin-bottom:12px}
+.rch b{font-size:.9rem;letter-spacing:.03em;text-transform:uppercase}
+.rcb{width:30px;height:30px;border-radius:50%;background:var(--acc);color:#fff;display:grid;place-items:center;font-weight:800;font-size:.9rem;flex:none}
+.rcbody{display:flex;gap:14px;align-items:center}.rci{width:34px;height:48px;min-width:0;flex:none}
+.rcchips{display:flex;flex-wrap:wrap;gap:8px}
+.rcc{background:color-mix(in srgb,var(--ink) 7%,var(--card));border:1px solid transparent;color:var(--ink);padding:8px 14px;font-weight:600;font-size:.88rem;border-radius:999px!important}
+.rcc.on{background:var(--acc);color:#fff}
+.rco{width:78px;text-align:center;border:1px dashed var(--mut)!important;border-radius:999px!important;padding:8px 6px;font-size:.88rem;background:var(--card)}
+.rcys{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:12px}
+.rcy{display:flex;flex-direction:column;align-items:center;gap:4px;padding:12px 6px;border:1px solid var(--line);background:var(--card);border-radius:10px!important;color:var(--ink)}
+.rcy svg{min-width:0;display:block}.rcy span{font-size:.76rem;color:var(--mut)}
+.rcy.on{background:color-mix(in srgb,var(--acc) 12%,var(--card));border-color:var(--acc)}
+.rcside{position:sticky;top:84px;padding:16px}
+.rcsy{width:120px;min-width:0;display:inline-block}
+.rcres{background:var(--acc);color:#fff;border-radius:10px;padding:14px 8px;text-align:center;font-size:1.35rem;font-weight:800;margin:8px 0;font-variant-numeric:tabular-nums}.rcres i{font-style:normal;opacity:.6;margin:0 6px}
+.rcst{display:grid;grid-template-columns:1fr 1fr;gap:8px}.rcst>div{background:color-mix(in srgb,var(--ink) 5%,var(--card));border-radius:10px;padding:10px;text-align:center}
+.rcst small{display:block;font-size:.62rem;letter-spacing:.07em;text-transform:uppercase;color:var(--mut)}.rcst b{font-size:1.25rem;color:var(--acc)}.rcst span{font-size:.72rem;color:var(--mut);display:block}.rcst b span{display:inline;font-size:.8rem}
+.rcbt{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px}.rcbt button{padding:10px}
+.rcwa{background:#16a34a!important;color:#fff!important}
+:root[data-look] body button.rcc:not(.on){background:color-mix(in srgb,var(--ink) 7%,var(--card));color:var(--ink)}
+:root[data-look] body button.rcc.on{background:var(--acc);color:#fff}
+:root[data-look] body button.rcy:not(.on){background:var(--card);color:var(--ink)}
+:root[data-look] body button.rcy.on{background:color-mix(in srgb,var(--acc) 12%,var(--card));color:var(--ink)}
+@media print{nav.tabbar,header,.tab:not(#tab-x),.th{display:none!important}body{padding:0!important}.rcside{position:static}.rcbt{display:none}}
+@media(max-width:899px){nav.tabbar{overflow-x:auto}nav.tabbar button.ghost{flex:0 0 auto;min-width:68px}}
+#menuBtn{display:none;width:40px;height:40px;padding:0;font-size:1.25rem;line-height:1;background:var(--card);color:var(--ink);border:1px solid var(--line);border-radius:8px}
+.navbd{display:none}
+@media(max-width:899px){
+ :root[data-look] body,:root[data-look] body.mini{padding-left:0;padding-bottom:20px}
+ :root[data-look] body nav.tabbar,:root[data-look] body.mini nav.tabbar{top:0;bottom:0;left:0;right:auto;width:276px;height:100%;padding:18px 12px 12px;flex-direction:column;align-items:stretch;overflow-y:auto;transform:translateX(-105%);transition:transform .22s ease;z-index:80;border-top:0;border-right:1px solid var(--line)}
+ :root[data-look] body.nav-open nav.tabbar{transform:none;box-shadow:0 0 40px rgba(0,0,0,.28)}
+ :root[data-look] body nav.tabbar button.ghost.col{display:none}
+ :root[data-look] body nav.tabbar .brand span,:root[data-look] body nav.tabbar button.ghost i.l{display:inline}
+ :root[data-look] body nav.tabbar .sec{display:block}
+ :root[data-look] body nav.tabbar button.ghost{flex:none;min-width:0;flex-direction:row;justify-content:flex-start;gap:12px;padding:11px 12px;font-size:.95rem;border-radius:8px!important}
+ :root[data-look] body nav.tabbar button.ghost i.s{display:none}
+ :root[data-look] body nav.tabbar button.ghost svg.ic{width:20px;height:20px}
+ body.nav-open .navbd{display:block;position:fixed;inset:0;background:rgba(10,20,30,.45);z-index:70}
+ #menuBtn{display:inline-grid;place-items:center;flex:none}
+ header{gap:8px}
+}
 </style>
 </head>
 <body>
@@ -551,23 +595,38 @@ function decay(grp,sfx){
  $('decay'+sfx).innerHTML=`<svg viewBox='0 0 ${W} ${H}' style='min-width:${Math.round(W*Z[sfx])}px'>${g}${body}<line x1='${xn}' x2='${xn}' y1='${P.t}' y2='${H-P.b}' stroke='var(--ink)' stroke-dasharray='4 4' opacity='.6'/><text x='${xn+4}' y='${P.t+10}' font-size='11' fill='var(--ink)'>hoje</text><text x='${P.l}' y='${H-8}' font-size='11' fill='var(--mut)'>${fmtD(t0)}</text><text x='${W-P.r}' y='${H-8}' font-size='11' text-anchor='end' fill='var(--mut)'>${fmtD(t1)} (projeção)</text></svg>`;
  $('dlegend'+sfx).innerHTML=leg;daily(ms,sfx);
 }
-const XC={v:10,d:2,u:100,cap:1,dose:1},XCH={v:[5,10,15,20,30,60],d:[0.5,1,1.5,2,2.5,3],cap:[0.3,0.5,1],dose:[0.25,0.5,1,1.5,2,2.5,3,4,5,7.5,10,12.5,15,20,25,30]},XH={tab:'a',q:'',m:'',f:'',t:''};
+const XC={v:10,d:2,u:100,cap:1,dose:1},XCH={v:[5,10,15,20,30,60],d:[0.5,1,1.5,2,2.5,3],cap:[0.3,0.5,1],dose:[0.25,0.5,1,1.7,2,2.4,2.5,4,5,7.5,10,12,12.5,15,17.5,20,25,30]},XH={tab:'a',q:'',m:'',f:'',t:''};
 const fnum=n=>(+n.toFixed(3)).toString().replace('.',',');
-function xChips(k,arr,fmt){return arr.map(x=>`<button type="button" class="ghost chip ${XC[k]===x?'on':''}" onclick="XC.${k}=${x};xCalc()">${fmt(x)}</button>`).join('')}
+const RC_VIAL='<svg class="rci" viewBox="0 0 30 46"><rect x="9" y="1" width="12" height="6" rx="1.5" fill="#cfd8dc"/><rect x="6" y="7" width="18" height="36" rx="3" fill="#e0f5f1" stroke="#2bb39a" stroke-width="2"/><rect x="10" y="18" width="10" height="9" rx="1" fill="none" stroke="#2bb39a" stroke-width="1.5"/></svg>',RC_BOT='<svg class="rci" viewBox="0 0 30 46"><rect x="10" y="1" width="10" height="7" rx="1.5" fill="#cfd8dc"/><path d="M9 8h12l3 6v27a3 3 0 0 1-3 3H9a3 3 0 0 1-3-3V14z" fill="#f4f7f8" stroke="#9aa9b4" stroke-width="2"/><path d="M15 20c3 4 4 6 4 8a4 4 0 0 1-8 0c0-2 1-4 4-8z" fill="#2bb39a"/></svg>',RC_SY='<svg viewBox="0 0 90 16" width="86" height="16"><rect x="14" y="4" width="60" height="8" rx="2" fill="#fff" stroke="#8fa0ab"/><path d="M22 4v3M30 4v3M38 4v3M46 4v3M54 4v3M62 4v3M70 4v3" stroke="#8fa0ab"/><rect x="2" y="7" width="12" height="2" fill="#8fa0ab"/><rect x="74" y="2" width="3" height="12" fill="#8fa0ab"/><rect x="77" y="7" width="10" height="2" fill="#8fa0ab"/></svg>';
+function xChips(k,arr,fmt){return arr.map(x=>`<button type="button" class="rcc ${XC[k]===x?'on':''}" onclick="XC.${k}=${x};xCalc()">${fmt(x)}</button>`).join('')}
+function xText(){const c=XC.v/XC.d,vol=XC.dose/c;return `Frasco ${fnum(XC.v)} mg + ${fnum(XC.d)} mL → ${fnum(c)} mg/mL\nDose ${fnum(XC.dose)} mg = ${fnum(vol)} mL = ${fnum(vol*XC.u)} unidades (seringa U-${fnum(XC.u)})`}
+function xWa(){window.open('https://wa.me/?text='+encodeURIComponent(xText()),'_blank')}
+function xFromMed(id){const l=S.shots.filter(s=>s.mid===id&&!s.der).sort((a,b)=>b.t-a.t)[0];if(l){XC.dose=l.dose;xCalc()}}
 function xSet(k,v){const n=parseFloat(String(v).replace(',','.'));if(n>0){XC[k]=n;xCalc()}}
-function xCalc(){const el=$('xcalc');if(!el)return;const c=XC.v/XC.d,vol=XC.dose/c,un=vol*XC.u,cap=XC.cap*XC.u,fit=un<=cap+1e-9,n=Math.floor(XC.v/XC.dose+1e-9),oth=(k)=>XCH[k].includes(XC[k])?'':XC[k];
- const rows=XCH.dose.filter(x=>x<=XC.v).map(x=>{const v=x/c;return `<tr class="${x===XC.dose?'sel':''}"><td>${fnum(x)} mg</td><td>${fnum(v)} mL</td><td>${fnum(v*XC.u)}</td></tr>`}).join('');
- el.innerHTML=`<div class="cl">1 · Conteúdo do frasco (mg)</div><div class="chips">${xChips('v',XCH.v,x=>x+' mg')}<input type="number" step="any" min="0" placeholder="outro" value="${oth('v')}" onchange="xSet('v',this.value)"></div>
-<div class="cl">2 · Volume de diluente (mL)</div><div class="chips">${xChips('d',XCH.d,x=>fnum(x)+' mL')}<input type="number" step="any" min="0" placeholder="outro" value="${oth('d')}" onchange="xSet('d',this.value)"></div>
-<div class="cl">3 · Seringa de insulina</div><div class="chips"><button type="button" class="ghost chip ${XC.u===100?'on':''}" onclick="XC.u=100;xCalc()">U-100</button><button type="button" class="ghost chip ${XC.u===40?'on':''}" onclick="XC.u=40;xCalc()">U-40</button>${xChips('cap',XCH.cap,x=>fnum(x)+' mL ('+fnum(x*XC.u)+' un.)')}</div>
-<div class="cl">4 · Dose desejada (mg)</div><div class="chips">${xChips('dose',XCH.dose,x=>fnum(x)+' mg')}<input type="number" step="any" min="0" placeholder="outra" value="${oth('dose')}" onchange="xSet('dose',this.value)"></div>
-<div class="cl">Resultado</div><div class="sy"><i style="width:${Math.min(100,un/cap*100)}%"></i></div>
-<div class="big2">${fnum(vol)} mL <span style="color:var(--mut)">|</span> ${fnum(un)} unidades</div>
-${fit?'':`<div class="warn">⚠ Passa da capacidade da seringa (${fnum(XC.cap)} mL). Use uma seringa maior ou divida em duas aplicações.</div>`}
-<div class="sub" style="margin:6px 0">Concentração: <b>${fnum(c)} mg/mL</b> · Doses no frasco: <b>${n}</b> de ${fnum(XC.dose)} mg</div>
-<div class="gtw" style="max-height:200px"><table><thead><tr><th>Dose</th><th>Volume</th><th>Unidades</th></tr></thead><tbody>${rows}</tbody></table></div>
-<div class="chips" style="margin-top:8px"><button type="button" class="ghost chip" onclick="xCopy()">📋 Copiar</button><button type="button" class="ghost chip" onclick="Object.assign(XC,{v:10,d:2,u:100,cap:1,dose:1});xCalc()">↺ Resetar</button></div>`}
-function xCopy(){const c=XC.v/XC.d,vol=XC.dose/c,t=`Frasco ${fnum(XC.v)} mg + ${fnum(XC.d)} mL → ${fnum(c)} mg/mL\nDose ${fnum(XC.dose)} mg = ${fnum(vol)} mL = ${fnum(vol*XC.u)} unidades (U-${XC.u})`;try{navigator.clipboard.writeText(t).then(()=>alert('Copiado!'),()=>prompt('Copie:',t))}catch(e){prompt('Copie:',t)}}
+function xCalc(){const el=$('xcalc');if(!el)return;
+ const c=XC.v/XC.d,vol=XC.dose/c,un=vol*XC.u,cap=XC.cap*XC.u,fit=un<=cap+1e-9,n=Math.floor(XC.v/XC.dose+1e-9),pct=Math.min(1,un/cap),oth=k=>XCH[k].includes(XC[k])?'':XC[k],mg=x=>fnum(x)+'mg',ml=x=>fnum(x)+'mL',
+ other=(k,ph)=>`<input class="rco" type="number" step="any" min="0" placeholder="${ph}" value="${oth(k)}" onchange="xSet('${k}',this.value)">`,
+ step=(n,t,s,body,ill)=>`<div class="card rcs"><div class="rch"><span class="rcb">${n}</span><div><b>${t}</b><div class="sub">${s}</div></div></div><div class="rcbody">${ill||''}<div class="rcchips">${body}</div></div></div>`;
+ const Hh=170,y0=24,fh=Hh*pct,syr=`<svg viewBox="0 0 120 226" class="rcsy"><rect x="26" y="2" width="38" height="5" fill="#b8c4cb"/><rect x="40" y="7" width="10" height="20" fill="#cfd8dc"/><rect x="30" y="${y0}" width="30" height="${Hh}" fill="#f4f7f8" stroke="#9aa9b4" stroke-width="2"/><rect x="31" y="${y0+Hh-fh}" width="28" height="${fh}" fill="var(--acc)"/>${[0,.25,.5,.75,1].map(f=>`<line x1="60" x2="68" y1="${y0+Hh-Hh*f}" y2="${y0+Hh-Hh*f}" stroke="#9aa9b4"/><text x="74" y="${y0+Hh-Hh*f+3}" font-size="10" fill="#7a8a96">${fnum(cap*f)}</text>`).join('')}<rect x="43" y="${y0+Hh}" width="4" height="22" fill="#9aa9b4"/></svg>`;
+ const doses=[...new Set([...XCH.dose,XC.dose])].sort((a,b)=>a-b).filter(x=>x<=XC.v),rows=doses.map(x=>{const v=x/c;return `<tr class="${x===XC.dose?'sel':''}"><td>${x===XC.dose?'▸ ':''}${mg(x)}</td><td>${ml(v)}</td><td>${fnum(v*XC.u)}</td></tr>`}).join('');
+ const meds=S.meds.filter(m=>!m.der&&S.shots.some(s=>s.mid===m.id&&!s.der));
+ el.innerHTML=`<div class="rc"><div>
+ ${step(1,'Conteúdo do frasco','Massa do medicamento',xChips('v',XCH.v,mg)+other('v','Outro'),RC_VIAL)}
+ ${step(2,'Volume de diluente','BAC / água estéril / NaCl',xChips('d',XCH.d,ml)+other('d','Outro'),RC_BOT)}
+ <div class="card rcs"><div class="rch"><span class="rcb">3</span><div><b>Seringa de insulina U-${fnum(XC.u)}</b><div class="sub">Tipo e capacidade máxima por aplicação</div></div></div>
+  <div class="rcchips"><button type="button" class="rcc ${XC.u===100?'on':''}" onclick="XC.u=100;xCalc()">U-100</button><button type="button" class="rcc ${XC.u===40?'on':''}" onclick="XC.u=40;xCalc()">U-40</button>${XC.u!==100&&XC.u!==40?'':''}<input class="rco" type="number" step="any" min="1" placeholder="Outra" value="${XC.u===100||XC.u===40?'':XC.u}" onchange="xSet('u',this.value)"></div>
+  <div class="rcys">${XCH.cap.map(x=>`<button type="button" class="rcy ${XC.cap===x?'on':''}" onclick="XC.cap=${x};xCalc()">${RC_SY}<b>${ml(x)}</b><span>${fnum(x*XC.u)} unidades</span></button>`).join('')}</div></div>
+ <div class="card rcs"><div class="rch"><span class="rcb">4</span><div><b>Dose desejada</b><div class="sub">Quantidade por aplicação</div></div></div>
+  <div class="rcchips">${xChips('dose',XCH.dose,mg)}${other('dose','Outro')}</div>
+  <div class="sub" style="margin:12px 0 6px">Ou use a última dose registrada de uma medicação:</div><select onchange="xFromMed(this.value);this.value=''"><option value="">Selecionar medicação…</option>${meds.map(m=>`<option value="${m.id}">${esc(m.name)}</option>`).join('')}</select></div>
+ </div>
+ <div class="card rcside"><div class="cl" style="text-align:center">Resultado</div><div style="text-align:center">${syr}<div class="sub">Volume estimado:</div></div>
+  <div class="rcres">${ml(vol)} <i>|</i> ${fnum(un)} unidades</div>${fit?'':`<div class="warn">⚠ Passa da capacidade da seringa (${ml(XC.cap)}). Use uma seringa maior ou divida em duas aplicações.</div>`}
+  <div class="rcst"><div><small>Concentração</small><b>${fnum(c)} <span>mg/mL</span></b></div><div><small>Doses no frasco</small><b>${n}</b><span>de ${mg(XC.dose)} (${(XC.dose*1000).toLocaleString('pt-BR')}mcg)</span></div></div>
+  <div class="gtw" style="max-height:230px;margin-top:10px"><table><thead><tr><th>Dose</th><th>Volume</th><th>Unidades</th></tr></thead><tbody>${rows}</tbody></table></div>
+  <div class="rcbt"><button type="button" class="ghost" onclick="xCopy()">📋 Copiar</button><button type="button" class="rcwa" onclick="xWa()">WhatsApp</button><button type="button" onclick="window.print()">🖨 Imprimir</button><button type="button" class="ghost" onclick="Object.assign(XC,{v:10,d:2,u:100,cap:1,dose:1});xCalc()">↺ Resetar</button></div>
+  <div class="sub" style="margin-top:10px;font-size:.72rem">Confira com o rótulo do produto e com um profissional de saúde. 1 unidade = ${fnum(1/XC.u)} mL em seringa U-${fnum(XC.u)}. Auxílio de cálculo — não é recomendação médica.</div></div></div>`}
+function xCopy(){const t=xText();try{navigator.clipboard.writeText(t).then(()=>alert('Copiado!'),()=>prompt('Copie:',t))}catch(e){prompt('Copie:',t)}}
 function xNoteMeds(){const s=$('nm');if(!s)return;const c=s.value;s.innerHTML='<option value="">—</option>'+S.meds.filter(m=>!m.der).map(m=>`<option value="${m.id}">${esc(m.name)}</option>`).join('');s.value=c}
 function xAddNote(e){e.preventDefault();S.notes=(S.notes||[]).concat([{id:uid(),t:Date.now(),kind:$('nk').value,cat:$('nc').value,sc:+$('ni').value,mid:$('nm').value||null,text:$('nt').value.trim()}]);$('nt').value='';save()}
 function delN(id){S.notes=(S.notes||[]).filter(n=>n.id!==id);save()}
@@ -592,7 +651,7 @@ function xHB(){const el=$('hbody');if(!el)return;const f=XH.f?new Date(XH.f+'T00
  else{L=(S.notes||[]).filter(n=>n.t>=f&&n.t<=t&&(!XH.m||n.mid===XH.m)&&(!q||((n.text||'')+' '+n.cat+' '+n.kind).toLowerCase().includes(q)));head='<th>Data / hora</th><th>Observação</th><th>Int.</th><th></th>';
   row=n=>`<td>${dt(n.t)}</td><td><b>${esc(n.cat)}</b> <small style="color:var(--mut)">${esc(({checkin:'check-in',efeito:'efeito',obs:'obs'})[n.kind]||'')}${n.mid?' · '+esc(nm(n.mid)):''}</small><br>${esc(n.text||'')}</td><td>${n.sc}</td><td><button class="x" onclick="delN('${n.id}')">×</button></td>`}
  L.sort((a,b)=>b.t-a.t);el.innerHTML=`<div class="sub" style="margin-bottom:6px">${L.length} registro(s)</div>`+(L.length?`<div class="gtw"><table><thead><tr>${head}</tr></thead><tbody>${L.slice(0,200).map(x=>'<tr>'+row(x)+'</tr>').join('')}</tbody></table></div>`:'<div class="empty">Nada encontrado com esses filtros.</div>')}
-function IC(k){const P={r:'<rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/>',p:'<path d="M3 3v18h18"/><path d="M7 15l4-5 3 3 5-7"/>',e:'<g transform="rotate(-45 12 12)"><rect x="2.5" y="8" width="19" height="8" rx="4"/><path d="M12 8v8"/></g>',t:'<path d="M9 3h6M10 3v6L4.5 19a1.5 1.5 0 0 0 1.3 2.2h12.4a1.5 1.5 0 0 0 1.3-2.2L14 9V3"/><path d="M7.5 14h9"/>',a:'<rect x="3" y="3" width="18" height="18" rx="3"/><path d="M12 8v8M8 12h8"/>',m:'<path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/>',c:'<path d="M11 17l-5-5 5-5M18 17l-5-5 5-5"/>',k:'<rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/>'};return '<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">'+P[k]+'</svg>'}
+function IC(k){const P={r:'<rect x="3" y="3" width="7" height="7" rx="1.5"/><rect x="14" y="3" width="7" height="7" rx="1.5"/><rect x="3" y="14" width="7" height="7" rx="1.5"/><rect x="14" y="14" width="7" height="7" rx="1.5"/>',p:'<path d="M3 3v18h18"/><path d="M7 15l4-5 3 3 5-7"/>',e:'<g transform="rotate(-45 12 12)"><rect x="2.5" y="8" width="19" height="8" rx="4"/><path d="M12 8v8"/></g>',t:'<path d="M9 3h6M10 3v6L4.5 19a1.5 1.5 0 0 0 1.3 2.2h12.4a1.5 1.5 0 0 0 1.3-2.2L14 9V3"/><path d="M7.5 14h9"/>',a:'<rect x="3" y="3" width="18" height="18" rx="3"/><path d="M12 8v8M8 12h8"/>',c:'<path d="M11 17l-5-5 5-5M18 17l-5-5 5-5"/>',x:'<rect x="5" y="2" width="14" height="20" rx="2"/><path d="M8 6h8M8 11h2M12 11h2M8 15h2M12 15h2M8 19h2M12 19h4"/>',m:'<ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v6c0 1.7 3.6 3 8 3s8-1.3 8-3V5M4 11v6c0 1.7 3.6 3 8 3s8-1.3 8-3v-6"/>',k:'<rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/>'};return '<svg class="ic" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">'+P[k]+'</svg>'}
 const CAL={y:new Date().getFullYear(),m:new Date().getMonth(),sel:null};
 function calNav(d){if(d===0){const n=new Date();CAL.y=n.getFullYear();CAL.m=n.getMonth();CAL.sel=dk(n)}else{CAL.m+=d;if(CAL.m<0){CAL.m=11;CAL.y--}if(CAL.m>11){CAL.m=0;CAL.y++}}xCal()}
 function calSel(k){CAL.sel=k;xCal()}
@@ -617,10 +676,10 @@ function xCal(){const el=$('xcal');if(!el)return;const DAY=864e5,today=dayStart(
  <div class="card" style="margin-top:12px"><h2>📅 ${sdt.toLocaleDateString('pt-BR',{weekday:'long',day:'2-digit',month:'long'})}</h2>${det}</div>
  <div class="card" style="margin-top:12px"><h2>⏭️ Próximas previsões (30 dias)</h2>${upl}</div>`}
 function initExtras(T){const mk=(id,html)=>{const d=document.createElement('div');d.className='card';d.id=id;d.innerHTML=html;return d};
- T.m.prepend(mk('xcalcCard','<h2>🧪 Calculadora de reconstituição</h2><div class="sub" style="margin-bottom:8px">Converte a dose em mg para volume (mL) e unidades da seringa de insulina. É só aritmética: confira sempre o rótulo e o volume real do frasco.</div><div id="xcalc"></div>'),mk('xbk','<h2>💾 Dados e backup</h2><div class="sub" id="bkinfo" style="margin-bottom:8px"></div><div class="chips"><button type="button" class="ghost chip" onclick="exp()">⬇ JSON completo</button><button type="button" class="ghost chip" onclick="xCsv(\'a\')">CSV Aplicações</button><button type="button" class="ghost chip" onclick="xCsv(\'p\')">CSV Pesagens</button><button type="button" class="ghost chip" onclick="xCsv(\'o\')">CSV Observações</button><button type="button" class="ghost chip" onclick="xCsv(\'m\')">CSV Medicações</button></div><div class="sub">Ao importar um backup (botão abaixo), o app mostra uma prévia antes de substituir os dados.</div>'));
+ T.x.append(Object.assign(document.createElement('div'),{id:'xcalc'}));T.m.prepend(mk('xbk','<h2>💾 Dados e backup</h2><div class="sub" id="bkinfo" style="margin-bottom:8px"></div><div class="chips"><button type="button" class="ghost chip" onclick="exp()">⬇ JSON completo</button><button type="button" class="ghost chip" onclick="xCsv(\'a\')">CSV Aplicações</button><button type="button" class="ghost chip" onclick="xCsv(\'p\')">CSV Pesagens</button><button type="button" class="ghost chip" onclick="xCsv(\'o\')">CSV Observações</button><button type="button" class="ghost chip" onclick="xCsv(\'m\')">CSV Medicações</button></div><div class="sub">Ao importar um backup (botão abaixo), o app mostra uma prévia antes de substituir os dados.</div>'));
  T.a.children[0].after(mk('xnotesCard','<h2>📝 Observações e check-in</h2><form id="xnf" onsubmit="xAddNote(event)"><div><label>Tipo</label><select id="nk"><option value="checkin">Check-in do dia</option><option value="efeito">Efeito colateral</option><option value="obs">Observação livre</option></select></div><div><label>Categoria</label><select id="nc">'+['Náusea','Apetite','Energia','Sono','Humor','Tontura/pressão','Libido','Local da aplicação','Outro'].map(x=>'<option>'+x+'</option>').join('')+'</select></div><div><label>Intensidade (0–5)</label><select id="ni">'+[0,1,2,3,4,5].map(x=>'<option>'+x+'</option>').join('')+'</select></div><div><label>Medicação (opcional)</label><select id="nm"></select></div><div class="full"><label>Texto</label><input id="nt" maxlength="200" placeholder="como você está, reação, anotação…"></div><button class="full">Salvar observação</button></form>'));
  T.k.append(Object.assign(document.createElement('div'),{id:'xcal'}));xCalc()}
-(function(){const w=document.querySelector('.wrap'),mk=id=>{const d=document.createElement('div');d.className='tab';d.id='tab-'+id;return d},T={r:mk('r'),k:mk('k'),p:mk('p'),e:mk('e'),t:mk('t'),a:mk('a'),m:mk('m')},card=id=>$(id).closest('.card');
+(function(){const w=document.querySelector('.wrap'),mk=id=>{const d=document.createElement('div');d.className='tab';d.id='tab-'+id;return d},T={r:mk('r'),k:mk('k'),x:mk('x'),p:mk('p'),e:mk('e'),t:mk('t'),a:mk('a'),m:mk('m')},card=id=>$(id).closest('.card');
 const cyc=$('cyc'),dE=$('due'),dH=dE.previousElementSibling,dc=document.createElement('div');dc.className='card';dc.append(dH,dE);
 const dec=card('decay'),html=dec.outerHTML;dec.remove();
 const mkDec=(s,title)=>{const d=document.createElement('div');d.innerHTML=html.replace('id="decay"','id="decay'+s+'"').replace('id="dlegend"','id="dlegend'+s+'"').replace('id="ddaily"','id="ddaily'+s+'"').replace('id="abslink"','id="abslink'+s+'"').replace(/zoomC\('d'/g,"zoomC('"+s+"'").replace(/<h2>[^<]*Decaimento[^<]*<\/h2>/,'<h2>'+title+'</h2>');return d.firstElementChild};
@@ -630,16 +689,16 @@ T.r.append($('stats'),dc);T.p.append(card('chart'),card('wkg'));
 T.e.append(th('Emagrecedores','tirzepatida, retatrutida e afins'),cyc,mkDec('E','\u{1F4C9} N\u00edveis e decaimento'),gt('E','\u{1F4CB} Aplica\u00e7\u00f5es'));
 T.t.append(th('Protocolo de testosterona','clomifeno, anastrozol e afins'),mkDec('T','\u{1F4C9} N\u00edveis e decaimento'),gt('T','\u{1F4CB} Aplica\u00e7\u00f5es'));
 T.a.append(card('sites'),card('hist'),card('meds'));T.m.append(document.querySelector('.foot'),document.querySelector('.note'));
-document.querySelectorAll('.grid.two').forEach(g=>g.remove());w.append(T.r,T.k,T.p,T.e,T.t,T.a,T.m);
+document.querySelectorAll('.grid.two').forEach(g=>g.remove());w.append(T.r,T.k,T.p,T.e,T.t,T.a,T.x,T.m);
 initExtras(T);
-T.r.prepend(th('Dashboard','acompanhamento do seu protocolo e do peso'));T.p.prepend(th('Peso e composição','pesagens, balança e peso por ciclo'));T.a.prepend(th('Registrar','aplicações, observações e histórico'));T.m.prepend(th('Ferramentas','calculadora, backup e configurações'));
-const hb=document.createElement('button');hb.id='newrec';hb.textContent='+ Novo registro';hb.onclick=()=>showTab('a');document.querySelector('header').append(hb);
+T.r.prepend(th('Dashboard','acompanhamento do seu protocolo e do peso'));T.p.prepend(th('Peso e composição','pesagens, balança e peso por ciclo'));T.a.prepend(th('Registrar','aplicações, observações e histórico'));T.m.prepend(th('Dados e backup','exportação, importação e arquivos'));T.x.prepend(th('Calculadora de reconstituição','converta a dose em mg no volume e nas unidades da seringa de insulina'));
+const hb=document.createElement('button');hb.id='newrec';hb.textContent='+ Novo registro';hb.onclick=()=>showTab('a');document.querySelector('header').append(hb);const mb=document.createElement('button');mb.id='menuBtn';mb.type='button';mb.setAttribute('aria-label','Menu');mb.innerHTML='\u2630';mb.onclick=()=>document.body.classList.toggle('nav-open');document.querySelector('header').prepend(mb);const bd=document.createElement('div');bd.className='navbd';bd.onclick=()=>document.body.classList.remove('nav-open');document.body.append(bd);
 const bar=document.createElement('nav');bar.className='tabbar';
 const br=document.createElement('div');br.className='brand';br.innerHTML='<b>P</b><span>Meu Protocolo</span>';bar.append(br);
-[['r','\u{1F3E0}','Resumo','Dashboard','ACOMPANHAR'],['k','','Calend.','Calend\u00e1rio'],['p','\u2696\ufe0f','Peso','Peso e composi\u00e7\u00e3o'],['e','\u{1F48A}','Emagrec.','Emagrecedores'],['t','\u{1F9EC}','Testo','Testosterona'],['a','\u2795','Registrar','Registrar','REGISTRAR'],['m','\u2699\ufe0f','Mais','Ferramentas','FERRAMENTAS']].forEach(x=>{if(x[4]){const l=document.createElement('div');l.className='sec';l.textContent=x[4];bar.append(l)}const b=document.createElement('button');b.className='ghost';b.dataset.k=x[0];b.innerHTML=IC(x[0])+'<i class="s">'+x[2]+'</i><i class="l">'+x[3]+'</i>';b.onclick=()=>showTab(x[0]);bar.append(b)});
-const cb=document.createElement('button');cb.className='ghost col';cb.innerHTML=IC('c')+'<i class="l">Recolher</i>';cb.onclick=()=>{document.body.classList.toggle('mini');try{localStorage.setItem('mini',document.body.classList.contains('mini')?'1':'')}catch(e){}};bar.append(cb);try{if(localStorage.getItem('mini'))document.body.classList.add('mini')}catch(e){}
+[['r','\u{1F3E0}','Resumo','Dashboard','ACOMPANHAR'],['k','','Calend.','Calend\u00e1rio'],['p','\u2696\ufe0f','Peso','Peso e composi\u00e7\u00e3o'],['e','\u{1F48A}','Emagrec.','Emagrecedores'],['t','\u{1F9EC}','Testo','Testosterona'],['a','\u2795','Registrar','Registrar','REGISTRAR'],['x','','Reconst.','Reconstitui\u00e7\u00e3o','FERRAMENTAS'],['m','','Dados','Dados e backup','SISTEMA']].forEach(x=>{if(x[4]){const l=document.createElement('div');l.className='sec';l.textContent=x[4];bar.append(l)}const b=document.createElement('button');b.className='ghost';b.dataset.k=x[0];b.innerHTML=IC(x[0])+'<i class="s">'+x[2]+'</i><i class="l">'+x[3]+'</i>';b.onclick=()=>showTab(x[0]);bar.append(b)});
+const cb=document.createElement('button');cb.className='ghost col';cb.innerHTML=IC('c')+'<i class="l">Recolher</i>';cb.onclick=()=>{document.body.classList.toggle('mini');try{localStorage.setItem('mini',document.body.classList.contains('mini')?'1':'')}catch(e){}};bar.append(cb);try{if(localStorage.getItem('mini')&&innerWidth>=900)document.body.classList.add('mini')}catch(e){}
 document.body.append(bar);
-window.showTab=function(k){if(!T[k])k='r';document.body.dataset.tab=k;for(const x in T)T[x].classList.toggle('on',x===k);bar.querySelectorAll('button').forEach(b=>b.classList.toggle('on',b.dataset.k===k));try{localStorage.setItem('tab',k)}catch(e){}window.scrollTo(0,0);if('petk'.includes(k))render()}})();
+window.showTab=function(k){if(!T[k])k='r';document.body.dataset.tab=k;for(const x in T)T[x].classList.toggle('on',x===k);bar.querySelectorAll('button').forEach(b=>b.classList.toggle('on',b.dataset.k===k));try{localStorage.setItem('tab',k)}catch(e){}document.body.classList.remove('nav-open');window.scrollTo(0,0);if('petk'.includes(k))render();if(k==='x')xCalc()}})();
 $('look').value='clean';try{const l=localStorage.getItem('look3')||'clean';$('look').value=l;setLook(l)}catch(e){}
 load();$("wdt").value=new Date().toISOString().slice(0,10);$("st").value=nowLocal().slice(0,10);$("sh").value=nowLocal().slice(11);$('sm').onchange=()=>{const m=S.meds.find(x=>x.id===$('sm').value);if(m&&m.dd)$('sd').value=m.dd};render();window.__rd=1;setSt("💾 dados só neste aparelho");showTab((()=>{try{return localStorage.getItem("tab")}catch(e){return null}})()||"r");if("serviceWorker" in navigator)window.addEventListener("load",()=>navigator.serviceWorker.register("sw.js").catch(()=>{}));
 </script>
