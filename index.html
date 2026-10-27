@@ -271,6 +271,16 @@ nav.tabbar button.ghost.col{display:none}
  #menuBtn{display:inline-grid;place-items:center;flex:none}
  header{gap:8px}
 }
+.dfoot{display:none}
+@media(max-width:899px){
+ .dfoot{display:block;margin-top:auto;padding-top:12px;border-top:1px solid var(--line)}
+ .dfoot select{width:100%;margin:6px 0 10px}.dfoot button{width:100%;padding:10px}
+ :root[data-look] header{padding:8px 12px;margin:-18px -14px 12px;align-items:center;flex-wrap:nowrap}
+ header #look,header button[onclick="openCfg()"],header #syn{display:none!important}
+ header>div{flex:1;min-width:0}
+ header #today{font-size:.92rem}
+ #newrec{width:40px;height:40px;padding:0;font-size:0;flex:none}#newrec::before{content:"+";font-size:1.5rem;font-weight:700}
+}
 </style>
 </head>
 <body>
@@ -567,7 +577,7 @@ function cloSplit(){let ch=false;const p=S.meds.find(m=>m.id==='cl');if(!p)retur
  return ch}
 function dayStart(t){const d=new Date(t);d.setHours(0,0,0,0);return d.getTime()}
 function dayLv(m,d){return Math.max(level(m,d),...S.shots.filter(s=>s.mid===m.id&&s.t>=d&&s.t<d+864e5).map(s=>level(m,s.t)))}
-function setLook(v){const p=v.split('-');document.documentElement.dataset.look=p[0];document.documentElement.dataset.tone=p[1]||'';try{localStorage.setItem('look3',v)}catch(e){}if(window.__rd)render()}
+function setLook(v){const p=v.split('-');document.documentElement.dataset.look=p[0];document.documentElement.dataset.tone=p[1]||'';try{localStorage.setItem('look3',v)}catch(e){}{const q=document.getElementById('look2'),w=document.getElementById('look');if(q)q.value=v;if(w)w.value=v}if(window.__rd)render()}
 function decay(grp,sfx){
  const ms=S.meds.filter(m=>grpOf(m)===grp&&m.hl&&S.shots.some(s=>s.mid===m.id)),nm=S.meds.filter(m=>grpOf(m)===grp&&!m.hl&&!m.parts&&S.shots.some(s=>s.mid===m.id));
  if(!ms.length&&!nm.length){$('decay'+sfx).innerHTML='<div class="empty">Registre aplicações e informe a meia-vida (⏱) da medicação para ver a curva.</div>';$('dlegend'+sfx).innerHTML='';$('ddaily'+sfx).innerHTML='';return}
@@ -595,7 +605,7 @@ function decay(grp,sfx){
  $('decay'+sfx).innerHTML=`<svg viewBox='0 0 ${W} ${H}' style='min-width:${Math.round(W*Z[sfx])}px'>${g}${body}<line x1='${xn}' x2='${xn}' y1='${P.t}' y2='${H-P.b}' stroke='var(--ink)' stroke-dasharray='4 4' opacity='.6'/><text x='${xn+4}' y='${P.t+10}' font-size='11' fill='var(--ink)'>hoje</text><text x='${P.l}' y='${H-8}' font-size='11' fill='var(--mut)'>${fmtD(t0)}</text><text x='${W-P.r}' y='${H-8}' font-size='11' text-anchor='end' fill='var(--mut)'>${fmtD(t1)} (projeção)</text></svg>`;
  $('dlegend'+sfx).innerHTML=leg;daily(ms,sfx);
 }
-const XC={v:10,d:2,u:100,cap:1,dose:1},XCH={v:[5,10,15,20,30,60],d:[0.5,1,1.5,2,2.5,3],cap:[0.3,0.5,1],dose:[0.25,0.5,1,1.7,2,2.4,2.5,4,5,7.5,10,12,12.5,15,17.5,20,25,30]},XH={tab:'a',q:'',m:'',f:'',t:''};
+const XC={v:10,d:2,u:100,cap:1,dose:1},XCH={v:[5,10,15,20,30,40,50,60,80,100,120,160],d:[0.5,1,1.5,2,2.5,3,3.5,4,5,6],cap:[0.3,0.5,1],dose:[0.25,0.5,1,1.7,2,2.4,2.5,4,5,7.5,10,12,12.5,15,17.5,20,25,30]},XH={tab:'a',q:'',m:'',f:'',t:''};
 const fnum=n=>(+n.toFixed(3)).toString().replace('.',',');
 const RC_VIAL='<svg class="rci" viewBox="0 0 30 46"><rect x="9" y="1" width="12" height="6" rx="1.5" fill="#cfd8dc"/><rect x="6" y="7" width="18" height="36" rx="3" fill="#e0f5f1" stroke="#2bb39a" stroke-width="2"/><rect x="10" y="18" width="10" height="9" rx="1" fill="none" stroke="#2bb39a" stroke-width="1.5"/></svg>',RC_BOT='<svg class="rci" viewBox="0 0 30 46"><rect x="10" y="1" width="10" height="7" rx="1.5" fill="#cfd8dc"/><path d="M9 8h12l3 6v27a3 3 0 0 1-3 3H9a3 3 0 0 1-3-3V14z" fill="#f4f7f8" stroke="#9aa9b4" stroke-width="2"/><path d="M15 20c3 4 4 6 4 8a4 4 0 0 1-8 0c0-2 1-4 4-8z" fill="#2bb39a"/></svg>',RC_SY='<svg viewBox="0 0 90 16" width="86" height="16"><rect x="14" y="4" width="60" height="8" rx="2" fill="#fff" stroke="#8fa0ab"/><path d="M22 4v3M30 4v3M38 4v3M46 4v3M54 4v3M62 4v3M70 4v3" stroke="#8fa0ab"/><rect x="2" y="7" width="12" height="2" fill="#8fa0ab"/><rect x="74" y="2" width="3" height="12" fill="#8fa0ab"/><rect x="77" y="7" width="10" height="2" fill="#8fa0ab"/></svg>';
 function xChips(k,arr,fmt){return arr.map(x=>`<button type="button" class="rcc ${XC[k]===x?'on':''}" onclick="XC.${k}=${x};xCalc()">${fmt(x)}</button>`).join('')}
@@ -604,7 +614,7 @@ function xWa(){window.open('https://wa.me/?text='+encodeURIComponent(xText()),'_
 function xFromMed(id){const l=S.shots.filter(s=>s.mid===id&&!s.der).sort((a,b)=>b.t-a.t)[0];if(l){XC.dose=l.dose;xCalc()}}
 function xSet(k,v){const n=parseFloat(String(v).replace(',','.'));if(n>0){XC[k]=n;xCalc()}}
 function xCalc(){const el=$('xcalc');if(!el)return;
- const c=XC.v/XC.d,vol=XC.dose/c,un=vol*XC.u,cap=XC.cap*XC.u,fit=un<=cap+1e-9,n=Math.floor(XC.v/XC.dose+1e-9),pct=Math.min(1,un/cap),oth=k=>XCH[k].includes(XC[k])?'':XC[k],mg=x=>fnum(x)+'mg',ml=x=>fnum(x)+'mL',
+ const c=XC.v/XC.d,vol=XC.dose/c,un=vol*XC.u,cap=XC.cap*XC.u,fit=un<=cap+1e-9,n=Math.floor(XC.v/XC.dose+1e-9),pct=Math.min(1,un/cap),oth=k=>XCH[k].includes(XC[k])?'':XC[k],mg=x=>fnum(x)+'mg',ml=x=>(+x.toFixed(4)).toString().replace('.',',')+'mL',
  other=(k,ph)=>`<input class="rco" type="number" step="any" min="0" placeholder="${ph}" value="${oth(k)}" onchange="xSet('${k}',this.value)">`,
  step=(n,t,s,body,ill)=>`<div class="card rcs"><div class="rch"><span class="rcb">${n}</span><div><b>${t}</b><div class="sub">${s}</div></div></div><div class="rcbody">${ill||''}<div class="rcchips">${body}</div></div></div>`;
  const Hh=170,y0=24,fh=Hh*pct,syr=`<svg viewBox="0 0 120 226" class="rcsy"><rect x="26" y="2" width="38" height="5" fill="#b8c4cb"/><rect x="40" y="7" width="10" height="20" fill="#cfd8dc"/><rect x="30" y="${y0}" width="30" height="${Hh}" fill="#f4f7f8" stroke="#9aa9b4" stroke-width="2"/><rect x="31" y="${y0+Hh-fh}" width="28" height="${fh}" fill="var(--acc)"/>${[0,.25,.5,.75,1].map(f=>`<line x1="60" x2="68" y1="${y0+Hh-Hh*f}" y2="${y0+Hh-Hh*f}" stroke="#9aa9b4"/><text x="74" y="${y0+Hh-Hh*f+3}" font-size="10" fill="#7a8a96">${fnum(cap*f)}</text>`).join('')}<rect x="43" y="${y0+Hh}" width="4" height="22" fill="#9aa9b4"/></svg>`;
@@ -696,6 +706,7 @@ const hb=document.createElement('button');hb.id='newrec';hb.textContent='+ Novo 
 const bar=document.createElement('nav');bar.className='tabbar';
 const br=document.createElement('div');br.className='brand';br.innerHTML='<b>P</b><span>Meu Protocolo</span>';bar.append(br);
 [['r','\u{1F3E0}','Resumo','Dashboard','ACOMPANHAR'],['k','','Calend.','Calend\u00e1rio'],['p','\u2696\ufe0f','Peso','Peso e composi\u00e7\u00e3o'],['e','\u{1F48A}','Emagrec.','Emagrecedores'],['t','\u{1F9EC}','Testo','Testosterona'],['a','\u2795','Registrar','Registrar','REGISTRAR'],['x','','Reconst.','Reconstitui\u00e7\u00e3o','FERRAMENTAS'],['m','','Dados','Dados e backup','SISTEMA']].forEach(x=>{if(x[4]){const l=document.createElement('div');l.className='sec';l.textContent=x[4];bar.append(l)}const b=document.createElement('button');b.className='ghost';b.dataset.k=x[0];b.innerHTML=IC(x[0])+'<i class="s">'+x[2]+'</i><i class="l">'+x[3]+'</i>';b.onclick=()=>showTab(x[0]);bar.append(b)});
+const df=document.createElement('div');df.className='dfoot';df.innerHTML='<div class="sec" style="display:block;margin:0 0 2px">APARÊNCIA</div>';const l2=document.createElement('select');l2.id='look2';l2.innerHTML=$('look').innerHTML;l2.onchange=()=>setLook(l2.value);df.append(l2);const mb2=document.createElement('button');mb2.type='button';mb2.className='ghost';mb2.textContent='⚙️ Meta e altura';mb2.onclick=()=>{document.body.classList.remove('nav-open');openCfg()};df.append(mb2);bar.append(df);
 const cb=document.createElement('button');cb.className='ghost col';cb.innerHTML=IC('c')+'<i class="l">Recolher</i>';cb.onclick=()=>{document.body.classList.toggle('mini');try{localStorage.setItem('mini',document.body.classList.contains('mini')?'1':'')}catch(e){}};bar.append(cb);try{if(localStorage.getItem('mini')&&innerWidth>=900)document.body.classList.add('mini')}catch(e){}
 document.body.append(bar);
 window.showTab=function(k){if(!T[k])k='r';document.body.dataset.tab=k;for(const x in T)T[x].classList.toggle('on',x===k);bar.querySelectorAll('button').forEach(b=>b.classList.toggle('on',b.dataset.k===k));try{localStorage.setItem('tab',k)}catch(e){}document.body.classList.remove('nav-open');window.scrollTo(0,0);if('petk'.includes(k))render();if(k==='x')xCalc()}})();
