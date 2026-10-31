@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="pt-BR" data-look="clean" data-tone="nordic">
+<html lang="pt-BR" data-look="clean" data-tone="tsol">
 <head>
 <meta charset="utf-8">
 <link rel="manifest" href="manifest.webmanifest">
@@ -315,13 +315,101 @@ nav.tabbar button.ghost.col{display:none}
 :root[data-tone="nordic"] .dfoot{border-top-color:rgba(255,255,255,.12)}
 :root[data-tone="nordic"] .dfoot button.ghost{background:rgba(255,255,255,.06);color:#c3c9de}
 :root[data-tone="nordic"] .dfoot select{background:#232842;color:#e5e8f5;border-color:#2f3556}
+
+/* ===== 5 visuais novos (tconsole, tjornal, tsol, tpastel, tbloco) ===== */
+:root[data-tone="tconsole"]{--bg:#050805;--card:#0a110a;--ink:#c8f7c8;--mut:#5f8f5f;--line:#1c3a1c;--acc:#39ff6a;--a0:#39ff6a;--accx:#021402;--acc2:#ffb000;--acc3:#00e0ff;--warn:#ffb000;--ok:#39ff6a;--bad:#ff5555;--font:ui-monospace,"SF Mono",Menlo,Consolas,"Courier New",monospace;--r:2px;--rb:2px;--rc:2px;--rp:2px;--rcb:2px;--cb:1px solid #1c3a1c;--sh:none;--btn:#39ff6a;--btnx:#021402;--gbg:transparent;--ibg:#050805;--thb:#0a110a;--hbg:#050805;--nbg:#030603;--nbd:#1c3a1c;--ntx:#8fdc8f;--nsec:#3f6f3f;--nact:#39ff6a;--nactx:#021402;--nic:#5fb85f;--ht:uppercase}
+:root[data-tone="tjornal"]{--bg:#f4efe4;--card:#fffdf7;--ink:#1a1a1a;--mut:#6b6558;--line:#d9d0bc;--acc:#b3261e;--a0:#b3261e;--accx:#fff;--acc2:#1f4e79;--acc3:#2e7d32;--font:Georgia,"Times New Roman",serif;--r:0px;--rb:0px;--rc:0px;--rp:0px;--rcb:0px;--cb:1px solid #1a1a1a;--sh:none;--btn:#1a1a1a;--btnx:#fffdf7;--gbg:transparent;--ibg:#fffdf7;--thb:#ece5d3;--hbg:#f4efe4;--hb:3px double #1a1a1a;--nbg:#fffdf7;--nbd:#1a1a1a;--ntx:#1a1a1a;--nsec:#8a8372;--nact:#1a1a1a;--nactx:#fffdf7;--nic:#1a1a1a}
+:root[data-tone="tsol"]{--bg:#2a1148;--card:rgba(255,255,255,.10);--ink:#fff4ee;--mut:#dcbcd4;--line:rgba(255,255,255,.2);--acc:#ffb347;--a0:#ffb347;--accx:#2a1148;--acc2:#ff5e8a;--acc3:#7ad7f0;--warn:#ffb347;--ok:#7be0a8;--bad:#ff8a8a;--font:"Trebuchet MS","Segoe UI",system-ui,sans-serif;--r:22px;--rb:14px;--rc:999px;--rp:999px;--rcb:50%;--cb:1px solid rgba(255,255,255,.22);--sh:0 8px 32px rgba(0,0,0,.28);--btn:linear-gradient(135deg,#ffb347,#ff5e8a);--btnx:#2a1148;--gbg:rgba(255,255,255,.12);--ibg:rgba(255,255,255,.12);--thb:rgba(255,255,255,.08);--hbg:transparent;--nbg:rgba(20,8,36,.55);--nbd:rgba(255,255,255,.14);--ntx:#f1d9ea;--nsec:#b992b0;--nact:linear-gradient(135deg,#ffb347,#ff5e8a);--nactx:#2a1148;--nic:#e4bfd8}
+:root[data-tone="tpastel"]{--bg:#fdf3f6;--card:#fff;--ink:#3b3350;--mut:#8d83a6;--line:#f0dfe8;--acc:#9b6bff;--a0:#9b6bff;--accx:#fff;--acc2:#ff8fb1;--acc3:#5fd3b5;--font:"Nunito","Quicksand","Trebuchet MS","Segoe UI",system-ui,sans-serif;--r:26px;--rb:18px;--rc:999px;--rp:999px;--rcb:50%;--cb:2px solid #f3e4ee;--sh:0 12px 28px rgba(155,107,255,.12);--btn:#9b6bff;--btnx:#fff;--bb:0;--bsh:inset 0 -4px 0 rgba(0,0,0,.16);--gbg:#fff;--ibg:#fff;--thb:#faf0f6;--hbg:rgba(255,255,255,.7);--nbg:#fff;--nbd:#f3e4ee;--ntx:#5a4f78;--nsec:#b3a6cc;--nact:#ece3ff;--nactx:#6f3ff0;--nic:#a595c9}
+:root[data-tone="tbloco"]{--bg:#fff7d6;--card:#fff;--ink:#111;--mut:#444;--line:#111;--acc:#2f5bff;--a0:#2f5bff;--accx:#fff;--acc2:#ff4d4d;--acc3:#00b86b;--font:"Helvetica Neue",Arial,sans-serif;--r:0px;--rb:0px;--rc:0px;--rp:0px;--rcb:0px;--cb:3px solid #111;--sh:6px 6px 0 #111;--btn:#ffd400;--btnx:#111;--bb:3px solid #111;--bsh:3px 3px 0 #111;--gbg:#fff;--ibg:#fff;--thb:#ffd400;--hbg:#fff7d6;--hb:3px solid #111;--nbg:#ffd400;--nbd:#111;--ntx:#111;--nsec:#111;--nact:#111;--nactx:#ffd400;--nic:#111;--ht:uppercase}
+:root[data-tone^="t"] body{font-family:var(--font);background:var(--bg);color:var(--ink)}
+:root[data-tone^="t"] body[data-tab]{--acc:var(--a0)}
+:root[data-tone^="t"] .card{background:var(--card);border-radius:var(--r)!important;border:var(--cb)!important;box-shadow:var(--sh)!important}
+:root[data-tone^="t"] body button:not(.ghost):not(.x):not(.rcc):not(.rcy):not(.rcwa){background:var(--btn);color:var(--btnx);border:var(--bb,0);border-radius:var(--rb)!important;font-weight:800;box-shadow:var(--bsh,none)}
+:root[data-tone^="t"] body button.ghost{background:var(--gbg);color:var(--ink);border:1px solid var(--line);border-radius:var(--rb)!important;box-shadow:none}
+:root[data-tone^="t"] body .chip,:root[data-tone^="t"] body .rcc,:root[data-tone^="t"] body .rco{border-radius:var(--rc)!important}
+:root[data-tone^="t"] body button.ghost.chip{background:var(--thb);border-color:var(--thb);color:var(--ink)}
+:root[data-tone^="t"] body button.ghost.chip.on,:root[data-tone^="t"] body button.rcc.on{background:var(--acc);color:var(--accx,#fff);border-color:var(--acc)}
+:root[data-tone^="t"] body button.rcy.on{background:color-mix(in srgb,var(--acc) 14%,var(--card));border-color:var(--acc)}
+:root[data-tone^="t"] .pill{border-radius:var(--rp)!important}
+:root[data-tone^="t"] input,:root[data-tone^="t"] select,:root[data-tone^="t"] textarea{background:var(--ibg);color:var(--ink);border:1px solid var(--line);border-radius:var(--rb)!important}
+:root[data-tone^="t"] body header{background:var(--hbg);border-bottom:var(--hb,1px solid var(--line))}
+:root[data-tone^="t"] .th b{text-transform:var(--ht,none)}
+:root[data-tone^="t"] .gtw th,:root[data-tone^="t"] .dd th,:root[data-tone^="t"] .cal .h{background:var(--thb);color:var(--mut)}
+:root[data-tone^="t"] #hist>.chips{background:var(--thb)}
+:root[data-tone^="t"] .rcres,:root[data-tone^="t"] .big2{background:var(--acc);color:var(--accx,#fff);border-radius:var(--r)}
+:root[data-tone^="t"] .rcb{background:var(--acc);color:var(--accx,#fff);border-radius:var(--rcb,50%)}
+:root[data-tone^="t"] .cy>div,:root[data-tone^="t"] .rcy{background:var(--card)}
+:root[data-tone^="t"] #syn{background:transparent;color:var(--ok);border-color:var(--line)}
+:root[data-tone^="t"] body nav.tabbar{background:var(--nbg);border-color:var(--nbd)}
+:root[data-tone^="t"] body nav.tabbar .brand{color:var(--ntx)}
+:root[data-tone^="t"] body nav.tabbar .brand b{background:var(--acc);color:var(--accx,#fff);border-radius:var(--rcb,8px)}
+:root[data-tone^="t"] body nav.tabbar .sec{color:var(--nsec)}
+:root[data-tone^="t"] body nav.tabbar button.ghost{background:none;color:var(--ntx);border:0;font-weight:600;border-radius:var(--rb)!important}
+:root[data-tone^="t"] body nav.tabbar button.ghost svg.ic,:root[data-tone^="t"] body nav.tabbar button.ghost[data-k="x"] svg.ic{color:var(--nic);background:none;padding:0;width:19px;height:19px;margin:0;border-radius:0;stroke-width:1.8}
+:root[data-tone^="t"] body nav.tabbar button.ghost.on{background:var(--nact);color:var(--nactx);box-shadow:none}
+:root[data-tone^="t"] body nav.tabbar button.ghost.on svg.ic,:root[data-tone^="t"] body nav.tabbar button.ghost[data-k="x"].on svg.ic{color:var(--nactx)}
+:root[data-tone^="t"] body nav.tabbar button.ghost.on::before{display:none}
+:root[data-tone^="t"] body nav.tabbar button.ghost.col{border-top:1px solid var(--nbd);background:none;color:var(--nic);border-radius:0!important}
+:root[data-tone^="t"] body .dfoot{border-top-color:var(--nbd)}
+:root[data-tone^="t"] body .dfoot button.ghost{background:var(--gbg);color:var(--ink)}
+/* console */
+:root[data-tone="tconsole"] body{background-image:repeating-linear-gradient(0deg,rgba(57,255,106,.035) 0 1px,transparent 1px 3px)}
+:root[data-tone="tconsole"] .stat .v,:root[data-tone="tconsole"] .rcres{text-shadow:0 0 10px rgba(57,255,106,.55)}
+:root[data-tone="tconsole"] h2{letter-spacing:.12em}
+:root[data-tone="tconsole"] .th b::before{content:"> ";color:var(--acc)}
+/* jornal */
+:root[data-tone="tjornal"] .th b{font-style:italic;font-size:2.1rem;letter-spacing:-.02em}
+:root[data-tone="tjornal"] h2{border-bottom:1px solid #1a1a1a;padding-bottom:4px;font-variant:small-caps;letter-spacing:.04em}
+:root[data-tone="tjornal"] .stat .v{font-weight:700}
+/* sol */
+:root[data-tone="tsol"] body{background:linear-gradient(135deg,#2a1148 0%,#7a1f5c 55%,#d9533f 100%) fixed}
+:root[data-tone="tsol"] .card,:root[data-tone="tsol"] nav.tabbar,:root[data-tone="tsol"] header{-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px)}
+:root[data-tone="tsol"] .stat .v{text-shadow:0 2px 14px rgba(255,179,71,.35)}
+/* pastel */
+:root[data-tone="tpastel"] body{background:linear-gradient(180deg,#fdf3f6,#eef3ff) fixed}
+:root[data-tone="tpastel"] h2{font-weight:900}
+:root[data-tone="tpastel"] .th b{font-weight:900}
+/* bloco */
+:root[data-tone="tbloco"] body nav.tabbar{border-right:3px solid #111}
+:root[data-tone="tbloco"] .th b{font-family:"Arial Black",Impact,"Helvetica Neue",Arial,sans-serif;font-size:1.9rem}
+:root[data-tone="tbloco"] h2{text-transform:uppercase;letter-spacing:.04em;font-weight:900}
+:root[data-tone="tbloco"] .chip,:root[data-tone="tbloco"] .rcc{border:2px solid #111!important}
+:root[data-tone="tbloco"] .pill{border:2px solid #111}
+:root[data-tone="tbloco"] .stat .v{font-family:"Arial Black",Impact,sans-serif}
+
+/* ===== familias Console e Vidro em varias cores ===== */
+:root[data-tone^="tcon"]{--a0:var(--acc);--warn:var(--acc2);--ok:var(--acc);--bad:#ff5555;--font:ui-monospace,"SF Mono",Menlo,Consolas,"Courier New",monospace;--r:2px;--rb:2px;--rc:2px;--rp:2px;--rcb:2px;--cb:1px solid var(--line);--sh:none;--btn:var(--acc);--btnx:var(--accx);--gbg:transparent;--ibg:var(--bg);--thb:var(--card);--hbg:var(--bg);--nbd:var(--line);--ntx:color-mix(in srgb,var(--ink) 78%,var(--bg));--nsec:color-mix(in srgb,var(--mut) 70%,var(--bg));--nact:var(--acc);--nactx:var(--accx);--nic:var(--mut);--ht:uppercase}
+:root[data-tone^="tcon"] body{background-image:repeating-linear-gradient(0deg,color-mix(in srgb,var(--acc) 4%,transparent) 0 1px,transparent 1px 3px)}
+:root[data-tone^="tcon"] .stat .v,:root[data-tone^="tcon"] .rcres{text-shadow:0 0 10px color-mix(in srgb,var(--acc) 55%,transparent)}
+:root[data-tone^="tcon"] h2{letter-spacing:.12em}
+:root[data-tone^="tcon"] .th b::before{content:"> ";color:var(--acc)}
+:root[data-tone^="tsol"]{--card:rgba(255,255,255,.10);--line:rgba(255,255,255,.2);--a0:var(--acc);--warn:var(--acc);--ok:#7be0a8;--bad:#ff8a8a;--font:"Trebuchet MS","Segoe UI",system-ui,sans-serif;--r:22px;--rb:14px;--rc:999px;--rp:999px;--rcb:50%;--cb:1px solid rgba(255,255,255,.22);--sh:0 8px 32px rgba(0,0,0,.28);--btn:linear-gradient(135deg,var(--acc),var(--acc2));--btnx:var(--accx);--gbg:rgba(255,255,255,.12);--ibg:rgba(255,255,255,.12);--thb:rgba(255,255,255,.08);--hbg:transparent;--nbg:rgba(0,0,0,.28);--nbd:rgba(255,255,255,.14);--ntx:var(--ink);--nsec:var(--mut);--nact:linear-gradient(135deg,var(--acc),var(--acc2));--nactx:var(--accx);--nic:var(--mut)}
+:root[data-tone^="tsol"] body{background:var(--grad) fixed}
+:root[data-tone^="tsol"] .card,:root[data-tone^="tsol"] nav.tabbar,:root[data-tone^="tsol"] header{-webkit-backdrop-filter:blur(14px);backdrop-filter:blur(14px)}
+:root[data-tone^="tsol"] .stat .v{text-shadow:0 2px 14px color-mix(in srgb,var(--acc) 40%,transparent)}
+:root[data-tone="tconCiano"]{--bg:#03080a;--card:#071217;--ink:#c9f6ff;--mut:#5d8f9b;--line:#12343d;--acc:#00e5ff;--accx:#001418;--acc2:#ffb000;--acc3:#ff4d8d;--nbg:#02060a}
+:root[data-tone="tconAmbar"]{--bg:#0b0700;--card:#140d02;--ink:#ffe2a8;--mut:#9a7a3c;--line:#3a2a0a;--acc:#ffb000;--accx:#1a0f00;--acc2:#ff6a00;--acc3:#7ad7f0;--nbg:#070400}
+:root[data-tone="tconMagenta"]{--bg:#0a0309;--card:#130716;--ink:#ffd6f6;--mut:#9a5f92;--line:#3b1240;--acc:#ff2bd6;--accx:#1a0016;--acc2:#00e5ff;--acc3:#ffe14d;--nbg:#07020a}
+:root[data-tone="tconAzul"]{--bg:#02050f;--card:#070d1d;--ink:#d2dcff;--mut:#6678b0;--line:#14214a;--acc:#4d7cff;--accx:#020a20;--acc2:#00e5c8;--acc3:#ffb000;--nbg:#01030a}
+:root[data-tone="tconVermelho"]{--bg:#0a0303;--card:#150707;--ink:#ffd3d3;--mut:#a05a5a;--line:#3d1212;--acc:#ff3b3b;--accx:#1a0000;--acc2:#ffb000;--acc3:#7ad7f0;--nbg:#060202}
+:root[data-tone="tsolOceano"]{--bg:#031a3a;--grad:linear-gradient(135deg,#031a3a 0%,#0a4a6e 55%,#0fa3a3 100%);--ink:#effcff;--mut:#b5e0e6;--acc:#5eead4;--accx:#04222a;--acc2:#38bdf8;--acc3:#fcd34d}
+:root[data-tone="tsolFloresta"]{--bg:#06210f;--grad:linear-gradient(135deg,#06210f 0%,#14532d 55%,#65a30d 100%);--ink:#f1ffe9;--mut:#bfe0b0;--acc:#bef264;--accx:#0b2a06;--acc2:#34d399;--acc3:#fbbf24}
+:root[data-tone="tsolBrasa"]{--bg:#2a0505;--grad:linear-gradient(135deg,#2a0505 0%,#8a1c1c 55%,#f97316 100%);--ink:#fff3e8;--mut:#f0c4a8;--acc:#fbbf24;--accx:#2a0a00;--acc2:#fb7185;--acc3:#fde68a}
+:root[data-tone="tsolNoite"]{--bg:#070b25;--grad:linear-gradient(135deg,#070b25 0%,#1e2a78 55%,#6d28d9 100%);--ink:#eef0ff;--mut:#b8bfee;--acc:#22d3ee;--accx:#02121a;--acc2:#a78bfa;--acc3:#f9a8d4}
+:root[data-tone="tsolGrafite"]{--bg:#0f1115;--grad:linear-gradient(135deg,#0f1115 0%,#2b3038 55%,#4a5568 100%);--ink:#f3f4f6;--mut:#aab1bd;--acc:#fb923c;--accx:#1f0d00;--acc2:#f43f5e;--acc3:#38bdf8}
+.okt{position:fixed;left:50%;bottom:28px;transform:translateX(-50%) translateY(24px);opacity:0;background:#16a34a;color:#fff;padding:11px 18px 11px 12px;border-radius:999px;font-weight:700;display:flex;gap:10px;align-items:center;box-shadow:0 12px 34px rgba(0,0,0,.35);z-index:300;transition:all .28s ease;max-width:92vw}
+.okt.on{opacity:1;transform:translateX(-50%) translateY(0)}
+.okc{width:26px;height:26px;border-radius:50%;background:#fff;color:#16a34a;display:grid;place-items:center;font-size:1rem;font-weight:900;flex:none}
+button.okb,:root[data-tone^="t"] body button.okb{background:#16a34a!important;color:#fff!important}
+:root[data-tone="tsol"]{--grad:linear-gradient(135deg,#2a1148 0%,#7a1f5c 55%,#d9533f 100%)}
 </style>
 </head>
 <body>
 <div class="wrap">
 <header>
   <div><h1>💉 Meu <span>Protocolo</span></h1><div class="sub" id="today"></div><div class="sub" id="syn"></div></div>
-  <select id="look" onchange="setLook(this.value)" title="Visual"><option value="clean-nordic">🎨 Nordic (novo)</option><option value="clean">🩺 Clean (novo)</option><option value="pulse">✨ Pulse (novo)</option><option value="aurora">🌈 Aurora</option><option value="clinico">🏥 Clínico</option><option value="neon">🌃 Neon</option><option value="neon-lima">🟢 Neon Lima</option><option value="neon-sunset">🌅 Neon Sunset</option><option value="neon-gelo">🧊 Neon Gelo</option></select> <button class="ghost" onclick="openCfg()">⚙️ Meta & altura</button>
+  <select id="look" onchange="setLook(this.value)" title="Visual"><option value="clean-tsol">🌅 Pôr do sol (padrão)</option><option value="clean-tsolOceano">🌊 Oceano</option><option value="clean-tsolFloresta">🌲 Floresta</option><option value="clean-tsolBrasa">🔥 Brasa</option><option value="clean-tsolNoite">🌌 Meia-noite</option><option value="clean-tsolGrafite">🪨 Grafite</option></select> <button class="ghost" onclick="openCfg()">⚙️ Meta & altura</button>
 </header>
 
 <div class="grid stats" id="stats"></div>
@@ -483,12 +571,12 @@ function hist(){
   const s=S.shots.filter(x=>!x.der).sort((a,b)=>b.t-a.t).slice(0,60);
   $("hist").innerHTML=s.length?s.map(x=>`<div class="row"><div><b>${esc(x.med)}</b> · ${x.dose} ${esc(x.unit)}<div class="sub">${fmtDT(x.t)} · ${esc(x.site)}${x.note?" · "+esc(x.note):""}</div></div><button class="x" onclick="editT('${x.id}')" title="Editar data/hora">⏰</button><button class="x" onclick="delS('${x.id}')">×</button></div>`).join(""):'<div class="empty">Nenhuma aplicação registrada.</div>';
 }
-function addW(e){e.preventDefault();const kg=parseFloat($("wkg").value);const t=new Date($("wdt").value+"T12:00").getTime();S.weights.push({id:uid(),t,kg});$("wkg").value="";save()}
+function addW(e){e.preventDefault();const kg=parseFloat($("wkg").value);const t=new Date($("wdt").value+"T12:00").getTime();S.weights.push({id:uid(),t,kg});$("wkg").value="";okToast('Peso registrado: '+kg+' kg',$("wkg").form);save()}
 function addM(e){e.preventDefault();S.meds.push({id:uid(),name:$("mn").value.trim(),unit:$("mu").value,every:parseInt($("me").value)||0,hl:parseFloat($("mh").value)||null,grp:$("mg").value});$("mn").value="";$("mh").value="";save()}
 function delM(id){if(confirm("Remover esta medicação? O histórico é mantido.")){S.meds=S.meds.filter(m=>m.id!==id);save()}}
 function addS(e){e.preventDefault();const m=S.meds.find(x=>x.id===$("sm").value);if(!m){alert("Cadastre uma medicação primeiro.");return}
   S.shots.push({id:uid(),t:new Date($("st").value+'T'+($("sh").value||'12:00')).getTime(),mid:m.id,med:m.name,unit:m.unit,dose:parseFloat($("sd").value),site:sel,note:$("sn").value.trim()});
-  $("sn").value="";$("st").value=nowLocal().slice(0,10);$("sh").value=nowLocal().slice(11);sel=null;save()}
+  $("sn").value="";$("st").value=nowLocal().slice(0,10);$("sh").value=nowLocal().slice(11);sel=null;okToast('Aplicação registrada: '+m.name+' · '+$("sd").value+' '+m.unit,$("sd").form);save()}
 function delS(id){const x=S.shots.find(s=>s.id===id);if(x&&x.auto&&S.slAuto){(S.slAuto.skip=S.slAuto.skip||[]).push(dk(new Date(x.t)))}S.shots=S.shots.filter(s=>s.id!==id);save()}
 function openCfg(){
   const g=prompt("Meta de peso (kg):",S.goal||"");if(g===null)return;
@@ -593,7 +681,7 @@ const PAL=['var(--acc)','var(--acc2)','var(--acc3)','var(--warn)','#84cc16','#3d
 const GP={emag:['#3df5c8','#ff5c8a','#8b7dff','#ffc53d','#5ab0ff','#a3e635'],testo:['#ffb020','#5ab0ff','#a3e635','#ff5c8a','#8b7dff','#3df5c8']};
 function grpOf(m){return m.grp||(/clomif|anastroz|testost|tamox|hcg|enclom|zuclom/i.test(m.name)?'testo':'emag')}
 const GL={emag:['#0e9f84','#e0457b','#6d5dfc','#d98a00','#2b7fd4','#6aa312'],testo:['#d97706','#2b7fd4','#6aa312','#e0457b','#6d5dfc','#0e9f84']};
-function colOf(m){const g=grpOf(m),L=S.meds.filter(x=>grpOf(x)===g),i=L.findIndex(x=>x.id===m.id),Q=document.documentElement.dataset.look==='clean'?(document.documentElement.dataset.tone==='nordic'?GN:GL):GP;return Q[g][(i<0?0:i)%Q[g].length]}
+function colOf(m){const g=grpOf(m),L=S.meds.filter(x=>grpOf(x)===g),i=L.findIndex(x=>x.id===m.id),Q=document.documentElement.dataset.look==='clean'?(/^t(con|sol)/.test(document.documentElement.dataset.tone)?GP:document.documentElement.dataset.tone==='nordic'?GN:GL):GP;return Q[g][(i<0?0:i)%Q[g].length]}
 function grpTable(g,sfx){const el=$('gt'+sfx);if(!el)return;const ids=new Set(S.meds.filter(m=>grpOf(m)===g).map(m=>m.id));
  const L=S.shots.filter(s=>ids.has(s.mid)&&!s.der).sort((a,b)=>b.t-a.t).slice(0,80);
  el.innerHTML=L.length?`<div class='gtw'><table><thead><tr><th>Data / hora</th><th>Medicação</th><th>Dose</th><th></th></tr></thead><tbody>${L.map(s=>{const d=new Date(s.t);return `<tr><td>${d.toLocaleDateString('pt-BR',{day:'2-digit',month:'2-digit'})}<br><small style="color:var(--mut)">${d.toLocaleTimeString('pt-BR',{hour:'2-digit',minute:'2-digit'})}</small></td><td>${esc(s.med)}<br><small style="color:var(--mut)">${esc(s.site||'')}${s.auto?' · auto':''}</small></td><td><b>${String(s.dose).replace('.',',')}</b> ${esc(s.unit)}</td><td><button class='x' onclick="editT('${s.id}')">⏰</button><button class='x' onclick="delS('${s.id}')">×</button></td></tr>`}).join('')}</tbody></table></div>`:'<div class="empty">Nenhuma aplicação neste grupo ainda.</div>'}
@@ -611,7 +699,7 @@ function cloSplit(){let ch=false;const p=S.meds.find(m=>m.id==='cl');if(!p)retur
  return ch}
 function dayStart(t){const d=new Date(t);d.setHours(0,0,0,0);return d.getTime()}
 function dayLv(m,d){return Math.max(level(m,d),...S.shots.filter(s=>s.mid===m.id&&s.t>=d&&s.t<d+864e5).map(s=>level(m,s.t)))}
-function setLook(v){const p=v.split('-');document.documentElement.dataset.look=p[0];document.documentElement.dataset.tone=p[1]||'';try{localStorage.setItem('look4',v)}catch(e){}{const q=document.getElementById('look2'),w=document.getElementById('look');if(q)q.value=v;if(w)w.value=v}if(window.__rd)render()}
+function setLook(v){const p=v.split('-');document.documentElement.dataset.look=p[0];document.documentElement.dataset.tone=p[1]||'';try{localStorage.setItem('look5',v)}catch(e){}{const q=document.getElementById('look2'),w=document.getElementById('look');if(q)q.value=v;if(w)w.value=v}if(window.__rd)render()}
 function decay(grp,sfx){
  const ms=S.meds.filter(m=>grpOf(m)===grp&&m.hl&&S.shots.some(s=>s.mid===m.id)),nm=S.meds.filter(m=>grpOf(m)===grp&&!m.hl&&!m.parts&&S.shots.some(s=>s.mid===m.id));
  if(!ms.length&&!nm.length){$('decay'+sfx).innerHTML='<div class="empty">Registre aplicações e informe a meia-vida (⏱) da medicação para ver a curva.</div>';$('dlegend'+sfx).innerHTML='';$('ddaily'+sfx).innerHTML='';return}
@@ -672,7 +760,7 @@ function xCalc(){const el=$('xcalc');if(!el)return;
   <div class="sub" style="margin-top:10px;font-size:.72rem">Confira com o rótulo do produto e com um profissional de saúde. 1 unidade = ${fnum(1/XC.u)} mL em seringa U-${fnum(XC.u)}. Auxílio de cálculo — não é recomendação médica.</div></div></div>`}
 function xCopy(){const t=xText();try{navigator.clipboard.writeText(t).then(()=>alert('Copiado!'),()=>prompt('Copie:',t))}catch(e){prompt('Copie:',t)}}
 function xNoteMeds(){const s=$('nm');if(!s)return;const c=s.value;s.innerHTML='<option value="">—</option>'+S.meds.filter(m=>!m.der).map(m=>`<option value="${m.id}">${esc(m.name)}</option>`).join('');s.value=c}
-function xAddNote(e){e.preventDefault();S.notes=(S.notes||[]).concat([{id:uid(),t:Date.now(),kind:$('nk').value,cat:$('nc').value,sc:+$('ni').value,mid:$('nm').value||null,text:$('nt').value.trim()}]);$('nt').value='';save()}
+function xAddNote(e){e.preventDefault();S.notes=(S.notes||[]).concat([{id:uid(),t:Date.now(),kind:$('nk').value,cat:$('nc').value,sc:+$('ni').value,mid:$('nm').value||null,text:$('nt').value.trim()}]);$('nt').value='';okToast('Observação registrada',$('xnf'));save()}
 function delN(id){S.notes=(S.notes||[]).filter(n=>n.id!==id);save()}
 function delW(id){S.weights=S.weights.filter(w=>w.id!==id);save()}
 function backupInfo(){const e=$('bkinfo');if(!e)return;const t=S.lastBackup;e.textContent=t?'Último backup: '+fmtDT(t)+(Date.now()-t>7*864e5?' ⚠ faz mais de 7 dias':''):'Nenhum backup exportado ainda ⚠'}
@@ -722,61 +810,71 @@ function xCal(){const el=$('xcal');if(!el)return;const DAY=864e5,today=dayStart(
 const GN={emag:['#4f46e5','#f97316','#0ea5a4','#db2777','#2563eb','#65a30d'],testo:['#f97316','#2563eb','#65a30d','#db2777','#4f46e5','#0ea5a4']};
 const DM=864e5,PF={open:false,id:null,f:null},CF={open:false,id:null,f:null,q:'',g:'',fav:false};
 const SUG=[['Tirzepatida','emag'],['Retatrutida','emag'],['Semaglutida','emag'],['Cagrilintida','emag'],['Clomifeno','testo'],['Enclomifeno','testo'],['Anastrozol','testo']];
-const evLabel=n=>n===1?'todo dia':n===7?'toda semana':n===14?'a cada 2 semanas':'a cada '+n+' dias',fd=t=>new Date(t).toLocaleDateString('pt-BR',{weekday:'short',day:'2-digit',month:'2-digit'}),fh2=t=>new Date(t).toLocaleTimeString('pt-BR',{hour:'2-digit',minute:'2-digit'});
+const evLabel=n=>n===1?'todo dia':n===2?'dia sim, dia não':n===7?'toda semana':n===14?'a cada 2 semanas':n===30?'todo mês (30 dias)':'a cada '+n+' dias',fd=t=>new Date(t).toLocaleDateString('pt-BR',{weekday:'short',day:'2-digit',month:'2-digit'}),fh2=t=>new Date(t).toLocaleTimeString('pt-BR',{hour:'2-digit',minute:'2-digit'});
 function protoDose(p,t){const st=new Date(p.start+'T00:00').getTime(),w=Math.floor((dayStart(t)-st)/(7*DM));let d=+p.dose;(p.steps||[]).slice().sort((a,b)=>a.w-b.w).forEach(s=>{if(w>=s.w&&+s.dose>0)d=+s.dose});return d}
-function protoEv(p,from,to){const o=[],st=new Date(p.start+'T'+(p.time||'09:00')).getTime(),en=p.end?new Date(p.end+'T23:59').getTime():Infinity,iv=Math.max(1,Math.round(+p.every||1));for(let t=st;t<=Math.min(en,to);t+=iv*DM){if(t>=from)o.push({t,dose:protoDose(p,t),p})}return o}
-function protoLog(p,from,to){const iv=Math.max(1,Math.round(+p.every||1)),win=Math.min(iv/2,1.5)*DM,now=Date.now(),td=dayStart(now),shots=S.shots.filter(s=>s.mid===p.mid&&!s.der).map(s=>({t:s.t,u:false}));
- return protoEv(p,from,to).map(e=>{let b=null,bd=1e18;shots.forEach(s=>{if(!s.u){const d=Math.abs(s.t-e.t);if(d<=win&&d<bd){b=s;bd=d}}});if(b){b.u=true;e.done=true}
-  e.key=p.id+'|'+dk(new Date(e.t));const sameDay=dayStart(e.t)===td;e.st=e.done?'feita':(S.skips||[]).includes(e.key)?'pulada':sameDay?'hoje':e.t>now?'futura':'perdida';return e})}
+function protoTimes(p){return(p.times&&p.times.length?p.times:[p.time||'09:00']).slice().sort()}
+function pfFreq(p){if(p.mode==='dow'&&(p.dows||[]).length){const n=['dom','seg','ter','qua','qui','sex','sáb'],d=p.dows.slice().sort((a,b)=>a-b).map(i=>n[i]);return d.length===1?'toda '+d[0]:d.slice(0,-1).join(', ')+' e '+d[d.length-1]}return evLabel(Math.round(+p.every||1))}
+function protoEv(p,from,to){const o=[],T=protoTimes(p),en=p.end?new Date(p.end+'T23:59').getTime():Infinity,lim=Math.min(en,to),iv=Math.max(1,Math.round(+p.every||1)),d0=new Date(p.start+'T00:00');
+ const push=day=>T.forEach(tm=>{const t=new Date(day.getFullYear(),day.getMonth(),day.getDate(),+tm.slice(0,2),+tm.slice(3,5)).getTime();if(t<=lim&&t>=from)o.push({t,dose:protoDose(p,t),p})});
+ if(p.mode==='dow'&&(p.dows||[]).length){for(let d=new Date(d0);d.getTime()<=lim;d.setDate(d.getDate()+1)){if(p.dows.includes(d.getDay()))push(new Date(d))}}
+ else{for(let d=new Date(d0);d.getTime()<=lim;d.setDate(d.getDate()+iv))push(new Date(d))}
+ return o.sort((a,b)=>a.t-b.t)}
+function protoLog(p,from,to){const now=Date.now(),td=dayStart(now),shots=S.shots.filter(s=>s.mid===p.mid&&!s.der).map(s=>({t:s.t,u:false})),ev=protoEv(p,from,to);let mg=3*DM;for(let i=1;i<ev.length;i++)mg=Math.min(mg,ev[i].t-ev[i-1].t);const win=Math.min(mg/2,1.5*DM);
+ return ev.map(e=>{let b=null,bd=1e18;shots.forEach(s=>{if(!s.u){const d=Math.abs(s.t-e.t);if(d<=win&&d<bd){b=s;bd=d}}});if(b){b.u=true;e.done=true}
+  e.key=p.id+'|'+e.t;const sameDay=dayStart(e.t)===td;e.st=e.done?'feita':(S.skips||[]).includes(e.key)?'pulada':sameDay?'hoje':e.t>now?'futura':'perdida';return e})}
 function protoNext(p){const td=dayStart(Date.now());return protoLog(p,td,td+400*DM).find(e=>!e.done&&e.st!=='pulada')||null}
 function protoAdh(p){const now=Date.now(),td=dayStart(now),ev=protoLog(p,now-30*DM,now).filter(e=>dayStart(e.t)<td),d=ev.filter(e=>e.st==='feita').length;return{d,t:ev.length}}
-function protoSync(){(S.protos||[]).forEach(p=>{const m=S.meds.find(x=>x.id===p.mid);if(m&&p.active!==false){m.every=Math.max(1,Math.round(+p.every||1));m._p=1}});S.meds.forEach(m=>{if(m._p&&!(S.protos||[]).some(p=>p.mid===m.id&&p.active!==false)){m.every=0;delete m._p}})}
+function protoSync(){(S.protos||[]).forEach(p=>{const m=S.meds.find(x=>x.id===p.mid);if(m&&p.active!==false){m.every=p.mode==='dow'?Math.max(1,Math.round(7/Math.max(1,(p.dows||[]).length))):Math.max(1,Math.round(+p.every||1));m._p=1}});S.meds.forEach(m=>{if(m._p&&!(S.protos||[]).some(p=>p.mid===m.id&&p.active!==false)){m.every=0;delete m._p}})}
 function protoQuick(pid,t){const p=S.protos.find(x=>x.id===pid),m=p&&S.meds.find(x=>x.id===p.mid);if(!m)return;const dose=protoDose(p,t);if(!confirm('Registrar '+m.name+' · '+fnum(dose)+' '+(m.unit||'mg')+' agora?'))return;
- const l=lastBySite(),site=m.route==='oral'?'Oral':[...SITES].sort((a,b)=>(l[a]||0)-(l[b]||0))[0];S.shots.push({id:uid(),t:Date.now(),mid:m.id,med:m.name,unit:m.unit,dose,site,note:'protocolo'});save()}
+ const l=lastBySite(),site=m.route==='oral'?'Oral':[...SITES].sort((a,b)=>(l[a]||0)-(l[b]||0))[0];S.shots.push({id:uid(),t:Date.now(),mid:m.id,med:m.name,unit:m.unit,dose,site,note:'protocolo'});okToast('Registrado: '+m.name+' · '+fnum(dose)+' '+(m.unit||'mg'));save()}
 function protoSkip(key){S.skips=(S.skips||[]).concat(key);save()}
 function xToday(){const el=$('xtoday');if(!el)return;const ps=(S.protos||[]).filter(p=>p.active!==false);if(!ps.length){el.innerHTML='';return}const td=dayStart(Date.now()),rows=[];
  ps.forEach(p=>{const m=S.meds.find(x=>x.id===p.mid);if(!m)return;protoLog(p,td-3*DM,td+DM-1).filter(e=>!e.done&&e.st!=='pulada'&&(e.st==='hoje'||e.st==='perdida')).forEach(e=>rows.push({e,p,m}))});rows.sort((a,b)=>a.e.t-b.e.t);
  el.innerHTML=`<div class="card" style="margin-bottom:12px"><h2>🔔 Hoje no seu protocolo</h2>`+(rows.length?rows.map(r=>`<div class="row"><div><span class="dot" style="background:${colOf(r.m)}"></span><b>${esc(r.m.name)}</b> · ${fnum(r.e.dose)} ${esc(r.m.unit||'mg')}<div class="sub">${r.e.st==='perdida'?'atrasada · '+fd(r.e.t):'hoje às '+fh2(r.e.t)}</div></div><span style="display:flex;gap:6px"><button type="button" onclick="protoQuick('${r.p.id}',${r.e.t})">Registrar</button><button type="button" class="ghost" onclick="protoSkip('${r.e.key}')">Pular</button></span></div>`).join(''):'<div class="sub" style="padding:6px 0">Nada pendente hoje ✓</div>')+`</div>`}
 function remindTick(){if(!(window.Notification&&Notification.permission==='granted'))return;const n=Date.now();(S.protos||[]).filter(p=>p.active!==false&&p.remind).forEach(p=>{protoLog(p,dayStart(n),n).forEach(e=>{const k=p.id+'|'+e.t;if(!e.done&&e.st!=='pulada'&&n-e.t<6*3600e3&&!(S.notified||[]).includes(k)){const m=S.meds.find(x=>x.id===p.mid)||{name:'',unit:'mg'},body=m.name+' · '+fnum(e.dose)+' '+m.unit;S.notified=(S.notified||[]).concat(k).slice(-60);lsSave();try{navigator.serviceWorker.ready.then(r=>r.showNotification('Hora da aplicação',{body,tag:k,icon:'icon-192.png'})).catch(()=>new Notification('Hora da aplicação',{body}))}catch(x){try{new Notification('Hora da aplicação',{body})}catch(y){}}}})})}
-function pfNew(mid){PF.open=true;PF.id=null;PF.f={mid:mid||'',dose:'',every:7,time:'09:00',start:dk(new Date()),end:'',steps:[],remind:true,note:''};showTab('o');xProto()}
-function pfEdit(id){const p=S.protos.find(x=>x.id===id);PF.open=true;PF.id=id;PF.f=JSON.parse(JSON.stringify(p));xProto();window.scrollTo(0,0)}
+function pfNew(mid){PF.open=true;PF.id=null;PF.f={mid:mid||'',dose:'',mode:'int',every:7,dows:[1,3,5],times:['09:00'],start:dk(new Date()),end:'',steps:[],remind:true,note:''};showTab('o');xProto()}
+function pfEdit(id){const p=S.protos.find(x=>x.id===id);PF.open=true;PF.id=id;PF.f=JSON.parse(JSON.stringify(p));PF.f.mode=PF.f.mode||'int';PF.f.dows=PF.f.dows||[1,3,5];PF.f.times=PF.f.times||[PF.f.time||'09:00'];xProto();window.scrollTo(0,0)}
+function pfDow(i){const d=PF.f.dows||[],k=d.indexOf(i);if(k>=0)d.splice(k,1);else d.push(i);PF.f.dows=d;xProto()}
 function pfSet(k,v){PF.f[k]=v}
 function pfStep(i,k,v){PF.f.steps[i][k]=+v}
 function pfAddStep(){const l=PF.f.steps[PF.f.steps.length-1];PF.f.steps.push({w:l?l.w+2:2,dose:''});xProto()}
-function pfSave(e){e.preventDefault();const f=PF.f;f.dose=+f.dose;f.every=Math.max(1,Math.round(+f.every||1));f.steps=(f.steps||[]).filter(s=>s.dose>0&&s.w>=0);
+function pfSave(e){e.preventDefault();const f=PF.f;f.dose=+f.dose;f.every=Math.max(1,Math.round(+f.every||1));f.steps=(f.steps||[]).filter(s=>s.dose>0&&s.w>=0);f.times=(f.times||[]).filter(Boolean);if(!f.times.length)f.times=['09:00'];f.time=f.times[0];
  if(!f.mid||!(f.dose>0)||!f.start){alert('Escolha a medicação, a dose e a data de início.');return}
- if(PF.id){S.protos=S.protos.map(p=>p.id===PF.id?Object.assign({},p,f):p)}else{S.protos=(S.protos||[]).concat([Object.assign({id:uid(),active:true},f)])}PF.open=false;save()}
+ if(f.mode==='dow'&&!(f.dows||[]).length){alert('Escolha pelo menos um dia da semana.');return}
+ if(PF.id){S.protos=S.protos.map(p=>p.id===PF.id?Object.assign({},p,f):p)}else{S.protos=(S.protos||[]).concat([Object.assign({id:uid(),active:true},f)])}PF.open=false;okToast('Protocolo salvo');save()}
 function pfToggle(id){S.protos=S.protos.map(p=>p.id===id?Object.assign({},p,{active:p.active===false}):p);save()}
 function pfDel(id){if(confirm('Excluir este protocolo? As aplicações já registradas ficam no histórico.')){S.protos=S.protos.filter(p=>p.id!==id);save()}}
 function pfNotif(){if(!window.Notification){alert('Este navegador não suporta notificações.');return}Notification.requestPermission().then(()=>xProto())}
 function xProto(){const el=$('xproto');if(!el)return;const ps=S.protos||[],meds=S.meds.filter(m=>!m.der);
  const perm=window.Notification?Notification.permission:'indisponível',
  rem=`<div class="card" style="margin-bottom:12px"><h2>🔔 Lembretes</h2><div class="sub">Notificação no horário de cada dose planejada e aviso na tela inicial. Sem servidor, o celular só avisa enquanto o app estiver aberto ou recém-usado em segundo plano.</div><div style="display:flex;gap:10px;align-items:center;margin-top:8px;flex-wrap:wrap"><span class="pill ${perm==='granted'?'p-ok':perm==='denied'?'p-bad':'p-n'}">${perm==='granted'?'notificações ativas':perm==='denied'?'bloqueadas no navegador':perm==='default'?'ainda não ativadas':'indisponíveis aqui'}</span>${perm==='default'?'<button type="button" onclick="pfNotif()">Ativar notificações</button>':''}</div></div>`;
- let form='';if(PF.open&&PF.f){const f=PF.f;form=`<div class="card" style="margin-bottom:12px"><h2>${PF.id?'Editar protocolo':'Novo protocolo'}</h2><form onsubmit="pfSave(event)">
+ let form='';if(PF.open&&PF.f){const f=PF.f,EV=[[1,'Todo dia'],[2,'Dia sim, dia não'],[3,'A cada 3 dias'],[4,'A cada 4 dias'],[5,'A cada 5 dias'],[7,'Semanal'],[10,'A cada 10 dias'],[14,'Quinzenal'],[21,'A cada 3 semanas'],[30,'Mensal']],DW=['Dom','Seg','Ter','Qua','Qui','Sex','Sáb'];
+  form=`<div class="card" style="margin-bottom:12px"><h2>${PF.id?'Editar protocolo':'Novo protocolo'}</h2><form onsubmit="pfSave(event)">
   <div class="full"><label>Medicação (do catálogo)</label><select onchange="pfSet('mid',this.value)" required><option value="">Selecione…</option>${meds.map(m=>`<option value="${m.id}" ${f.mid===m.id?'selected':''}>${esc(m.name)}</option>`).join('')}</select></div>
   <div><label>Dose inicial (mg)</label><input type="number" step="any" min="0" value="${f.dose}" oninput="pfSet('dose',this.value)" required></div>
-  <div><label>Horário</label><input type="time" value="${f.time}" oninput="pfSet('time',this.value)"></div>
-  <div class="full"><label>Frequência</label><div class="chips" style="margin:2px 0">${[[1,'Todo dia'],[2,'A cada 2 dias'],[3,'A cada 3 dias'],[7,'Semanal'],[14,'Quinzenal']].map(x=>`<button type="button" class="ghost chip ${+f.every===x[0]?'on':''}" onclick="PF.f.every=${x[0]};xProto()">${x[1]}</button>`).join('')}<input type="number" min="1" placeholder="outro (dias)" value="${[1,2,3,7,14].includes(+f.every)?'':f.every}" onchange="PF.f.every=this.value;xProto()"></div></div>
   <div><label>Início</label><input type="date" value="${f.start}" oninput="pfSet('start',this.value)" required></div>
+  <div class="full"><label>Frequência</label><div class="chips" style="margin:2px 0 8px"><button type="button" class="ghost chip ${f.mode!=='dow'?'on':''}" onclick="PF.f.mode='int';xProto()">Intervalo de dias</button><button type="button" class="ghost chip ${f.mode==='dow'?'on':''}" onclick="PF.f.mode='dow';xProto()">Dias da semana</button></div>
+  ${f.mode==='dow'?`<div class="chips" style="margin:2px 0">${DW.map((x,i)=>`<button type="button" class="ghost chip ${(f.dows||[]).includes(i)?'on':''}" onclick="pfDow(${i})">${x}</button>`).join('')}</div><div class="sub">Toque nos dias em que a dose acontece (ex.: Seg, Qua e Sex = 3 vezes por semana).</div>`:`<div class="chips" style="margin:2px 0">${EV.map(x=>`<button type="button" class="ghost chip ${+f.every===x[0]?'on':''}" onclick="PF.f.every=${x[0]};xProto()">${x[1]}</button>`).join('')}<input type="number" min="1" placeholder="outro (dias)" value="${EV.some(x=>x[0]===+f.every)?'':f.every}" onchange="PF.f.every=this.value;xProto()"></div>`}</div>
+  <div class="full"><label>Horários (pode ter mais de um por dia)</label>${(f.times||['09:00']).map((t,i)=>`<div class="stp"><input type="time" value="${t}" onchange="PF.f.times[${i}]=this.value"><button type="button" class="x" onclick="PF.f.times.splice(${i},1);if(!PF.f.times.length)PF.f.times=['09:00'];xProto()">×</button></div>`).join('')}<div class="chips" style="margin:6px 0 0"><button type="button" class="ghost chip" onclick="if(PF.f.times.length<6){PF.f.times.push('20:00');xProto()}">+ Horário</button><button type="button" class="ghost chip" onclick="PF.f.times=['08:00','20:00'];xProto()">2x ao dia</button><button type="button" class="ghost chip" onclick="PF.f.times=['08:00','14:00','20:00'];xProto()">3x ao dia</button></div></div>
   <div><label>Fim (opcional)</label><input type="date" value="${f.end||''}" oninput="pfSet('end',this.value)"></div>
+  <div><label>Lembrete</label><label style="display:flex;gap:8px;align-items:center;margin-top:8px"><input type="checkbox" ${f.remind?'checked':''} onchange="pfSet('remind',this.checked)" style="width:auto"> avisar no horário</label></div>
   <div class="full"><label>Escalonamento (opcional): a partir de qual semana a dose muda</label>${(f.steps||[]).map((s,i)=>`<div class="stp"><span>Semana</span><input type="number" min="0" value="${s.w}" onchange="pfStep(${i},'w',this.value)"><span>→ dose (mg)</span><input type="number" step="any" min="0" value="${s.dose}" onchange="pfStep(${i},'dose',this.value)"><button type="button" class="x" onclick="PF.f.steps.splice(${i},1);xProto()">×</button></div>`).join('')}<button type="button" class="ghost" onclick="pfAddStep()">+ Etapa</button></div>
-  <div class="full"><label><input type="checkbox" ${f.remind?'checked':''} onchange="pfSet('remind',this.checked)" style="width:auto"> Lembrar no horário</label></div>
   <div class="full"><label>Observações</label><input value="${esc(f.note||'')}" oninput="pfSet('note',this.value)" maxlength="160"></div>
   <button class="full">Salvar protocolo</button><button type="button" class="ghost full" onclick="PF.open=false;xProto()">Cancelar</button></form></div>`}
  const list=ps.map(p=>{const m=S.meds.find(x=>x.id===p.mid)||{name:'(medicação removida)',unit:'mg'},nx=protoNext(p),ad=protoAdh(p),pct=ad.t?Math.round(ad.d/ad.t*100):null,st=(p.steps||[]).slice().sort((a,b)=>a.w-b.w),on=p.active!==false;
-  return `<div class="card pcard ${on?'':'off'}"><div class="ph"><div><b>${esc(m.name)}</b><div class="sub">${fnum(+p.dose)} ${esc(m.unit||'mg')} · ${evLabel(Math.round(+p.every))} · ${p.time||'09:00'} · início ${new Date(p.start+'T12:00').toLocaleDateString('pt-BR')}${p.end?' · até '+new Date(p.end+'T12:00').toLocaleDateString('pt-BR'):''}</div></div><span class="pill ${on?'p-ok':'p-n'}">${on?'ativo':'pausado'}</span></div>
+  return `<div class="card pcard ${on?'':'off'}"><div class="ph"><div><b>${esc(m.name)}</b><div class="sub">${fnum(+p.dose)} ${esc(m.unit||'mg')} · ${pfFreq(p)} · ${protoTimes(p).join(' e ')} · início ${new Date(p.start+'T12:00').toLocaleDateString('pt-BR')}${p.end?' · até '+new Date(p.end+'T12:00').toLocaleDateString('pt-BR'):''}</div></div><span class="pill ${on?'p-ok':'p-n'}">${on?'ativo':'pausado'}</span></div>
   ${st.length?`<div class="sub">Escalonamento: ${st.map(s=>'semana '+s.w+' → '+fnum(+s.dose)+' mg').join(' · ')}</div>`:''}
   <div class="pn">${on&&nx?`Próxima: <b>${fd(nx.t)} às ${fh2(nx.t)}</b> · ${fnum(nx.dose)} ${esc(m.unit||'mg')} <span class="pill ${nx.st==='hoje'?'p-warn':'p-ok'}">${nx.st==='hoje'?'hoje':'em '+Math.round((dayStart(nx.t)-dayStart(Date.now()))/DM)+' d'}</span>`:on?'Sem próximas doses (protocolo encerrado).':'Protocolo pausado.'}</div>
   <div class="adh"><div class="sub">Adesão nos últimos 30 dias: <b>${pct==null?'—':ad.d+' de '+ad.t+' ('+pct+'%)'}</b></div><div class="sy"><i style="width:${pct||0}%"></i></div></div>
   ${p.note?`<div class="sub">${esc(p.note)}</div>`:''}
   <div class="chips" style="margin:8px 0 0"><button type="button" class="ghost chip" onclick="pfEdit('${p.id}')">Editar</button><button type="button" class="ghost chip" onclick="pfToggle('${p.id}')">${on?'Pausar':'Retomar'}</button><button type="button" class="ghost chip" onclick="pfDel('${p.id}')">Excluir</button></div></div>`}).join('');
- el.innerHTML=`<div class="calh"><div class="sub" style="max-width:520px">Cadastre a dose, a frequência e, se quiser, o escalonamento. O app calcula as próximas doses, mostra no calendário e avisa na hora.</div><button type="button" onclick="pfNew()">+ Novo protocolo</button></div>`+rem+form+(ps.length||PF.open?list:`<div class="empty"><div style="font-size:1.6rem">📋</div><b>Nenhum protocolo cadastrado</b><div class="sub" style="margin:4px 0 10px">Cadastre o primeiro para acompanhar doses, ver as previsões e receber lembretes.</div><button type="button" onclick="pfNew()">Cadastrar protocolo</button></div>`)}
+ el.innerHTML=`<div class="calh"><div class="sub" style="max-width:520px">Cadastre a dose, a frequência (todo dia, dia sim e dia não, dias da semana, vários horários) e, se quiser, o escalonamento. O app calcula as próximas doses, mostra no calendário e avisa na hora.</div><button type="button" onclick="pfNew()">+ Novo protocolo</button></div>`+rem+form+(ps.length||PF.open?list:`<div class="empty"><div style="font-size:1.6rem">📋</div><b>Nenhum protocolo cadastrado</b><div class="sub" style="margin:4px 0 10px">Cadastre o primeiro para acompanhar doses, ver as previsões e receber lembretes.</div><button type="button" onclick="pfNew()">Cadastrar protocolo</button></div>`)}
 function cfNew(sug){CF.open=true;CF.id=null;CF.f={sub:sug?sug[0]:'',brand:'',grp:sug?sug[1]:'emag',route:'inj',unit:'mg',vial:'',dd:'',hl:'',note:''};xCat();window.scrollTo(0,0)}
 function cfEdit(id){const m=S.meds.find(x=>x.id===id),x=/^(.*?)\s*\((.*)\)\s*$/.exec(m.name||'');CF.open=true;CF.id=id;CF.f={sub:m.sub||(x?x[1]:m.name),brand:m.brand!=null?m.brand:(x?x[2]:''),grp:grpOf(m),route:m.route||'inj',unit:m.unit||'mg',vial:m.vial||'',dd:m.dd||'',hl:m.hl||'',note:m.note||''};xCat();window.scrollTo(0,0)}
 function cfSet(k,v){CF.f[k]=v}
 function cfSave(e){e.preventDefault();const f=CF.f,n=(f.sub||'').trim();if(!n)return;const name=f.brand&&f.brand.trim()?n+' ('+f.brand.trim()+')':n,num=v=>{const x=parseFloat(String(v).replace(',','.'));return x>0?x:null};
  if(CF.id){S.meds=S.meds.map(m=>m.id===CF.id?Object.assign({},m,{name,sub:n,brand:(f.brand||'').trim(),grp:f.grp,route:f.route,unit:f.unit||'mg',vial:num(f.vial),dd:num(f.dd),hl:num(f.hl),note:f.note}):m);S.shots.forEach(s=>{if(s.mid===CF.id)s.med=name})}
- else S.meds.push({id:uid(),name,sub:n,brand:(f.brand||'').trim(),grp:f.grp,route:f.route,unit:f.unit||'mg',every:0,active:true,vial:num(f.vial),dd:num(f.dd),hl:num(f.hl),note:f.note,fav:false});CF.open=false;save()}
+ else S.meds.push({id:uid(),name,sub:n,brand:(f.brand||'').trim(),grp:f.grp,route:f.route,unit:f.unit||'mg',every:0,active:true,vial:num(f.vial),dd:num(f.dd),hl:num(f.hl),note:f.note,fav:false});CF.open=false;okToast('Salvo no catálogo');save()}
 function cfFav(id){S.meds=S.meds.map(m=>m.id===id?Object.assign({},m,{fav:!m.fav}):m);save()}
 function cfDel(id){if(confirm('Remover do catálogo? As aplicações já registradas continuam no histórico.')){S.meds=S.meds.filter(m=>m.id!==id);S.protos=(S.protos||[]).filter(p=>p.mid!==id);save()}}
 function cfReg(id){const m=S.meds.find(x=>x.id===id);showTab('a');setTimeout(()=>{$('sm').value=id;if(m&&m.dd)$('sd').value=m.dd},50)}
@@ -801,6 +899,8 @@ function xCat(){const el=$('xcat');if(!el)return;const GL2={emag:'Emagrecedores'
  <div class="hf" style="margin:10px 0 6px"><input placeholder="Buscar…" value="${esc(CF.q)}" oninput="CF.q=this.value;xCatL()" id="cfq"><div class="chips" style="margin:0">${[['','Todos'],['emag','Emagrecedores'],['testo','Testosterona'],['outro','Outros']].map(x=>`<button type="button" class="ghost chip ${CF.g===x[0]?'on':''}" onclick="CF.g='${x[0]}';xCat()">${x[1]}</button>`).join('')}<button type="button" class="ghost chip ${CF.fav?'on':''}" onclick="CF.fav=!CF.fav;xCat()">★ Favoritos</button></div></div>
  <div class="sub" style="margin:6px 0 10px">Adicionar rápido (só o nome, você completa depois): ${SUG.map((s,i)=>`<button type="button" class="ghost chip" onclick="cfNew(SUG[${i}])">${s[0]}</button>`).join(' ')}</div>`+form+(cards?`<div class="cgrid" id="cgrid">${cards}</div>`:'<div class="empty"><b>Nada encontrado</b><div class="sub">Ajuste os filtros ou adicione uma medicação.</div></div>')}
 function xCatL(){const k=document.activeElement&&document.activeElement.id;xCat();if(k==='cfq'){const i=$('cfq');i.focus();i.setSelectionRange(i.value.length,i.value.length)}}
+function okToast(msg,form){const d=document.createElement('div');d.className='okt';d.innerHTML='<span class="okc">✓</span><span>'+esc(msg)+'</span>';document.body.append(d);requestAnimationFrame(()=>d.classList.add('on'));setTimeout(()=>{d.classList.remove('on');setTimeout(()=>d.remove(),300)},2600);
+ try{const b=form&&form.querySelector('button:not([type=button])');if(b){const t=b.textContent;b.textContent='✓ Registrado';b.classList.add('okb');setTimeout(()=>{b.textContent=t;b.classList.remove('okb')},2200)}}catch(e){}}
 function initExtras(T){const mk=(id,html)=>{const d=document.createElement('div');d.className='card';d.id=id;d.innerHTML=html;return d};
  T.x.append(Object.assign(document.createElement('div'),{id:'xcalc'}));T.o.append(Object.assign(document.createElement('div'),{id:'xproto'}));T.g.append(Object.assign(document.createElement('div'),{id:'xcat'}));{const t0=document.createElement('div');t0.id='xtoday';T.r.children[0].after(t0)}T.m.prepend(mk('xbk','<h2>💾 Dados e backup</h2><div class="sub" id="bkinfo" style="margin-bottom:8px"></div><div class="chips"><button type="button" class="ghost chip" onclick="exp()">⬇ JSON completo</button><button type="button" class="ghost chip" onclick="xCsv(\'a\')">CSV Aplicações</button><button type="button" class="ghost chip" onclick="xCsv(\'p\')">CSV Pesagens</button><button type="button" class="ghost chip" onclick="xCsv(\'o\')">CSV Observações</button><button type="button" class="ghost chip" onclick="xCsv(\'m\')">CSV Medicações</button></div><div class="sub">Ao importar um backup (botão abaixo), o app mostra uma prévia antes de substituir os dados.</div>'));
  T.a.children[0].after(mk('xnotesCard','<h2>📝 Observações e check-in</h2><form id="xnf" onsubmit="xAddNote(event)"><div><label>Tipo</label><select id="nk"><option value="checkin">Check-in do dia</option><option value="efeito">Efeito colateral</option><option value="obs">Observação livre</option></select></div><div><label>Categoria</label><select id="nc">'+['Náusea','Apetite','Energia','Sono','Humor','Tontura/pressão','Libido','Local da aplicação','Outro'].map(x=>'<option>'+x+'</option>').join('')+'</select></div><div><label>Intensidade (0–5)</label><select id="ni">'+[0,1,2,3,4,5].map(x=>'<option>'+x+'</option>').join('')+'</select></div><div><label>Medicação (opcional)</label><select id="nm"></select></div><div class="full"><label>Texto</label><input id="nt" maxlength="200" placeholder="como você está, reação, anotação…"></div><button class="full">Salvar observação</button></form>'));
@@ -826,7 +926,7 @@ const df=document.createElement('div');df.className='dfoot';df.innerHTML='<div c
 const cb=document.createElement('button');cb.className='ghost col';cb.innerHTML=IC('c')+'<i class="l">Recolher</i>';cb.onclick=()=>{document.body.classList.toggle('mini');try{localStorage.setItem('mini',document.body.classList.contains('mini')?'1':'')}catch(e){}};bar.append(cb);try{if(localStorage.getItem('mini')&&innerWidth>=900)document.body.classList.add('mini')}catch(e){}
 document.body.append(bar);
 window.showTab=function(k){if(!T[k])k='r';document.body.dataset.tab=k;for(const x in T)T[x].classList.toggle('on',x===k);bar.querySelectorAll('button').forEach(b=>b.classList.toggle('on',b.dataset.k===k));try{localStorage.setItem('tab',k)}catch(e){}document.body.classList.remove('nav-open');window.scrollTo(0,0);if('petkog'.includes(k))render();if(k==='x')xCalc()}})();
-$('look').value='clean-nordic';try{const l=localStorage.getItem('look4')||'clean-nordic';$('look').value=l;setLook(l)}catch(e){}
+$('look').value='clean-tsol';try{const l=localStorage.getItem('look5')||'clean-tsol';$('look').value=l;setLook(l)}catch(e){}
 load();$("wdt").value=new Date().toISOString().slice(0,10);$("st").value=nowLocal().slice(0,10);$("sh").value=nowLocal().slice(11);$('sm').onchange=()=>{const m=S.meds.find(x=>x.id===$('sm').value);if(m&&m.dd)$('sd').value=m.dd};render();window.__rd=1;remindTick();setInterval(remindTick,60000);setSt("💾 dados só neste aparelho");showTab((()=>{try{return localStorage.getItem("tab")}catch(e){return null}})()||"r");if("serviceWorker" in navigator)window.addEventListener("load",()=>navigator.serviceWorker.register("sw.js").catch(()=>{}));
 </script>
 </body>
