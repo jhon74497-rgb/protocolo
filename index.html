@@ -1004,7 +1004,7 @@ const cb=document.createElement('button');cb.className='ghost col';cb.innerHTML=
 document.body.append(bar);
 window.showTab=function(k){if(!T[k])k='r';document.body.dataset.tab=k;for(const x in T)T[x].classList.toggle('on',x===k);bar.querySelectorAll('button').forEach(b=>b.classList.toggle('on',b.dataset.k===k));try{localStorage.setItem('tab',k)}catch(e){}document.body.classList.remove('nav-open');window.scrollTo(0,0);if('petkogd'.includes(k))render();if(k==='x')xCalc()}})();
 $('look').value='clean-tsol';try{const l=localStorage.getItem('look5')||'clean-tsol';$('look').value=l;setLook(l)}catch(e){}
-load();$("wdt").value=new Date().toISOString().slice(0,10);$("st").value=nowLocal().slice(0,10);$("sh").value=nowLocal().slice(11);$('sm').onchange=()=>{const m=S.meds.find(x=>x.id===$('sm').value);if(m&&m.dd)$('sd').value=m.dd};render();window.__rd=1;if(!S.shots.length&&!S.weights.length)demo(true);remindTick();setInterval(remindTick,60000);setSt("💾 dados só neste aparelho");showTab((()=>{try{return localStorage.getItem("tab")}catch(e){return null}})()||"r");if("serviceWorker" in navigator)window.addEventListener("load",()=>navigator.serviceWorker.register("sw.js").catch(()=>{}));
+load();$("wdt").value=new Date().toISOString().slice(0,10);$("st").value=nowLocal().slice(0,10);$("sh").value=nowLocal().slice(11);$('sm').onchange=()=>{const m=S.meds.find(x=>x.id===$('sm').value);if(m&&m.dd)$('sd').value=m.dd};render();window.__rd=1;remindTick();setInterval(remindTick,60000);setSt("💾 dados só neste aparelho");showTab((()=>{try{return localStorage.getItem("tab")}catch(e){return null}})()||"r");if("serviceWorker" in navigator)window.addEventListener("load",()=>navigator.serviceWorker.register("sw.js").catch(()=>{}));
 </script>
 </body>
 </html>
